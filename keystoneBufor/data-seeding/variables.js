@@ -2,9 +2,9 @@ require('dotenv').config()
 module.exports = async keystone => {
   
     //rekordy ba danych muszą już być gotowe w systemie
-    var PRODUKTY_DB_ID = '61d9e8bb0e1a5f2db82cfdad';//paczki w istocie
-    var API_DB_ID = '61e35616830067273ca7a38e';
-    var CONVEYORS_DB_ID = '622489e4cc5642230cd0ee08';
+    var PRODUKTY_DB_ID = '6219f528ca6c951cf48f0b02';//paczki w istocie
+    var API_DB_ID = '6219f509ca6c951cf48f0afa';
+    var CONVEYORS_DB_ID = '622c4f4cc93fab17d0a2868f';
     
 
     var VariableCreateInput = new Array();
