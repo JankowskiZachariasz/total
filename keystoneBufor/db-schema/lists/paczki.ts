@@ -2,7 +2,7 @@ import { ListSchema } from "@keystonejs/keystone";
 import {Text, Integer, Select} from '@keystonejs/fields';
 import paczkiTriggerHandler, {keystoneAfterTriggerData} from '../../triggers/paczkiTriggerHandler'
 
-const paczkiSchema: ListSchema={
+const paczkiSchema: any={
 
     fields:{
         enumerator:{type:Text,isRequired: true},

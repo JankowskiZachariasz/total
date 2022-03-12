@@ -2,7 +2,7 @@ import { ListSchema } from "@keystonejs/keystone";
 import {Text, Select, Relationship, Integer} from '@keystonejs/fields';
 import paczkaTrigger, {keystoneBeforeTriggerData} from '../../triggers/variablePaczkaTriggers';
 
-const variablekSchema: ListSchema={
+const variablekSchema: any={
     fields:{
         name:{type: Text, isRequired: true, isUnique: true},
         datablock:{label:"Datablock", type: Relationship, isRequired: true, ref:"datablock"},

@@ -2,7 +2,7 @@ import { ListSchema } from "@keystonejs/keystone";
 import {Text, Integer, Select, DateTimeUtc, Relationship} from '@keystonejs/fields';
 import plcCommandTrigger, {keystoneValidateInputDataForFields} from '../../triggers/plcCommandTriggerHandler';
 
-const plcCommandSchema: ListSchema={
+const plcCommandSchema: any={
 
     fields:{
         name:{type: Text, isRequired: false},

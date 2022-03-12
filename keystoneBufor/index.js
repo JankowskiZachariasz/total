@@ -13,6 +13,8 @@ const PROJECT_NAME = 'Automatyczny Bufor';
 const adapterConfig = { mongoUri: 'mongodb://localhost:27017/keystone' };
 
 const keystone = new Keystone({
+  enableDefaultRoute: false,
+  secureCookies: false,
   adapter: new Adapter(adapterConfig),
   cookieSecret: process.env.COOKIE_SECRET,
   onConnect: (keystone)=>{
@@ -75,7 +77,7 @@ schema.applySchema(keystone);
 const authStrategy = keystone.createAuthStrategy({
   type: PasswordAuthStrategy,
   list: 'User',
-  config: { protectIdentities: process.env.NODE_ENV === 'production' },
+  config: { protectIdentities: false },
 });
 
 module.exports = {

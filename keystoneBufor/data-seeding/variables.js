@@ -2,14 +2,15 @@ require('dotenv').config()
 module.exports = async keystone => {
   
     //rekordy ba danych muszą już być gotowe w systemie
-    var PRODUKTY_DB_ID = '6219f528ca6c951cf48f0b02';//paczki w istocie
-    var API_DB_ID = '6219f509ca6c951cf48f0afa';
+    var PRODUKTY_DB_ID = '61d9e8bb0e1a5f2db82cfdad';//paczki w istocie
+    var API_DB_ID = '61e35616830067273ca7a38e';
+    var CONVEYORS_DB_ID = '622489e4cc5642230cd0ee08';
     
 
     var VariableCreateInput = new Array();
 
     if(process.env.INIT_PACZKA == 'true'){
-      for(var i = 1;i<=1000;i++){
+      for(var i = 1;i<=400;i++){
 
         var produkt=[
 
@@ -54,8 +55,34 @@ module.exports = async keystone => {
 
       VariableCreateInput.push(...api);
   
-}
+  }
 
+  if(process.env.INIT_CONVEYOR_VARIABLES == 'true'){
+    for(var i = 0;i<=96;i++){
+
+      var produkt=[
+          {"data": {"name": "conveyor"+i+"v1","offset": (i)*4,"offsetDecimal": 2,"type": "INT", "rwMode": "Read", "datablock": {"connect":  {"id": CONVEYORS_DB_ID}}}},
+          {"data": {"name": "conveyor"+i+"v2","offset": (i)*4+2,"offsetDecimal": 1,"type": "B", "rwMode": "Read", "datablock": {"connect":  {"id": CONVEYORS_DB_ID}}}},
+          
+      ]
+
+      VariableCreateInput.push(...produkt);
+  }
+  
+  }
+  if(process.env.INIT_SHIFTERS == 'true'){
+    for(var i = 1;i<=3;i++){
+
+      var produkt=[
+          {"data": {"name": "shifter"+i+"v1","offset": 392+(i-1)*2,"offsetDecimal": 2,"type": "INT", "rwMode": "Read", "datablock": {"connect":  {"id": CONVEYORS_DB_ID}}}},
+          
+      ]
+
+      VariableCreateInput.push(...produkt);
+  }
+  
+  }
+  
 
     const { errors, data} = await keystone.executeGraphQL({
       context: keystone.createContext().sudo(),

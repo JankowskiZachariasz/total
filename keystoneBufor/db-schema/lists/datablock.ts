@@ -1,7 +1,7 @@
 import { ListSchema } from "@keystonejs/keystone";
 import {Text, Integer} from '@keystonejs/fields';
 
-const datablockSchema: ListSchema={
+const datablockSchema: any={
     fields:{
         name:{type:Text,isRequired: true},
         ip:{label:"PLC IP", type:Text,isRequired: true},

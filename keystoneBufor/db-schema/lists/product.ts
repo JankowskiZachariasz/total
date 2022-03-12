@@ -1,7 +1,7 @@
 import { ListSchema } from "@keystonejs/keystone";
 import {Text, Integer, Checkbox} from '@keystonejs/fields';
 
-const productSchema: ListSchema={
+const productSchema: any={
     fields:{    
         namePlc:{type:Text,isRequired: false},
         series1:{type:Integer,isRequired: false},
@@ -53,7 +53,7 @@ const productSchema: ListSchema={
                     var currentId = Number.parseInt(element.enumerator.substring(6));
                     usedIds.push(currentId);
                 });
-                for(var i=1;i<1000;i++){
+                for(var i=1;i<400;i++){
                     if(!usedIds.includes(i)){
                         nextFreeIndex=-i;
                         break;
@@ -69,13 +69,8 @@ const productSchema: ListSchema={
             }
             
 
-            //provisional paczkas counter
-            var newPaczkasCount = 0;
+    
             var assambledObject = {...props.existingItem,...props.resolvedData};
-            if(assambledObject.plcId1?(true):(false))newPaczkasCount++;
-            if(assambledObject.plcId2?(true):(false))newPaczkasCount++;
-            if(assambledObject.plcId3?(true):(false))newPaczkasCount++;
-            props.resolvedData.count = newPaczkasCount;
             //no null series
             props.resolvedData.series1 = assambledObject.series1?(assambledObject.series1>32767?(32767):(assambledObject.series1<0?(0):(assambledObject.series1))):(0);
             props.resolvedData.series2 = assambledObject.series2?(assambledObject.series2>32767?(32767):(assambledObject.series2<0?(0):(assambledObject.series2))):(0);

@@ -78,7 +78,7 @@ var productSchema = {
     hooks: {
         resolveInput: function (props) {
             return new Promise(function (resolve, reject) { return __awaiter(void 0, void 0, void 0, function () {
-                var paczkasData, nextFreeIndex, usedIds, i, newPaczkasCount, assambledObject;
+                var paczkasData, nextFreeIndex, usedIds, i, assambledObject;
                 var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
                 return __generator(this, function (_o) {
                     switch (_o.label) {
@@ -97,7 +97,7 @@ var productSchema = {
                                 var currentId = Number.parseInt(element.enumerator.substring(6));
                                 usedIds.push(currentId);
                             });
-                            for (i = 1; i < 1000; i++) {
+                            for (i = 1; i < 400; i++) {
                                 if (!usedIds.includes(i)) {
                                     nextFreeIndex = -i;
                                     break;
@@ -111,15 +111,7 @@ var productSchema = {
                                 props.resolvedData.plcId3 = nextFreeIndex--;
                             _o.label = 2;
                         case 2:
-                            newPaczkasCount = 0;
                             assambledObject = __assign(__assign({}, props.existingItem), props.resolvedData);
-                            if (assambledObject.plcId1 ? (true) : (false))
-                                newPaczkasCount++;
-                            if (assambledObject.plcId2 ? (true) : (false))
-                                newPaczkasCount++;
-                            if (assambledObject.plcId3 ? (true) : (false))
-                                newPaczkasCount++;
-                            props.resolvedData.count = newPaczkasCount;
                             //no null series
                             props.resolvedData.series1 = assambledObject.series1 ? (assambledObject.series1 > 32767 ? (32767) : (assambledObject.series1 < 0 ? (0) : (assambledObject.series1))) : (0);
                             props.resolvedData.series2 = assambledObject.series2 ? (assambledObject.series2 > 32767 ? (32767) : (assambledObject.series2 < 0 ? (0) : (assambledObject.series2))) : (0);
