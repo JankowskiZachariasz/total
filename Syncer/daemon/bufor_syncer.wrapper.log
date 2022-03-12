@@ -110,3 +110,66 @@ Stacktrace:   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInter
 2022-03-12 08:48:47 - Send SIGINT 4712
 2022-03-12 08:48:47 - SIGINT to 4712 failed - Killing as fallback
 2022-03-12 08:48:47 - Finished bufor_syncer.exe
+2022-03-12 11:29:03 - Starting C:\Program Files\node-v13.14.0-win-x64\node.exe  --harmony C:\Users\Administrator\Desktop\BUFOR_ROOT\Syncer\node_modules\node-windows\lib\wrapper.js --file C:\Users\Administrator\Desktop\BUFOR_ROOT\Syncer\index.js --scriptoptions= --log "BUFOR_SYNCER wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2022-03-12 11:29:03 - Started 2328
+2022-03-12 11:29:08 - Stopping bufor_syncer.exe
+2022-03-12 11:29:08 - ProcessKill 2328
+2022-03-12 11:29:09 - Found child process: 900 Name: conhost.exe
+2022-03-12 11:29:09 - Found child process: 3492 Name: node.exe
+2022-03-12 11:29:09 - Stopping process 900
+2022-03-12 11:29:09 - Send SIGINT 900
+2022-03-12 11:29:09 - SIGINT to 900 failed - Killing as fallback
+2022-03-12 11:29:09 - Stopping process 3492
+2022-03-12 11:29:09 - Send SIGINT 3492
+2022-03-12 11:29:09 - SIGINT to 3492 failed - Killing as fallback
+2022-03-12 11:29:09 - Stopping process 2328
+2022-03-12 11:29:09 - Send SIGINT 2328
+2022-03-12 11:29:09 - SIGINT to 2328 failed - Killing as fallback
+2022-03-12 11:29:09 - Finished bufor_syncer.exe
+2022-03-12 11:40:15 - Starting C:\Program Files\node-v13.14.0-win-x64\node.exe  --harmony C:\Users\Administrator\Desktop\BUFOR_ROOT\Syncer\node_modules\node-windows\lib\wrapper.js --file C:\Users\Administrator\Desktop\BUFOR_ROOT\Syncer\index.js --scriptoptions= --log "BUFOR_SYNCER wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2022-03-12 11:40:15 - Started 2476
+2022-03-12 11:44:11 - Stopping bufor_syncer.exe
+2022-03-12 11:44:11 - ProcessKill 2476
+2022-03-12 11:44:12 - Shutdown exception
+Message:A system shutdown is in progress. (Exception from HRESULT: 0x8007045B)
+Stacktrace:   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   at System.Management.ManagementScope.InitializeGuts(Object o)
+   at System.Management.ManagementScope.Initialize()
+   at System.Management.ManagementObjectSearcher.Initialize()
+   at System.Management.ManagementObjectSearcher.Get()
+   at winsw.WrapperService.GetChildPids(Int32 pid)
+   at winsw.WrapperService.StopProcessAndChildren(Int32 pid)
+   at winsw.WrapperService.StopIt()
+   at winsw.WrapperService.OnShutdown()
+2022-03-12 11:44:51 - Starting C:\Program Files\node-v13.14.0-win-x64\node.exe  --harmony C:\Users\Administrator\Desktop\BUFOR_ROOT\Syncer\node_modules\node-windows\lib\wrapper.js --file C:\Users\Administrator\Desktop\BUFOR_ROOT\Syncer\index.js --scriptoptions= --log "BUFOR_SYNCER wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2022-03-12 11:44:51 - Started 5160
+2022-03-12 11:57:52 - Stopping bufor_syncer.exe
+2022-03-12 11:57:52 - ProcessKill 5160
+2022-03-12 11:57:52 - Found child process: 5236 Name: conhost.exe
+2022-03-12 11:57:52 - Found child process: 6076 Name: node.exe
+2022-03-12 11:57:53 - Stopping process 5236
+2022-03-12 11:57:53 - Send SIGINT 5236
+2022-03-12 11:57:53 - SIGINT to 5236 failed - Killing as fallback
+2022-03-12 11:57:53 - Stopping process 6076
+2022-03-12 11:57:53 - Send SIGINT 6076
+2022-03-12 11:57:53 - SIGINT to 6076 failed - Killing as fallback
+2022-03-12 11:57:53 - Stopping process 5160
+2022-03-12 11:57:53 - Send SIGINT 5160
+2022-03-12 11:57:53 - SIGINT to 5160 failed - Killing as fallback
+2022-03-12 11:57:53 - Finished bufor_syncer.exe
+2022-03-12 12:27:49 - Starting C:\Program Files\node-v13.14.0-win-x64\node.exe  --harmony C:\Users\Administrator\Desktop\BUFOR_ROOT\Syncer\node_modules\node-windows\lib\wrapper.js --file C:\Users\Administrator\Desktop\BUFOR_ROOT\Syncer\index.js --scriptoptions= --log "BUFOR_SYNCER wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2022-03-12 12:27:50 - Started 6840
+2022-03-12 12:49:53 - Stopping bufor_syncer.exe
+2022-03-12 12:49:53 - ProcessKill 6840
+2022-03-12 12:49:53 - Found child process: 7200 Name: conhost.exe
+2022-03-12 12:49:53 - Found child process: 3848 Name: node.exe
+2022-03-12 12:49:53 - Stopping process 7200
+2022-03-12 12:49:53 - Send SIGINT 7200
+2022-03-12 12:49:53 - SIGINT to 7200 failed - Killing as fallback
+2022-03-12 12:49:53 - Stopping process 3848
+2022-03-12 12:49:53 - Send SIGINT 3848
+2022-03-12 12:49:53 - SIGINT to 3848 failed - Killing as fallback
+2022-03-12 12:49:53 - Stopping process 6840
+2022-03-12 12:49:53 - Send SIGINT 6840
+2022-03-12 12:49:53 - SIGINT to 6840 failed - Killing as fallback
+2022-03-12 12:49:53 - Finished bufor_syncer.exe

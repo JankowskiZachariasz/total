@@ -19,6 +19,7 @@ class ConveyorResolver{
                 if(this.variableMap==null)this.variableMap=this.translateVars(freshVariables);    
                 var generatedConveyors: Array<conveyorInterface> = this.turnVariablesIntoConveyors(this.variableMap);
                 await this.upsertConveyors(generatedConveyors);
+                //count products
                 //current products on the line
                 
                 resolve();

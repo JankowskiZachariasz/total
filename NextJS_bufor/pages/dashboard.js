@@ -30,7 +30,7 @@ export default function Dashboard(props) {
         case(11):{boxX=327;boxY=171;break;}
       }
       if ((x >= e.x) & (x <= e.x + boxX) & (y >= e.y) & (y <= e.y + boxY)) {
-        //console.log(e);
+        console.log(e);
         if(e.type==11){
           if((x >= e.x) & (x <= e.x + boxX/3)){
             chosen=e.packageId;

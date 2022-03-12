@@ -142,3 +142,36 @@ warn  - Experimental features are not covered by semver, and may cause unexpecte
 warn  - You have enabled experimental feature(s).
 warn  - Experimental features are not covered by semver, and may cause unexpected or broken application behavior. Use them at your own risk.
 
+warn  - You have enabled experimental feature(s).
+warn  - Experimental features are not covered by semver, and may cause unexpected or broken application behavior. Use them at your own risk.
+
+Error: Could not find a production build in the 'C:\Users\Administrator\Desktop\BUFOR_ROOT\NextJS_bufor\.next' directory. Try building your app with 'next build' before starting the production server. https://nextjs.org/docs/messages/production-start-no-build-id
+    at NextNodeServer.getBuildId (C:\Users\Administrator\Desktop\BUFOR_ROOT\NextJS_bufor\node_modules\next\dist\server\next-server.js:126:23)
+    at new Server (C:\Users\Administrator\Desktop\BUFOR_ROOT\NextJS_bufor\node_modules\next\dist\server\base-server.js:92:29)
+    at new NextNodeServer (C:\Users\Administrator\Desktop\BUFOR_ROOT\NextJS_bufor\node_modules\next\dist\server\next-server.js:74:9)
+    at NextServer.createServer (C:\Users\Administrator\Desktop\BUFOR_ROOT\NextJS_bufor\node_modules\next\dist\server\next.js:111:16)
+    at async C:\Users\Administrator\Desktop\BUFOR_ROOT\NextJS_bufor\node_modules\next\dist\server\next.js:123:31
+warn  - You have enabled experimental feature(s).
+warn  - Experimental features are not covered by semver, and may cause unexpected or broken application behavior. Use them at your own risk.
+
+Error: Could not find a production build in the 'C:\Users\Administrator\Desktop\BUFOR_ROOT\NextJS_bufor\.next' directory. Try building your app with 'next build' before starting the production server. https://nextjs.org/docs/messages/production-start-no-build-id
+    at NextNodeServer.getBuildId (C:\Users\Administrator\Desktop\BUFOR_ROOT\NextJS_bufor\node_modules\next\dist\server\next-server.js:126:23)
+    at new Server (C:\Users\Administrator\Desktop\BUFOR_ROOT\NextJS_bufor\node_modules\next\dist\server\base-server.js:92:29)
+    at new NextNodeServer (C:\Users\Administrator\Desktop\BUFOR_ROOT\NextJS_bufor\node_modules\next\dist\server\next-server.js:74:9)
+    at NextServer.createServer (C:\Users\Administrator\Desktop\BUFOR_ROOT\NextJS_bufor\node_modules\next\dist\server\next.js:111:16)
+    at async C:\Users\Administrator\Desktop\BUFOR_ROOT\NextJS_bufor\node_modules\next\dist\server\next.js:123:31
+warn  - You have enabled experimental feature(s).
+warn  - Experimental features are not covered by semver, and may cause unexpected or broken application behavior. Use them at your own risk.
+
+Error: Could not find a production build in the 'C:\Users\Administrator\Desktop\BUFOR_ROOT\NextJS_bufor\.next' directory. Try building your app with 'next build' before starting the production server. https://nextjs.org/docs/messages/production-start-no-build-id
+    at NextNodeServer.getBuildId (C:\Users\Administrator\Desktop\BUFOR_ROOT\NextJS_bufor\node_modules\next\dist\server\next-server.js:126:23)
+    at new Server (C:\Users\Administrator\Desktop\BUFOR_ROOT\NextJS_bufor\node_modules\next\dist\server\base-server.js:92:29)
+    at new NextNodeServer (C:\Users\Administrator\Desktop\BUFOR_ROOT\NextJS_bufor\node_modules\next\dist\server\next-server.js:74:9)
+    at NextServer.createServer (C:\Users\Administrator\Desktop\BUFOR_ROOT\NextJS_bufor\node_modules\next\dist\server\next.js:111:16)
+    at async C:\Users\Administrator\Desktop\BUFOR_ROOT\NextJS_bufor\node_modules\next\dist\server\next.js:123:31
+warn  - You have enabled experimental feature(s).
+warn  - Experimental features are not covered by semver, and may cause unexpected or broken application behavior. Use them at your own risk.
+
+warn  - You have enabled experimental feature(s).
+warn  - Experimental features are not covered by semver, and may cause unexpected or broken application behavior. Use them at your own risk.
+

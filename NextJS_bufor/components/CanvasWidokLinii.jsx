@@ -77,13 +77,13 @@ const Canvas = (props) => {
     //przenosniki
      data.map((e, i) => {
       if(e.type==11)
-      e.x=props?.shifters[2];
+      e.x=200;
 
       if(e.type==10)
-      e.x=props?.shifters[1];
+      e.x=1031+(props?.shifters[1]*(-928/13467));
 
       if(e.type==9)
-      e.x=props?.shifters[0];
+      e.x=1031+(props?.shifters[0]*(-928/13467));
       
       e.draw(ctx, e);
       
@@ -97,9 +97,9 @@ const Canvas = (props) => {
    for (var i = 0; i < 17; i++) {
      ctx.strokeRect(833,109 + i * 13, 94, 5);
    }
-   ctx.font = "10px Arial";
+   ctx.font = "11px Arial";
       ctx.fillStyle = "#777";
-      ctx.fillText('PR99', 859, 104);
+      ctx.fillText('PR1084', 859, 104);
 
 
     // ctx.arc(0, 0, 20*Math.sin(frameCount*0.05)**2, 0, 2*Math.PI)
@@ -191,12 +191,63 @@ const PrzenosnikDlugi = (x, y, d, color, i) => {
          }
        });
        if(selfRef.id==6){
-        ctx.font = "10px Arial";
+        ctx.font = "11px Arial";
         ctx.fillStyle = "#777"
-        ctx.fillText(selfRef?.text?(selfRef?.text.toUpperCase()):(''), selfRef.x-32, selfRef.y+20);
+        ctx.fillText(selfRef?.text?(selfRef?.text.toUpperCase()):(''), selfRef.x-42, selfRef.y+20);
        }
        else{
-        ctx.font = "10px Arial";
+        ctx.font = "11px Arial";
+        ctx.fillStyle = "#777";
+        ctx.fillText(selfRef?.text?(selfRef?.text.toUpperCase()):(''), selfRef.x+16, selfRef.y+3);
+       }
+       
+
+      }
+    });
+    i.num++;
+  }
+};
+
+const PrzenosnikDlugiWjazdowy = (x, y, d, color, i) => {
+  if (i != null && i.typeof != "undefined") {
+    d.push({
+      text: nomeForId(i.num),
+      nitka: i.nitka,
+      color: color,
+      pockageColor1: '',
+      pockageColor2: '',
+      packageId:'',
+      chosenPackageColor1:'#555',
+      ruch:false,
+      x: x,
+      y: y,
+      id: i.num,
+      lp: false,
+      pp: false,
+      pozycja: [false,false,false,false],
+      ids: ["0000000000","0000000000","0000000000","0000000000"],
+      type: 1,
+      draw: (ctx, selfRef)=>{
+
+        ctx.strokeStyle = color;
+        ctx.strokeRect(x, y, 5, 325);
+        ctx.strokeRect(x+ 65, y , 5,325);
+       for (var i = 0; i < 24; i++) {
+         ctx.strokeRect(x+3,y +9 + i * 13, 65, 5);
+       }
+       selfRef.pozycja.forEach((element,whichElement) => {
+         if(element&&whichElement<=0){
+          ctx.fillStyle = selfRef.chosenPackageColor1;
+          ctx.fillRect(x+7, 81*(whichElement+3)+ y+5, 55, 71);
+         }
+       });
+       if(selfRef.id==6){
+        ctx.font = "11px Arial";
+        ctx.fillStyle = "#777"
+        ctx.fillText(selfRef?.text?(selfRef?.text.toUpperCase()):(''), selfRef.x-52, selfRef.y+20);
+       }
+       else{
+        ctx.font = "11px Arial";
         ctx.fillStyle = "#777";
         ctx.fillText(selfRef?.text?(selfRef?.text.toUpperCase()):(''), selfRef.x+23, selfRef.y+3);
        }
@@ -242,9 +293,9 @@ const PrzenosnikDlugiKrotszy = (x, y, d, color, i) => {
         }
       });
 
-      ctx.font = "10px Arial";
+      ctx.font = "11px Arial";
       ctx.fillStyle = "#777";
-      ctx.fillText(selfRef?.text?(selfRef?.text.toUpperCase()):(''), selfRef.x+23, selfRef.y+3);
+      ctx.fillText(selfRef?.text?(selfRef?.text.toUpperCase()):(''), selfRef.x+16, selfRef.y+3);
 
       }
     });
@@ -273,21 +324,21 @@ const PrzenosnikDlugiFilar = (x, y, d, color, i) => {
       type: 3,
       draw: (ctx, selfRef)=>{
 
-        ctx.strokeStyle = color;
-        ctx.strokeRect(x, y+96, 5, 225);
-        ctx.strokeRect(x+ 65, y+96 , 5,225);
-       for (var i = 0; i < 17; i++) {
-         ctx.strokeRect(x+3,y +103 + i * 13, 65, 5);
-       }
-       selfRef.pozycja.forEach((element,whichElement) => {
-        if(element&&whichElement<=2){
-          ctx.fillStyle = selfRef.chosenPackageColor1;
-         ctx.fillRect(x+7, 75*whichElement+ y+103, 55, 65);
-        }
-      });
-      ctx.font = "10px Arial";
-      ctx.fillStyle = "#777";
-      ctx.fillText(selfRef?.text?(selfRef?.text.toUpperCase()):(''), selfRef.x+23, selfRef.y+3);
+      //   ctx.strokeStyle = color;
+      //   ctx.strokeRect(x, y+96, 5, 225);
+      //   ctx.strokeRect(x+ 65, y+96 , 5,225);
+      //  for (var i = 0; i < 17; i++) {
+      //    ctx.strokeRect(x+3,y +103 + i * 13, 65, 5);
+      //  }
+      //  selfRef.pozycja.forEach((element,whichElement) => {
+      //   if(element&&whichElement<=2){
+      //     ctx.fillStyle = selfRef.chosenPackageColor1;
+      //    ctx.fillRect(x+7, 75*whichElement+ y+103, 55, 65);
+      //   }
+      // });
+      // ctx.font = "11px Arial";
+      // ctx.fillStyle = "#777";
+      // ctx.fillText(selfRef?.text?(selfRef?.text.toUpperCase()):(''), selfRef.x+23, selfRef.y+3);
 
       }
     });
@@ -311,7 +362,7 @@ const PrzenosnikWjazdowy1 = (x, y, d, color, i) => {
       id: i.num,
       lp: false,
       pp: false,
-      pozycja: [false,false,false,false],//nie wiej niż 2
+      pozycja: [false,false,false,false],//nie wiej niż 1
       ids: ["0000000000","0000000000","0000000000","0000000000"],
       type: 4,
       draw: (ctx, selfRef)=>{
@@ -323,15 +374,15 @@ const PrzenosnikWjazdowy1 = (x, y, d, color, i) => {
          ctx.strokeRect(x+3,y +6 + i * 13, 65, 5);
        }
        selfRef.pozycja.forEach((element,whichElement) => {
-        if(element&&whichElement<=1){
+        if(element&&whichElement<=0){
           ctx.fillStyle = selfRef.chosenPackageColor1;
-         ctx.fillRect(x+7, 81*whichElement+ y+5, 55, 71);
+         ctx.fillRect(x+7, 81+81*whichElement+ y+5, 55, 71);
         }
       });
 
-      ctx.font = "10px Arial";
+      ctx.font = "11px Arial";
       ctx.fillStyle = "#777";
-      ctx.fillText(selfRef?.text?(selfRef?.text.toUpperCase()):(''), selfRef.x+23, selfRef.y);
+      ctx.fillText(selfRef?.text?(selfRef?.text.toUpperCase()):(''), selfRef.x+16, selfRef.y);
 
       }
     });
@@ -373,9 +424,9 @@ const PrzenosnikWjazdowyGlowny = (x, y, d, color, i) => {
         }
       });
 
-      ctx.font = "10px Arial";
+      ctx.font = "11px Arial";
       ctx.fillStyle = "#777";
-      ctx.fillText(selfRef?.text?(selfRef?.text.toUpperCase()):(''), selfRef.x+23, selfRef.y);
+      ctx.fillText(selfRef?.text?(selfRef?.text.toUpperCase()):(''), selfRef.x+16, selfRef.y);
 
       }
     });
@@ -407,16 +458,16 @@ const PrzenosnikSzeroki = (x, y, d, color, i) => {
       type: 6,
       draw: (ctx, selfRef)=>{
 
-        ctx.strokeStyle = color;
-        ctx.strokeRect(x, y, 5, 214);
-        ctx.strokeRect(x+ 94, y , 5,214);
-       for (var i = 0; i < 17; i++) {
-         ctx.strokeRect(x+3,y + i * 13, 94, 5);
-       }
+      //   ctx.strokeStyle = color;
+      //   ctx.strokeRect(x, y, 5, 214);
+      //   ctx.strokeRect(x+ 94, y , 5,214);
+      //  for (var i = 0; i < 17; i++) {
+      //    ctx.strokeRect(x+3,y + i * 13, 94, 5);
+      //  }
 
-       ctx.font = "10px Arial";
-      ctx.fillStyle = "#777";
-      ctx.fillText(nomeForId(i)?(nomeForId(i).toUpperCase()):(''), x, y);
+      //  ctx.font = "11px Arial";
+      // ctx.fillStyle = "#777";
+      // ctx.fillText(nomeForId(i)?(nomeForId(i).toUpperCase()):(''), x, y);
 
       }
     });
@@ -451,16 +502,16 @@ const PrzenosnikMalutki = (x, y, d, color, i) => {
        for (var i = 0; i < 10; i++) {
          ctx.strokeRect(x+3,y + 4 + i * 12, 71, 5);
        }
-       selfRef.pozycja.forEach((element,whichElement) => {
-        if(element&&whichElement<=0){
-          ctx.fillStyle = selfRef.chosenPackageColor1;
-         ctx.fillRect(x+10, 81*whichElement+ y+10, 55, 71);
-        }
-      });
+      //  selfRef.pozycja.forEach((element,whichElement) => {
+      //   if(element&&whichElement<=0){
+      //     ctx.fillStyle = selfRef.chosenPackageColor1;
+      //    ctx.fillRect(x+10, 81*whichElement+ y+10, 55, 71);
+      //   }
+      // });
 
-      ctx.font = "10px Arial";
+      ctx.font = "11px Arial";
       ctx.fillStyle = "#777";
-      ctx.fillText(selfRef?.text?(selfRef?.text.toUpperCase()):(''), selfRef.x+27, selfRef.y-1);
+      ctx.fillText(selfRef?.text?(selfRef?.text.toUpperCase()):(''), selfRef.x+31, selfRef.y-1);
 
       }
     });
@@ -502,9 +553,9 @@ const PrzenosnikBufor2 = (x, y, d, color, i) => {
         }
       });
 
-      ctx.font = "10px Arial";
+      ctx.font = "11px Arial";
       ctx.fillStyle = "#777";
-      ctx.fillText(selfRef?.text?(selfRef?.text.toUpperCase()):(''), selfRef.x+23, selfRef.y+1);
+      ctx.fillText(selfRef?.text?(selfRef?.text.toUpperCase()):(''), selfRef.x+16, selfRef.y+1);
 
       }
     });
@@ -551,9 +602,9 @@ const Przesuwnica1 = (x, y, d, color, i) => {
         }
       });
 
-      ctx.font = "10px Arial";
+      ctx.font = "11px Arial";
         ctx.fillStyle = "#777"
-        ctx.fillText(selfRef?.text?(selfRef?.text.toUpperCase()):(''), selfRef.x-32, selfRef.y+20);
+        ctx.fillText(selfRef?.text?(selfRef?.text.toUpperCase()):(''), selfRef.x-42, selfRef.y+20);
 
       }
     });
@@ -601,9 +652,9 @@ const Przesuwnica2 = (x, y, d, color, i) => {
           }
         });
 
-        ctx.font = "10px Arial";
+        ctx.font = "11px Arial";
         ctx.fillStyle = "#777"
-        ctx.fillText(selfRef?.text?(selfRef?.text.toUpperCase()):(''), selfRef.x-32, selfRef.y+20);
+        ctx.fillText(selfRef?.text?(selfRef?.text.toUpperCase()):(''), selfRef.x-42, selfRef.y+20);
 
       }
     });
@@ -681,9 +732,9 @@ const Przesuwnica3 = (x, y, d, color, i) => {
            ctx.fillRect(selfRef.x+227, 81*whichElement+ y+10, 55, 71);
           }
         });
-        ctx.font = "10px Arial";
+        ctx.font = "11px Arial";
         ctx.fillStyle = "#777"
-        ctx.fillText(selfRef?.text?(selfRef?.text.toUpperCase()):(''), selfRef.x-32, selfRef.y+20);
+        ctx.fillText(selfRef?.text?(selfRef?.text.toUpperCase()):(''), selfRef.x-42, selfRef.y+20);
       }
     });
     i.num++;
@@ -703,7 +754,7 @@ const Wjazdowe = (dataArray, i) => {
   PrzenosnikWjazdowy1(279, 166, dataArray, "#444B53", i);
   PrzenosnikWjazdowy1(371, 166, dataArray, "#444B53", i);
   PrzenosnikWjazdowy1(462, 166, dataArray, "#444B53", i);
-  PrzenosnikDlugi(561, 0, dataArray, "#444B53", i);
+  PrzenosnikDlugiWjazdowy(570, 0, dataArray, "#444B53", i);
   PrzenosnikWjazdowyGlowny(739, 76, dataArray, "#444B53", i);
   //PrzenosnikSzeroki(830, 109, dataArray, "#444B53", i);
   PrzenosnikMalutki(1003, 202, dataArray, "#444B53", i);
@@ -720,7 +771,7 @@ const NitkaBuforu = (x, dataArray, i) => {
 const NitkaBuforuFilar = (x, dataArray, i) => {
   PrzenosnikDlugi(x, 570, dataArray, "#444B53", i);
   PrzenosnikDlugi(x, 896, dataArray, "#444B53", i);
-  //PrzenosnikDlugiFilar(x, 1222, dataArray, "#444B53", i);
+  PrzenosnikDlugiFilar(x, 1222, dataArray, "#444B53", i);
   PrzenosnikDlugi(x, 1547, dataArray, "#444B53", i);
   PrzenosnikDlugiKrotszy(x, 1873, dataArray, "#444B53", i);
 };
@@ -750,16 +801,34 @@ export default Canvas;
 const nomeForId = (id) => {
 
   var map=[
-    'pr1','pr11','pr21','pr31','pr81','pr19','pr19','pr19','pr19','pr19',
-    'pr1','pr11','pr21','pr31','pr81','pr19','pr19','pr19','pr19','pr19',
-    'pr1','pr11','pr21','pr31','pr81','pr19','pr19','pr19','pr19','pr19',
-    'pr1','pr11','pr21','pr31','pr81','pr19','pr19','pr19','pr19','pr19',
-    'pr1','pr11','pr21','pr31','pr81','pr19','pr19','pr19','pr19','pr19',
-    'pr1','pr11','pr21','pr31','pr81','pr19','pr19','pr19','pr19','pr19',
-    'pr1','pr11','pr21','pr31','pr81','pr19','pr19','pr19','pr19','pr19',
-    'pr1','pr11','pr21','pr31','pr81','pr19','pr19','pr19','pr19','pr19',
-    'pr1','pr11','pr21','pr31','pr81','pr19','pr19','pr19','pr19','pr19',
-    'pr1','pr11','pr21','pr31','pr81','pr19','pr19','pr19','pr19','pr19',
+    'PR1004','PR1014','PR1024','PR1034','PR1044','PR1054','PR1064','PR1074','PG',
+    'WU200',
+    'PR2000','PR2001','PR2002','PR2003','PR2004',
+    'PR2010','PR2011','PR2012','PR2013','PR2014',
+    'PR2020','PR2021','PR2022','PR2023','PR2024',
+    'PR2030','PR2031','PR2032','PR2033','PR2034',
+    'PR2040','PR2041','PR2042','PR2043','PR2044',
+    'PR2050','PR2051','PR2052','PR2053','PR2054',
+    'PR2060','PR2061','PR2062','PR2063','PR2064',
+    'PR2070','PR2071','PR2072','PR2073','PR2074',
+    'PR2080','PR2081','PR2082','PR2083','PR2084',
+    'PR2090','PR2091','PR2092','PR2093','PR2094',
+    'PR2100','PR2101','PR2102','PR2103','PR2104',
+    'PR2110','PR2111','PR2112','PR2113','PR2114',
+    'WU300',
+    'PR3000','PR3001',
+    'PR3010','PR3011',
+    'PR3020','PR3021',
+    'PR3030','PR3031',
+    'PR3040','PR3041',
+    'PR3050','PR3051',
+    'PR3060','PR3061',
+    'PR3070','PR3071',
+    'PR3080','PR3081',
+    'PR3090','PR3091',
+    'PR3100','PR3101',
+    'PR3110','PR3111',
+    'TC155'
   ]
   return map[id];
 

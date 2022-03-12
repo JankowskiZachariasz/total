@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-
-import styles from "./TopNavbar.module.css";
 import PLCstatus from "./PLCstatus";
+
 const logo = "./graphics/logo.png";
 const dropdownArrow = "./graphics/dropdownArrow.svg";
 const hamburger = "./graphics/hamburger.svg";
@@ -78,19 +77,16 @@ class TopNavbar extends Component {
 
       console.log(this.props);
       switch(newSec){
-        case 1:{this.props.updateHistory("/dashboard"); break;}
+        
+       case 1:{this.props.updateHistory("/dashboard"); break;}
         case 2:{
           if(newSubChecked==1)
-          this.props.updateHistory("/kolejka");
-          else this.props.updateHistory("/historia");
+          this.props.updateHistory("/products-on-the-line");
+          else this.props.updateHistory("/products-on-the-line-history");
           break;}
-        case 3:{this.props.updateHistory("/itemy"); break;}
-        case 4:{
-          if(newSubChecked==1)
-          this.props.updateHistory("/uzytkownicy");
-          else this.props.updateHistory("/zdarzenia");
-          break;}
-        case 5:{this.props.updateHistory("/lol"); break;}
+        case 3:{this.props.updateHistory("/product-base"); break;}
+        case 4:{this.props.updateHistory("/diagnostic-logs"); break;}
+        case 5:{this.props.updateHistory("/diagnostic-logs"); break;}
       }
       
     };
@@ -134,17 +130,17 @@ class TopNavbar extends Component {
         {
           <div className={this.state.open==1?("ExpandableNavbar expand"):(this.state.open==2?("ExpandableNavbar destroyIt"):("ExpandableNavbar"))}>
           <div onClick={()=>this.updateSection(1)} className={this.props.section.getSection==1?("expandableItem chosen"):("expandableItem")}>WIDOK GŁÓWNY</div>
-          <div onClick={()=>this.updateSection(2)} className={(this.props.section.getSection==2)&&(this.props.section.getSubSection==1)?("expandableItem chosen"):("expandableItem")}>ZLECENIA</div>
-          <div onClick={()=>this.updateSection(2,2)} className={(this.props.section.getSection==2)&&(this.props.section.getSubSection==2)?("expandableItem chosen"):("expandableItem")}>HISTORIA ZLECEŃ</div>
-          <div onClick={()=>this.updateSection(3)} className={this.props.section.getSection==3?("expandableItem chosen"):("expandableItem")}>BAZA ITEMÓW</div>
-          <div onClick={()=>this.updateSection(4)} className={this.props.section.getSection==4&&(this.props.section.getSubSection==1)?("expandableItem chosen"):("expandableItem")}>UŻYTKOWNICY</div>
-          <div onClick={()=>this.updateSection(4,2)} className={this.props.section.getSection==4&&(this.props.section.getSubSection==2)?("expandableItem chosen"):("expandableItem")}>ZDARZENIA</div>
-          <div onClick={()=>this.updateSection(5)} className={this.props.section.getSection==5?("expandableItem chosen"):("expandableItem")}>RAPORTY</div>
+          <div onClick={()=>this.updateSection(2)} className={(this.props.section.getSection==2)&&(this.props.section.getSubSection==1)?("expandableItem chosen"):("expandableItem")}>PRODUKTY NA BUFORZE</div>
+          <div onClick={()=>this.updateSection(2,2)} className={(this.props.section.getSection==2)&&(this.props.section.getSubSection==2)?("expandableItem chosen"):("expandableItem")}>PRODUKTY NA BUFORZE HISTORIA</div>
+          <div onClick={()=>this.updateSection(3)} className={this.props.section.getSection==3?("expandableItem chosen"):("expandableItem")}>BAZA PRODUKTÓW</div>
+          <div onClick={()=>this.updateSection(4)} className={this.props.section.getSection==4&&(this.props.section.getSubSection==1)?("expandableItem chosen"):("expandableItem")}>LOGI DIAGNOSTYCZNE</div>
           <div onClick={()=>this.logout()} className={this.props.section.getSection==6?("expandableItem chosen"):("expandableItem")}>WYLOGUJ</div>
       </div>
 
         }
         
+
+
 
 
       </div>;
