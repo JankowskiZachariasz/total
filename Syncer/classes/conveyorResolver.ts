@@ -5,6 +5,9 @@ import variable, {variableInterface} from '../models/variable';
 import {variableDbObject} from './onoToOneResolver';
 import conveyor, {conveyorInterface} from '../models/conveyor';
 import ResolverUtil, {packageColors} from './resolverUtil';
+import ProductUtil from './productUtil';
+import bufforedProduct, {bufforedProductInterface} from '../models/bufforedProduct'
+import { forEachChild } from 'typescript';
 
 
 class ConveyorResolver{
@@ -18,15 +21,96 @@ class ConveyorResolver{
             try{
                 if(this.variableMap==null)this.variableMap=this.translateVars(freshVariables);    
                 var generatedConveyors: Array<conveyorInterface> = this.turnVariablesIntoConveyors(this.variableMap);
-                await this.upsertConveyors(generatedConveyors);
-                //count products
-                //current products on the line
-                
+                try{await this.upsertConveyors(generatedConveyors);}catch(e){console.log(e)}
+                //Create buffored products using (generated Conveyors + DB_REF for packages (the most stable version))
+                console.log('getting to this point');
+                var productUiResolver = new ProductUtil();
+                var paczkas: Array<paczkaInterface> = await productUiResolver.retrievePaczkas();
+                console.log(paczkas);
+                var paczkasMap = this.mapPaczkas(paczkas);
+                console.log(paczkasMap);
+                var bufforedproducts = this.generateBufforedProducts(paczkasMap, generatedConveyors);
+                console.log(bufforedproducts);
+
+
                 resolve();
             }
             catch(e){reject(e);}
         })
     }
+
+
+    private generateBufforedProducts(paczkas: paczkaInfoMap, conveyors:Array<conveyorInterface>): Array<bufforedProductInterface>{
+
+        var toReturn:  Array<bufforedProductInterface> = [];
+        var tempProductmap: produktMap = {};
+        conveyors.forEach(element => {
+
+            var plcId = element.plcId?(element.plcId):(0);
+
+            var podkladyQuantity:number = 
+            (element.position0?(1):(0))
+            +(element.position1?(1):(0))
+            +(element.position2?(1):(0))
+            +(element.position3?(1):(0));
+
+            var series1:any = paczkas?(paczkas[plcId]?(paczkas[plcId]?.nrSeryjny1):('')):(''); 
+            var series2:any = paczkas?(paczkas[plcId]?(paczkas[plcId]?.nrSeryjny2):('')):(''); 
+            var series3:any = paczkas?(paczkas[plcId]?(paczkas[plcId]?.nrSeryjny3):('')):(''); 
+
+            var s1 = series1?((series1.toString()+'*****').substring(0,5)):('*****');
+            var s2 = series2?((series2.toString()+'*****').substring(0,5)):('*****');
+            var s3 = series3?((series3.toString()+'*****').substring(0,5)):('*****');
+            var key = s1+s2+s3;
+
+            //make sure the product exists
+            if (!tempProductmap.hasOwnProperty(key)) {
+                var newBufforedProduct : bufforedProductInterface = {};
+                newBufforedProduct.series1 =series1;
+                newBufforedProduct.series2 =series2;
+                newBufforedProduct.series3 =series3;
+
+                //set initial 0s, tbh we only need buffored counter
+                newBufforedProduct.buffored1 = 0;
+                newBufforedProduct.buffored2 = 0;
+                newBufforedProduct.buffored3 = 0;
+
+                newBufforedProduct.delivered1 = 0;
+                newBufforedProduct.delivered2 = 0;
+                newBufforedProduct.delivered3 = 0;
+
+                tempProductmap[key] = newBufforedProduct;
+            }
+            
+            //increment whatever you need
+            switch(paczkas[plcId]?.nrPaczki){
+                case(1):{ tempProductmap[key].buffored1 += podkladyQuantity; break;}
+                case(2):{ tempProductmap[key].buffored2 += podkladyQuantity; break;}
+                case(3):{ tempProductmap[key].buffored3 += podkladyQuantity; break;}
+            }
+
+        });
+
+        Object.keys(tempProductmap).forEach(key => {
+            toReturn.push(tempProductmap[key]);
+        });
+       
+        return toReturn; 
+
+    }
+
+    private mapPaczkas(inputPaczkas: Array<paczkaInterface> ):paczkaInfoMap{
+
+        var toReturn : paczkaInfoMap = {};
+        inputPaczkas.forEach(e => {
+            if(!toReturn.hasOwnProperty(e.plcId)){
+                toReturn[e.plcId]=e;
+            }
+        });
+
+        return toReturn;
+    }
+
     private translateVars(vars:Array<localVariable>):variableDbObject{
         var toReturn: variableDbObject={};
         vars.map(m=>{
@@ -98,3 +182,7 @@ class ConveyorResolver{
 export var ConveyorResolverSingleton = new ConveyorResolver();
 
 type shifterState = {plcId1? : string, plcId2? : string, plcId3? : string};
+
+type paczkaInfoMap = { [key: string]: paczkaInterface };
+
+type produktMap = { [key: string]: bufforedProductInterface };

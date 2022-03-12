@@ -247,7 +247,7 @@ class ProductUtil{
             resolve();
         });
     }
-    private async retrievePaczkas():Promise<Array<paczkaInterface>>{
+    public async retrievePaczkas():Promise<Array<paczkaInterface>>{
         return new Promise(async (resolve,reject)=>{
             try{
                 var retrievedPaczkas = await paczka.find({ type: 'DB_EDIT'}).exec();
