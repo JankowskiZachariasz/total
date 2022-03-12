@@ -1,5 +1,5 @@
 import { ListSchema } from "@keystonejs/keystone";
-import {Text, Integer, Checkbox} from '@keystonejs/fields';
+import {Text, Integer, Checkbox, Select} from '@keystonejs/fields';
 
 const bufforedProductSchema: any={
     fields:{    
@@ -23,6 +23,13 @@ const bufforedProductSchema: any={
         delivered1:{type:Integer,isRequired: false},//delivered - how many arrived at the line and was taken
         delivered2:{type:Integer,isRequired: false},
         delivered3:{type:Integer,isRequired: false},
+
+        status:{type: Select, isRequired: true,
+            options:[
+                {value:'Current',label:'Na buforze'},
+                {value:'History',label:'Historyczny'},
+            ]
+        },
         
     },
     labelField:"name",

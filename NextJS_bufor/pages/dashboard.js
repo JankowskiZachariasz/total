@@ -79,134 +79,7 @@ export default function Dashboard(props) {
 
     if(chosen==null) setposition({ x: -20000, y: -20000, packageId: 0});
     next();
-    //console.log(data[93].pozycja)
-  //   var chosen=999;
-  //   var strone =0;
-  //   var modifiedData = data;
-  //   data.map((e, i) => {
-  //     if (i < 93&&i!=75) {
-  //       if ((x >= e.x) & (x <= e.x + 160) & (y >= e.y) & (y <= e.y + 60)) {
-  //         chosen = i;
-  //         if ((x >= e.x) & (x <= e.x + 80)) {
-  //           strone=1;
-  //           setposition({ x: e.x + 40, y: e.y + 30, idStolu: i,strona:1 });
-  //           modifiedData[i] = { ...modifiedData[i], lpCh: true, ppCh: false };
-  //         }
-  
-  //         if ((x >= e.x + 80) & (x <= e.x + 160)) {
-  //           strone=2;
-  //           setposition({ x: e.x + 120, y: e.y + 30, idStolu: i,strona:2  });
-  //           modifiedData[i] = { ...modifiedData[i], lpCh: false, ppCh: true };
-  //         }
-  //       } else
-  //         modifiedData[i] = { ...modifiedData[i], lpCh: false, ppCh: false };
-  //     } else {
-  //       if (i == 93) {
-  //         if (
-  //           (x >= e.x) &
-  //           (x <= e.x + 138) &
-  //           (y >= e.y + 55) &
-  //           (y <= e.y + 189)
-  //         ) {
-  //           chosen = i;
-  //           if ((y >= e.y + 55) & (y <= e.y + 122)) {
-  //             strone=1;
-  //             setposition({ x: e.x + 69, y: e.y + 89, idStolu: i,strona:1  });
-  //             modifiedData[i] = { ...modifiedData[i], lpCh: true, ppCh: false };
-  //           }
-  
-  //           if ((y >= e.y + 122) & (y <= e.y + 189)) {
-  //             strone=2;
-  //             setposition({ x: e.x + 69, y: e.y + 155, idStolu: i,strona:2  });
-  //             modifiedData[i] = { ...modifiedData[i], lpCh: false, ppCh: true };
-  //           }
-  //         } else
-  //           modifiedData[i] = { ...modifiedData[i], lpCh: false, ppCh: false };
-  //       } else if (i == 94) {
-  //         if ((x >= e.x) & (x <= e.x + 138) & (y >= e.y) & (y <= e.y + 134)) {
-  //           chosen = i;
-  //           if ((y >= e.y) & (y <= e.y + 67)) {
-  //             strone=1;
-  //             setposition({ x: e.x + 69, y: e.y + 33, idStolu: i,strona:1  });
-  //             modifiedData[i] = { ...modifiedData[i], lpCh: true, ppCh: false };
-  //           }
-  //           if ((y >= e.y + 67) & (y <= e.y + 134)) {
-  //             strone=2;
-  //             setposition({ x: e.x + 69, y: e.y + 102, idStolu: i,strona:2  });
-  //             modifiedData[i] = { ...modifiedData[i], lpCh: false, ppCh: true };
-  //           }
-  //         } else
-  //           modifiedData[i] = { ...modifiedData[i], lpCh: false, ppCh: false };
-  //       } else if ((i >= 95) & (i <= 97)) {
-  //         if ((x >= e.x) & (x <= e.x + 153) & (y >= e.y) & (y <= e.y + 241)) {
-  //           chosen = i;
-  //           if ((y >= e.y) & (y <= e.y + 72)) {
-  //             strone=1;
-  //             setposition({ x: e.x + 76, y: e.y + 36, idStolu: i,strona:1  });
-  //             modifiedData[i] = { ...modifiedData[i], lpCh: true, ppCh: false };
-  //           }
-  //           if ((y >= e.y + 169) & (y <= e.y + 241)) {
-  //             strone=2;
-  //             setposition({ x: e.x + 76, y: e.y + 204, idStolu: i,strona:2  });
-  //             modifiedData[i] = { ...modifiedData[i], lpCh: false, ppCh: true };
-  //           }
-  //         } else
-  //           modifiedData[i] = { ...modifiedData[i], lpCh: false, ppCh: false };
-  //       }
-  //       else if(i==75){
-  //         if ((x >= e.x) & (x <= e.x + 72) & (y >= e.y) & (y <= e.y + 60)) {
-  //           chosen = i;
-  //           strone=1;
-  //           setposition({ x: e.x + 36, y: e.y + 30, idStolu: i,strona:1  });
-  //           modifiedData[i] = { ...modifiedData[i], lpCh: true, ppCh: false };
-  //         } else
-  //           modifiedData[i] = { ...modifiedData[i], lpCh: false, ppCh: false };
-  //       }
-  //     }
-  //   });
-    
-  //   console.log(chosen)
-  //   setdata([...modifiedData]);
-  //   //przepisanie podswietlanego koloru
-  //   if (chosen != 999&&(strone==1&&data[chosen].lp||strone==2&&data[chosen].pp)) {
-  //     var chosenId = data[chosen].lpCh
-  //       ? data[chosen].lp_id
-  //       : data[chosen].pp_id;
-  //     if ( chosenId != "0000000000"&& chosenId != "" && chosenId != "WEING") setidColored(chosenId);
-  //   } else setposition({ x: -20000, y: -20000, idStolu: -1, strona:-1  });//click pw powietrze
-  
-  //  console.log(zlecenia.data);
-  //   //ktora pozycja na liscie zlecen ma to id
-  //   sethomagWybrany(-1);
-  //   setkolejkowany(-1);
-  //   zlecenia.data.map((e, i) => {
-  //     e.map((f, j) => {
-  //       if (f.PLC_ID == chosenId) {
-  //         sethomagWybrany(i + 1);
-  //         setkolejkowany(j);
-  //         switch (i + 1) {
-  //           case 1: {
-  //             if (j != 0) seth1(true);
-  //             break;
-  //           }
-  //           case 2: {
-  //             if (j != 0) seth2(true);
-  //             break;
-  //           }
-  //           case 3: {
-  //             if (j != 0) seth3(true);
-  //             break;
-  //           }
-  //         }
-  //       }
-  //     });
-  //   });
-  //   setTimeout(
-  //     function () {
-  //       next();
-  //     }.bind(this),
-  //     200
-  //   );
+ 
   };
 
   const [data, setdata] = useState([]);
@@ -232,12 +105,13 @@ export default function Dashboard(props) {
               <div className="annotation">
               <Annotation
                 scale={scale}
+                packageId={position.packageId}
                 x={(position.x - 90/ scale) * scale}
                 y={(position.y - 158/ scale) * scale}>
                 <div>
-                 {position.packageId}
+                 {'PLC Id: '+ position.packageId}
                   <div className="annotationHelp">
-                  {'WTF?!'}
+                  {'Funkcja w budowie'}
                   </div>
                 </div>
               </Annotation>

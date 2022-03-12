@@ -87,3 +87,13 @@ query getConveyors($name1:String!, $name2:String!, $name3:String!, ){
 } 
 
 `;
+
+// export const getBufforedProducts = gql`
+// query getBufforedProducts($name1:String! ){
+//   allBufforedProducts(where:{name_in:[$name1,$name2,$name3]}){
+//     name,
+//     value
+//   }
+// } 
+
+// `;

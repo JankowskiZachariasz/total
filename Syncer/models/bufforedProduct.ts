@@ -18,7 +18,9 @@ export interface bufforedProductInterface{
     buffored3?:number,
     delivered1?:number,
     delivered2?:number,
-    delivered3?:number
+    delivered3?:number,
+    status?:string,
+    _doc?:any,
   
   
 };
@@ -40,7 +42,8 @@ var bufforedProductSchema = new Schema<bufforedProductInterface>({
     buffored3:{type: Number, required: false},
     delivered1:{type: Number, required: false},
     delivered2:{type: Number, required: false},
-    delivered3:{type: Number, required: false}
+    delivered3:{type: Number, required: false},
+    status:{type: String , required: false},
   
 });
 

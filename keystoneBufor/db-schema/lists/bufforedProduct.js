@@ -18,7 +18,13 @@ var bufforedProductSchema = {
         buffored3: { type: fields_1.Integer, isRequired: false },
         delivered1: { type: fields_1.Integer, isRequired: false },
         delivered2: { type: fields_1.Integer, isRequired: false },
-        delivered3: { type: fields_1.Integer, isRequired: false }
+        delivered3: { type: fields_1.Integer, isRequired: false },
+        status: { type: fields_1.Select, isRequired: true,
+            options: [
+                { value: 'Current', label: 'Na buforze' },
+                { value: 'History', label: 'Historyczny' },
+            ]
+        }
     },
     labelField: "name",
     adminConfig: {

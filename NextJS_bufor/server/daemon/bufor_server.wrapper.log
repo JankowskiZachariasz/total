@@ -52,3 +52,35 @@ Stacktrace:   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInter
 2022-03-12 11:57:58 - Send SIGINT 5116
 2022-03-12 11:57:58 - SIGINT to 5116 failed - Killing as fallback
 2022-03-12 11:57:58 - Finished bufor_server.exe
+2022-03-12 17:16:16 - Starting C:\Program Files\node-v16.14.0-win-x64\node.exe  --harmony C:\Users\Administrator\Desktop\BUFOR_ROOT\NextJS_bufor\node_modules\node-windows\lib\wrapper.js --file C:\Users\Administrator\Desktop\BUFOR_ROOT\NextJS_bufor\server\index.js --scriptoptions= --log "BUFOR_SERVER wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2022-03-12 17:16:16 - Started 4300
+2022-03-12 18:47:13 - Stopping bufor_server.exe
+2022-03-12 18:47:13 - ProcessKill 4300
+2022-03-12 18:47:13 - Found child process: 7064 Name: conhost.exe
+2022-03-12 18:47:13 - Found child process: 9084 Name: node.exe
+2022-03-12 18:47:13 - Stopping process 7064
+2022-03-12 18:47:13 - Send SIGINT 7064
+2022-03-12 18:47:13 - SIGINT to 7064 failed - Killing as fallback
+2022-03-12 18:47:13 - Stopping process 9084
+2022-03-12 18:47:13 - Send SIGINT 9084
+2022-03-12 18:47:13 - SIGINT to 9084 failed - Killing as fallback
+2022-03-12 18:47:13 - Stopping process 4300
+2022-03-12 18:47:13 - Send SIGINT 4300
+2022-03-12 18:47:13 - SIGINT to 4300 failed - Killing as fallback
+2022-03-12 18:47:13 - Finished bufor_server.exe
+2022-03-12 18:57:06 - Starting C:\Program Files\node-v16.14.0-win-x64\node.exe  --harmony C:\Users\Administrator\Desktop\BUFOR_ROOT\NextJS_bufor\node_modules\node-windows\lib\wrapper.js --file C:\Users\Administrator\Desktop\BUFOR_ROOT\NextJS_bufor\server\index.js --scriptoptions= --log "BUFOR_SERVER wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2022-03-12 18:57:06 - Started 7020
+2022-03-12 18:57:13 - Stopping bufor_server.exe
+2022-03-12 18:57:13 - ProcessKill 7020
+2022-03-12 18:57:13 - Found child process: 9492 Name: conhost.exe
+2022-03-12 18:57:13 - Found child process: 6028 Name: node.exe
+2022-03-12 18:57:14 - Stopping process 9492
+2022-03-12 18:57:14 - Send SIGINT 9492
+2022-03-12 18:57:14 - SIGINT to 9492 failed - Killing as fallback
+2022-03-12 18:57:14 - Stopping process 6028
+2022-03-12 18:57:14 - Send SIGINT 6028
+2022-03-12 18:57:14 - SIGINT to 6028 failed - Killing as fallback
+2022-03-12 18:57:14 - Stopping process 7020
+2022-03-12 18:57:14 - Send SIGINT 7020
+2022-03-12 18:57:14 - SIGINT to 7020 failed - Killing as fallback
+2022-03-12 18:57:14 - Finished bufor_server.exe

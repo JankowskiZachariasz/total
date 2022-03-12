@@ -173,3 +173,5 @@ Stacktrace:   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInter
 2022-03-12 12:49:53 - Send SIGINT 6840
 2022-03-12 12:49:53 - SIGINT to 6840 failed - Killing as fallback
 2022-03-12 12:49:53 - Finished bufor_syncer.exe
+2022-03-12 19:19:40 - Starting C:\Program Files\node-v13.14.0-win-x64\node.exe  --harmony C:\Users\Administrator\Desktop\BUFOR_ROOT\Syncer\node_modules\node-windows\lib\wrapper.js --file C:\Users\Administrator\Desktop\BUFOR_ROOT\Syncer\index.js --scriptoptions= --log "BUFOR_SYNCER wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2022-03-12 19:19:40 - Started 8952

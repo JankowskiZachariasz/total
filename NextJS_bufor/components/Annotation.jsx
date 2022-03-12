@@ -1,10 +1,21 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import styles from "./Annotation.module.css";
 import Box from "../graphics/Db";
 import Info from "../graphics/Info";
+import client,{getProducts, getConveyors, createProduct, updateProduct, authClient} from "../apollo-client";
+import useUser from "../lib/useUser";
 
 const Anno = (props) => {
+
+
+  const [data, setdata] = useState({});
+
   return (
+
+      <FetchData
+      packageId={props.packageId}
+      setdata={setdata}
+        >
     
 
     <div style={{ top: props.y + "px", left: props.x + "px" }} className={styles.anno}>
@@ -17,6 +28,8 @@ const Anno = (props) => {
       <div className="annotationCD">{props.children}</div>
     </div>
   </div>
+
+    </FetchData>
 
     
  
@@ -56,6 +69,38 @@ const svgDraw =()=>{
       </svg>
 
   );
+}
+
+function FetchData(props) {
+
+
+  const {token} = useUser();
+  React.useEffect(() => {
+    fetchDataFunction(props.setdata, props.packageId);
+    const interval = setInterval(() => {
+      fetchDataFunction(props.setdata);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+  return props.children;
+}
+
+const fetchDataFunction = (setdata, packageId) => {
+  return null;
+//   authClient(token).query({
+//     query:getConveyors, 
+//     variables:{
+      
+//         "name1": "shifter1v1",
+//         "name2": "shifter2v1",
+//         "name3": "shifter3v1"
+      
+//     } 
+// }).then((res)=>{
+
+
+
+// }).catch(e=>{console.log(e);})
 }
 
 export default Anno;

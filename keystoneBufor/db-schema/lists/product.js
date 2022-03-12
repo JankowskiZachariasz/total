@@ -122,9 +122,9 @@ var productSchema = {
                             props.resolvedData.name += ' ' + ((_k = props.resolvedData) === null || _k === void 0 ? void 0 : _k.series1) + ' ' + ((_l = props.resolvedData) === null || _l === void 0 ? void 0 : _l.series2) + ' ' + ((_m = props.resolvedData) === null || _m === void 0 ? void 0 : _m.series3); //spaces
                             props.resolvedData.name += ' ' + (assambledObject === null || assambledObject === void 0 ? void 0 : assambledObject.namePlc);
                             //enforce variable limits
-                            props.resolvedData.length1 = assambledObject.length1 > 32767 ? (32767) : (assambledObject.length1 < 0 ? (0) : (assambledObject.length1));
-                            props.resolvedData.length2 = assambledObject.length2 > 32767 ? (32767) : (assambledObject.length2 < 0 ? (0) : (assambledObject.length2));
-                            props.resolvedData.length3 = assambledObject.length3 > 32767 ? (32767) : (assambledObject.length3 < 0 ? (0) : (assambledObject.length3));
+                            props.resolvedData.length1 = assambledObject.length1 > 255 ? (255) : (assambledObject.length1 < 0 ? (0) : (assambledObject.length1));
+                            props.resolvedData.length2 = assambledObject.length2 > 255 ? (255) : (assambledObject.length2 < 0 ? (0) : (assambledObject.length2));
+                            props.resolvedData.length3 = assambledObject.length3 > 255 ? (255) : (assambledObject.length3 < 0 ? (0) : (assambledObject.length3));
                             resolve(props.resolvedData);
                             return [2 /*return*/];
                     }

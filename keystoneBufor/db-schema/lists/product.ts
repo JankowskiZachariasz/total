@@ -81,9 +81,9 @@ const productSchema: any={
             props.resolvedData.name += ' '+props.resolvedData?.series1+' '+props.resolvedData?.series2+' '+props.resolvedData?.series3;//spaces
             props.resolvedData.name += ' '+assambledObject?.namePlc;
             //enforce variable limits
-            props.resolvedData.length1=assambledObject.length1>32767?(32767):(assambledObject.length1<0?(0):(assambledObject.length1));
-            props.resolvedData.length2=assambledObject.length2>32767?(32767):(assambledObject.length2<0?(0):(assambledObject.length2));
-            props.resolvedData.length3=assambledObject.length3>32767?(32767):(assambledObject.length3<0?(0):(assambledObject.length3));
+            props.resolvedData.length1=assambledObject.length1>255?(255):(assambledObject.length1<0?(0):(assambledObject.length1));
+            props.resolvedData.length2=assambledObject.length2>255?(255):(assambledObject.length2<0?(0):(assambledObject.length2));
+            props.resolvedData.length3=assambledObject.length3>255?(255):(assambledObject.length3<0?(0):(assambledObject.length3));
 
             resolve(props.resolvedData);
         });
