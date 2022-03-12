@@ -72,10 +72,10 @@ module.exports = async keystone => {
   
   }
   if(process.env.INIT_SHIFTERS == 'true'){
-    for(var i = 1;i<=3;i++){
+    for(var i = 1;i<=2;i++){
 
       var produkt=[
-          {"data": {"name": "shifter"+i+"v1","offset": 392+(i-1)*2,"offsetDecimal": 2,"type": "INT", "rwMode": "Read", "datablock": {"connect":  {"id": CONVEYORS_DB_ID}}}},
+          {"data": {"name": "shifter"+i+"v1","offset": 392+(i-1)*4,"offsetDecimal": 4,"type": "DI", "rwMode": "Read", "datablock": {"connect":  {"id": CONVEYORS_DB_ID}}}},
           
       ]
 
