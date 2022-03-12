@@ -50,19 +50,19 @@ class ProductUtil{
                         break;}
                 }
 
-                if(currentPlcID >0 && currentPlcID <= 1000){
+                if(currentPlcID >0 && currentPlcID <= 400){
                     if(!indexesUsed.includes(currentPlcID)){
                         resolvedInexes.push({
                             enumerator:'paczka'+currentPlcID,
                             name:m.namePlc,
                             type:'DB_EDIT',
-                            lPaczek:m.count,
+                            lPaczek:currentLength?(currentLength):0,
                             nrPaczki:pck+1,
                             nrSeryjny1:m.series1,
                             nrSeryjny2:m.series2,
                             nrSeryjny3:m.series3,
                             plcId:currentPlcID,
-                            dlugosc:currentLength?(currentLength):0,
+                            dlugosc:0,
                         });
                         indexesUsed.push(currentPlcID);
                     } 
@@ -72,13 +72,13 @@ class ProductUtil{
                         enumerator:'paczka',
                         name:m.namePlc,
                         type:'DB_EDIT',
-                        lPaczek:m.count,
+                        lPaczek:currentLength?(currentLength):0,
                         nrPaczki:pck+1,
                         nrSeryjny1:m.series1,
                         nrSeryjny2:m.series2,
                         nrSeryjny3:m.series3,
                         plcId:null,
-                        dlugosc:currentLength?(currentLength):0,
+                        dlugosc:0,
                     });
                 }
             }
@@ -86,7 +86,7 @@ class ProductUtil{
 
         });
         //assign indexes
-        for(var i =1;i<=1000;i++){
+        for(var i =1;i<=400;i++){
             if(!(notYetResolvedIndexes.length>0)){
                 break;
             }
@@ -106,13 +106,13 @@ class ProductUtil{
         return new Promise(async (resolve,reject)=>{
             var toModifyArray:Array<produktInterface>=[];
 
-            console.log(produkts.length)
+          //console.log(produkts.length)
             produkts.forEach(element => {
                 if(element.wasUpdatedByClient==true){
                     toModifyArray.push(element._doc);
                 }
             });
-            console.log(toModifyArray.length)
+          //console.log(toModifyArray.length)
             //modify
             await Promise.all(toModifyArray.map(async toModify =>{
                 var currentId = toModify._id;
@@ -146,14 +146,14 @@ class ProductUtil{
                 case(1):{toReturn.toDelete.push(map[key][1]); break;}//delete
                 case(2):{toReturn.toAdd.push(map[key][0]); break;}//create
                 case(3):{
-                    console.log(map[key][0].name!=map[key][1].name);
-                    console.log(map[key][0].lPaczek!=map[key][1].lPaczek);
-                    console.log(map[key][0].nrPaczki!=map[key][1].nrPaczki);
-                    console.log(map[key][0].nrSeryjny1!=map[key][1].nrSeryjny1);
-                    console.log(map[key][0].nrSeryjny2!=map[key][1].nrSeryjny2);
-                    console.log(map[key][0].nrSeryjny3!=map[key][1].nrSeryjny3);
-                    console.log(map[key][0].plcId!=map[key][1].plcId);
-                    console.log(map[key][0].dlugosc!=map[key][1].dlugosc);
+                  //console.log(map[key][0].name!=map[key][1].name);
+                  //console.log(map[key][0].lPaczek!=map[key][1].lPaczek);
+                  //console.log(map[key][0].nrPaczki!=map[key][1].nrPaczki);
+                  //console.log(map[key][0].nrSeryjny1!=map[key][1].nrSeryjny1);
+                  //console.log(map[key][0].nrSeryjny2!=map[key][1].nrSeryjny2);
+                  //console.log(map[key][0].nrSeryjny3!=map[key][1].nrSeryjny3);
+                  //console.log(map[key][0].plcId!=map[key][1].plcId);
+                  //console.log(map[key][0].dlugosc!=map[key][1].dlugosc);
                     if(//if there is any differance -> write 1bstract to DB_EDIT
                         map[key][0].name!=map[key][1].name||
                         map[key][0].lPaczek!=map[key][1].lPaczek||
@@ -165,9 +165,9 @@ class ProductUtil{
                         map[key][0].dlugosc!=map[key][1].dlugosc
                     ){
                         var modifyToAdd = {...(map[key][0]), _id:map[key][1]._id};
-                        console.log('Modify to add: (START)')
-                        console.log(modifyToAdd);
-                        console.log('Modify to add: (END)')
+                      //console.log('Modify to add: (START)')
+                      //console.log(modifyToAdd);
+                      //console.log('Modify to add: (END)')
                         toReturn.toModify.push(modifyToAdd); 
                     }
                     
@@ -202,8 +202,8 @@ class ProductUtil{
             try{
                 await paczka.insertMany(localAdd)
             }catch(e){
-                console.log(localAdd);
-                console.log(e);
+              //console.log(localAdd);
+              //console.log(e);
             }
 
             //modify
@@ -221,16 +221,11 @@ class ProductUtil{
     public async updateProductsWithPaczkas():Promise<void>{
         return new Promise(async (resolve,reject)=>{
             var paczkas: Array<paczkaInterface> = await this.retrievePaczkas();
-            console.log('A')
             var artifficialProdukts: Array<produktInterface> = this.buildProducts(paczkas);
             var untouchedProducts = await this.retrieveProducts();
-            console.log('B')
             var changes: produktDiff = this.resolveDiffProductss(untouchedProducts, artifficialProdukts);
-            console.log('C')
             await this.CommitProducts(changes);
-            console.log('D')
             await this.deleteToDelete();
-            console.log('E')
             resolve();
         });
     }
@@ -258,28 +253,31 @@ class ProductUtil{
         });
 
         Object.keys(map).map(async key => {
-            var a:number = (map[key][0]?.plcId>0 && map[key][0]?.plcId<=1000)?(1):(0);
-            var b:number = (map[key][1]?.plcId>0 && map[key][1]?.plcId<=1000)?(1):(0);
-            var c:number = (map[key][2]?.plcId>0 && map[key][2]?.plcId<=1000)?(1):(0);
+            var a:number = (map[key][0]?.plcId>0 && map[key][0]?.plcId<=400)?(1):(0);
+            var b:number = (map[key][1]?.plcId>0 && map[key][1]?.plcId<=400)?(1):(0);
+            var c:number = (map[key][2]?.plcId>0 && map[key][2]?.plcId<=400)?(1):(0);
             var notnullPaczka: paczkaInterface = map[key][0]?(map[key][0]):(map[key][1]?(map[key][1]):(map[key][2]));
-            console.log('Not null paczka:');
-            console.log(notnullPaczka);
+          //console.log('Not null paczka:');
+          //console.log(notnullPaczka);
             toReturn.push(
                 {
                     namePlc:notnullPaczka?.name,
-                    series1:notnullPaczka?.nrSeryjny1,
-                    series2:notnullPaczka?.nrSeryjny2,
-                    series3:notnullPaczka?.nrSeryjny3,
+                    series1:notnullPaczka?.nrSeryjny1?(notnullPaczka?.nrSeryjny1>32767?(32767):(notnullPaczka?.nrSeryjny1<0?(0):(notnullPaczka?.nrSeryjny1))):(0),
+                    series2:notnullPaczka?.nrSeryjny2?(notnullPaczka?.nrSeryjny2>32767?(32767):(notnullPaczka?.nrSeryjny2<0?(0):(notnullPaczka?.nrSeryjny2))):(0),
+                    series3:notnullPaczka?.nrSeryjny3?(notnullPaczka?.nrSeryjny3>32767?(32767):(notnullPaczka?.nrSeryjny3<0?(0):(notnullPaczka?.nrSeryjny3))):(0),
                     count:a+b+c,
-                    length1:map[key][0]?.dlugosc,
-                    length2:map[key][1]?.dlugosc,
-                    length3:map[key][2]?.dlugosc,
+                    length1:map[key][0]?.lPaczek>32767?(32767):(map[key][0]?.lPaczek<0?(0):(map[key][0]?.lPaczek)),
+                    length2:map[key][1]?.lPaczek>32767?(32767):(map[key][1]?.lPaczek<0?(0):(map[key][1]?.lPaczek)),
+                    length3:map[key][2]?.lPaczek>32767?(32767):(map[key][2]?.lPaczek<0?(0):(map[key][2]?.lPaczek)),
                     plcId1:map[key][0]?.plcId,
                     plcId2:map[key][1]?.plcId,
                     plcId3:map[key][2]?.plcId,
                     toDelete:false,
                     wasUpdatedByClient:false,
-                    name:''
+                    name: notnullPaczka?.nrSeryjny1?.toString()+notnullPaczka?.nrSeryjny2?.toString()+notnullPaczka?.nrSeryjny3?.toString()
+                    + ' '+notnullPaczka?.nrSeryjny1+'-'+notnullPaczka?.nrSeryjny2+'-'+notnullPaczka?.nrSeryjny3//hyphens
+                    + ' '+notnullPaczka?.nrSeryjny1+' '+notnullPaczka?.nrSeryjny2+' '+notnullPaczka?.nrSeryjny3//spaces
+                    + ' '+notnullPaczka?.name
 
                 }
             )
@@ -309,7 +307,7 @@ class ProductUtil{
             var A:number = (map[key][0]==null)?(0):(1);
             var B:number = (map[key][1]==null)?(0):(1);
             var product:number = (A*2)+(B*1);
-            console.log(product);
+          //console.log(product);
             switch(product){
                 case(0):{break;}//an impossible case
                 case(1):{toReturn.toModify.push(
@@ -372,24 +370,24 @@ class ProductUtil{
             await Promise.all(diff.toModify.map(async toModify =>{
                 var currentId = toModify._id;
                 delete toModify._id;
-                console.log('modifying')
-                console.log(toModify);
+              //console.log('modifying')
+              //console.log(toModify);
                 try{await produkt.replaceOne({_id: currentId},toModify, (err, doc)=>{console.log(doc);console.log(err);}).clone()}catch(e){console.log(e);}      
             })).then(()=>{resolve();});
         })
     }
     private async deleteToDelete():Promise<void>{
         return new Promise(async (resolve,reject)=>{
-            var localDelete: Array<string> = [];
-            var retrievedProducts = await produkt.find({toDelete:true}).exec();
-            retrievedProducts.forEach(toDelete => {
-                localDelete.push(toDelete._id);
-            });
-            if(localDelete.length>0){
-                try{await paczka.deleteMany({_id: {$in:localDelete}}); resolve();}catch(e){console.log(e);}
+           
+            produkt.deleteMany({'toDelete' : true}, function(err, result) {
+            if (err) {
+                console.log(err);
+                reject();
+            } else {
+                resolve();
             }
-            else resolve();
-            
+            });
+        
         })
     }
 

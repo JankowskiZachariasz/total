@@ -6,6 +6,7 @@ import { FetchResult } from "@apollo/client";
 import client from "../apollo-client";
 import { gql } from "@apollo/client";
 import {PaczkaResolverSingleton} from './onoToOneResolver';
+import {ConveyorResolverSingleton} from './conveyorResolver';
 import paczka, {paczkaInterface} from '../models/paczka';
 import ProductUtil from './productUtil';
 var nodes7 = require("nodes7");
@@ -78,7 +79,7 @@ export default class Syncer {
 
       datablock.find({}).exec(async (err, retrievedDatablocks:Datablock[]) => {
         if (err) reject();
-        console.log(retrievedDatablocks);
+      //console.log(retrievedDatablocks);
         this.datablocks = retrievedDatablocks;
         await Promise.all(
           retrievedDatablocks.map(async (datablockInstance) => {
@@ -114,7 +115,7 @@ export default class Syncer {
                       }
                     });
                   } catch (err) {
-                    console.log(err);
+                  //console.log(err);
                     reject();
                   }
                 }
@@ -135,32 +136,35 @@ export default class Syncer {
       await Promise.all(
         newPLCs.map(async (plc) => {
           var conn = new nodes7();
-          await new Promise<void>(async (resolve, reject) => {
-            conn.initiateConnection(
-              { port: 102, host: plc.ip, rack: 0, slot: 1 },
-              (err) => {
-                if (typeof err !== "undefined") {
-                  console.log(err);
-                  reject();
-                } else {
-                  var inputVariables: Array<localVariable> = [];
-                  inputVariables.push(...plc.variablesToReadOnly);
-                  inputVariables.push(...plc.variablesToReadWrite);
-                  var variables = this.generateVariables(inputVariables);
-                  conn.setTranslationCB((tag) => {
-                    return variables[tag];
-                  }); // This sets the "translation" to allow us to work with object names
-                  conn.addItems([...Object.getOwnPropertyNames(variables)]);
-                  var localConnection: connection = {
-                    plc: plc,
-                    plcConnection: conn,
-                  };
-                  connectionsTemp.push(localConnection);
+          try{
+            await new Promise<void>(async (resolve, reject) => {
+              conn.initiateConnection(
+                { port: 102, host: plc.ip, rack: 0, slot: 1 },
+                (err) => {
+                  if (typeof err !== "undefined") {
+                  //console.log(err);
+                    reject();
+                  } else {
+                    var inputVariables: Array<localVariable> = [];
+                    inputVariables.push(...plc.variablesToReadOnly);
+                    inputVariables.push(...plc.variablesToReadWrite);
+                    var variables = this.generateVariables(inputVariables);
+                    conn.setTranslationCB((tag) => {
+                      return variables[tag];
+                    }); // This sets the "translation" to allow us to work with object names
+                    conn.addItems([...Object.getOwnPropertyNames(variables)]);
+                    var localConnection: connection = {
+                      plc: plc,
+                      plcConnection: conn,
+                    };
+                    connectionsTemp.push(localConnection);
+                  }
+                  resolve();
                 }
-                resolve();
-              }
-            );
-          });
+              );
+            });
+          }
+          catch(e){console.log(e);}
         })
       );
       this.connections = connectionsTemp;
@@ -181,16 +185,19 @@ export default class Syncer {
       //write controlling variables to plc
       if(currentOperation) try{await this.write(currentConnection);}catch(e){console.log(e);}
       //read all watched variables from the plc
-      var variablesToUpdate: Array<localVariable> = await this.read(currentConnection);
+      var variablesToUpdate: Array<localVariable>=null; 
+      if(currentConnection) 
+      try{variablesToUpdate = await this.read(currentConnection);}catch(e){console.log(e);}
+
       var productUiResolver = new ProductUtil();
-      console.log('MAYBE HERE?')
       await productUiResolver.productsToPaczkasTranslate();
       //paczki: (onoToOneResolver)
       await PaczkaResolverSingleton.resolve(currentConnection.plc.variablesToReadOnly);
       await PaczkaResolverSingleton.commitChanges();
-      console.log('is it here?')
       await productUiResolver.updateProductsWithPaczkas();
-      console.log('MAYBE HERE2?')
+      
+      //read conveyor states
+      await ConveyorResolverSingleton.resolveConveyors(currentConnection.plc.variablesToReadOnly);
 
       // loadedTestData=true;
       // if(!loadedTestData){
@@ -314,7 +321,6 @@ export default class Syncer {
   }
 
   private async read(connection: connection): Promise<Array<localVariable>> {
-    
     return new Promise<Array<localVariable>>(async (resolve, reject) => {
       setTimeout(()=>{//read operation is delayed to make sure that a command was executed by PLC after write 
         var variablesToUpdate: Array<localVariable> = new Array();
@@ -374,7 +380,7 @@ export default class Syncer {
           resolve(returnedData);
       }
       catch(e){
-          console.log(e.networkError);
+        //console.log(e.networkError);
       }
       
     });
@@ -415,16 +421,16 @@ export default class Syncer {
           });
       }
       catch(e){
-          console.log(e.networkError);
+        //console.log(e.networkError);
           reject(e);
       }
 
       //if number of pending jobs = 0;
       //pick the most important task from the list of new jobs
       //send it to db as pending
-      console.log('will proceed with commands?')
-      console.log((allInPending.length-toDeclareSuccessfull.length)<=0)
-      console.log('end commands')
+    //console.log('will proceed with commands?')
+    //console.log((allInPending.length-toDeclareSuccessfull.length)<=0)
+    //console.log('end commands')
       if((allInPending.length-toDeclareSuccessfull.length)<=0){
         //the order is as follows:
         //new ones
@@ -458,7 +464,7 @@ export default class Syncer {
             });
         }
         catch(e){
-            console.log(e.networkError);
+          //console.log(e.networkError);
             reject(e);
         }
         resolve();

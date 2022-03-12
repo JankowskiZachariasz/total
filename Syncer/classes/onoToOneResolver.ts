@@ -38,7 +38,7 @@ abstract class OnoToOneResolver {
                 this.DB_EDIT = dbRecords.DB_EDIT;
                 this.PLC = this.processVariables(this.variableMap);
                 this.triples = this.deriveTriples(this.DB_REF,this.DB_EDIT,this.PLC);
-                console.log(this.triples);
+              //console.log(this.triples);
                 this.PLCcommands = [];
                 var recordLevelChanges = this.enforceRecordLevelConsistancy(this.triples);
                 this.toDelete = recordLevelChanges.doDelete;
@@ -47,9 +47,9 @@ abstract class OnoToOneResolver {
                 var fieldLevelChanges = this.enforceFieldLevelConsistancy(this.triples);
                 this.toModify = fieldLevelChanges.toModify;
                 this.PLCcommands.push(...fieldLevelChanges.commands);
-                console.log('commands:')
-                console.log(this.PLCcommands);
-                console.log('END commands:')
+              //console.log('commands:')
+              //console.log(this.PLCcommands);
+              //console.log('END commands:')
                 // console.log(this.toDelete);
                 // console.log(this.toAdd);
                 //console.log(this.toModify);
@@ -207,22 +207,22 @@ class PaczkaResolver extends OnoToOneResolver{
                 var L3 :any = (vars[key][2][fieldKey]==null||vars[key][2][fieldKey]=='')?("0"):(vars[key][2][fieldKey]?.toString()?.substring(0,15));
                 if(!(L1==L2&&L2==L3)){
                     if((L1==L2)&&(L1!=L3)&&(L2!=L3)){// AAB -> A=B
-                        console.log('AAB -> A=B');
+                      //console.log('AAB -> A=B');
                         //currentTripple[0][fieldKey]=currentTripple[2][fieldKey];
                         currentTripple[1][fieldKey]=currentTripple[2][fieldKey];
                     }
                     else if((L3==L2)&&(L1!=L3)&&(L1!=L2)){// ABB -> A=B
-                        console.log('ABB -> A=B');
+                      //console.log('ABB -> A=B');
                         currentTripple[0][fieldKey]=currentTripple[2][fieldKey];
                     }
                     else if((L1==L3)&&(L1!=L2)&&(L3!=L2)){// BAB -> B=A
-                        console.log('BAB -> B=A');
+                      //console.log('BAB -> B=A');
                         
                         //currentTripple[0][fieldKey]=currentTripple[1][fieldKey];
                         currentTripple[2][fieldKey]=currentTripple[1][fieldKey];
                     }
                     else if((L1!=L3)&&(L1!=L2)&&(L3!=L2)){// ABC -> B=C
-                        console.log('ABC -> B=C ');
+                      //console.log('ABC -> B=C ');
                         //currentTripple[0][fieldKey]=currentTripple[1][fieldKey];
                         currentTripple[1][fieldKey]=currentTripple[2][fieldKey];
                     }
@@ -284,7 +284,7 @@ class PaczkaResolver extends OnoToOneResolver{
 
 type tripleMap = { [key: string]: paczkaInterface[] };//0-ref,1-edit,2-incurred
 
-type variableDbObject = { [key: string]: variableInterface };
+export type variableDbObject = { [key: string]: variableInterface };
 
 export type paczkaRecord = (Document<any, any, paczkaInterface> & paczkaInterface & { _id: Types.ObjectId })|paczkaInterface;
 

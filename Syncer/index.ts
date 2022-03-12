@@ -6,13 +6,24 @@ import Syncer from './classes/worker';
 import { connections } from 'mongoose';
 mongoose.connect(process.env.mongodbConnectionString,{ useUnifiedTopology: true, useNewUrlParser: true },async(err)=>{
     var syncer = new Syncer();
-    await syncer.retrieveVariablesToSync();
-    await syncer.buildConnections(syncer.PLCs);
+    try{
+      await syncer.retrieveVariablesToSync();
+      await syncer.buildConnections(syncer.PLCs);
+    }
+    catch(e){
+      console.log(e);
+    }
+    
     
     setInterval(async()=>{
-        console.log("tick");
+      console.log("tick");
+      try{
         await syncer.tick();
-        console.log("tock");
+      }
+      catch(e){
+        console.log(e);
+      }
+      console.log("tock");
     }, 10000);
 });
 
@@ -33,7 +44,7 @@ mongoose.connect(process.env.mongodbConnectionString,{ useUnifiedTopology: true,
 
 // });
 // datablock.find({}).exec((err, datablocks)=>{
-//     console.log(datablocks);
+//   //console.log(datablocks);
 // })
 
 
