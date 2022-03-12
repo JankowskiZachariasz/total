@@ -207,13 +207,30 @@ class ProductUtil{
             }
 
             //modify
-            await Promise.all(diff.toModify.map(async toModify =>{
-                // console.log('[197]: to modify:')
-                // console.log(toModify)
-                var currentId = toModify._id;
-                delete toModify._id;
-                try{await paczka.replaceOne({_id: currentId},toModify, (err, doc)=>{console.log(doc);console.log(err);}).clone()}catch(e){console.log(e);}    
-            })).then(()=>{resolve();});
+            // await Promise.all(diff.toModify.map(async toModify =>{
+            //     // console.log('[197]: to modify:')
+            //     // console.log(toModify)
+            //     var currentId = toModify._id;
+            //     delete toModify._id;
+            //     try{await paczka.replaceOne({_id: currentId},toModify, (err, doc)=>{console.log(doc);console.log(err);}).clone()}catch(e){console.log(e);}    
+            // })).then(()=>{resolve();});
+            try{
+
+                await paczka.bulkWrite(diff.toModify.map(doc => ({
+                    'updateOne': {
+                        'filter': { '_id': doc._id },
+                        'update': { '$set': doc },
+                        'upsert': true,
+                        }
+                })))
+                resolve();
+
+                
+            }
+            catch(err){console.log(err); reject(err);}
+
+
+
         })
     }
 
@@ -222,6 +239,7 @@ class ProductUtil{
         return new Promise(async (resolve,reject)=>{
             var paczkas: Array<paczkaInterface> = await this.retrievePaczkas();
             var artifficialProdukts: Array<produktInterface> = this.buildProducts(paczkas);
+
             var untouchedProducts = await this.retrieveProducts();
             var changes: produktDiff = this.resolveDiffProductss(untouchedProducts, artifficialProdukts);
             await this.CommitProducts(changes);
@@ -281,6 +299,7 @@ class ProductUtil{
 
                 }
             )
+
         });
 
         return toReturn;
@@ -367,13 +386,27 @@ class ProductUtil{
             try{await produkt.insertMany(localAdd)}catch(e){console.log(e);}
 
             //modify
-            await Promise.all(diff.toModify.map(async toModify =>{
-                var currentId = toModify._id;
-                delete toModify._id;
-              //console.log('modifying')
-              //console.log(toModify);
-                try{await produkt.replaceOne({_id: currentId},toModify, (err, doc)=>{console.log(doc);console.log(err);}).clone()}catch(e){console.log(e);}      
-            })).then(()=>{resolve();});
+            // await Promise.all(diff.toModify.map(async toModify =>{
+            //     var currentId = toModify._id;
+            //     delete toModify._id;
+            //   //console.log('modifying')
+            //   //console.log(toModify);
+            //     try{await produkt.replaceOne({_id: currentId},toModify, (err, doc)=>{console.log(doc);console.log(err);}).clone()}catch(e){console.log(e);}      
+            // })).then(()=>{resolve();});
+            try{
+
+                await produkt.bulkWrite(diff.toModify.map(doc => ({
+                    'updateOne': {
+                        'filter': { '_id': doc._id },
+                        'update': { '$set': doc },
+                        'upsert': true,
+                        }
+                })))
+                resolve();
+
+                
+            }
+            catch(err){console.log(err); reject(err);}
         })
     }
     private async deleteToDelete():Promise<void>{

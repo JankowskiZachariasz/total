@@ -194,7 +194,7 @@ class PaczkaResolver extends OnoToOneResolver{
                 nrSeryjny2:0,
                 nrSeryjny3:0,
                 plcId:0,
-                dlugosc:0,
+                //dlugosc:0,
             }
             const temp1:paczkaInterface = resolverUtil.paczkaDeepCopy(vars[key][0]);
             const temp2:paczkaInterface = resolverUtil.paczkaDeepCopy(vars[key][1]);
@@ -207,22 +207,22 @@ class PaczkaResolver extends OnoToOneResolver{
                 var L3 :any = (vars[key][2][fieldKey]==null||vars[key][2][fieldKey]=='')?("0"):(vars[key][2][fieldKey]?.toString()?.substring(0,15));
                 if(!(L1==L2&&L2==L3)){
                     if((L1==L2)&&(L1!=L3)&&(L2!=L3)){// AAB -> A=B
-                      //console.log('AAB -> A=B');
+                      console.log('AAB -> A=B');
                         //currentTripple[0][fieldKey]=currentTripple[2][fieldKey];
                         currentTripple[1][fieldKey]=currentTripple[2][fieldKey];
                     }
                     else if((L3==L2)&&(L1!=L3)&&(L1!=L2)){// ABB -> A=B
-                      //console.log('ABB -> A=B');
+                      console.log('ABB -> A=B');
                         currentTripple[0][fieldKey]=currentTripple[2][fieldKey];
                     }
                     else if((L1==L3)&&(L1!=L2)&&(L3!=L2)){// BAB -> B=A
-                      //console.log('BAB -> B=A');
+                      console.log('BAB -> B=A');
                         
                         //currentTripple[0][fieldKey]=currentTripple[1][fieldKey];
                         currentTripple[2][fieldKey]=currentTripple[1][fieldKey];
                     }
                     else if((L1!=L3)&&(L1!=L2)&&(L3!=L2)){// ABC -> B=C
-                      //console.log('ABC -> B=C ');
+                      console.log('ABC -> B=C ');
                         //currentTripple[0][fieldKey]=currentTripple[1][fieldKey];
                         currentTripple[1][fieldKey]=currentTripple[2][fieldKey];
                     }
