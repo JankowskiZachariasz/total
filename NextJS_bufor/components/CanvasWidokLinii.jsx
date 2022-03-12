@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react";
-import "./CanvasWidokLinii.module.css";
+import styles from "./CanvasWidokLinii.module.css";
 import hmg from "../graphics/hmg.svg";
 
 const Canvas = (props) => {
@@ -73,129 +73,34 @@ const Canvas = (props) => {
 
     //filar (najważniejszy)
     ctx.strokeRect(285, 1254, 27, 55);
-
+    
     //przenosniki
      data.map((e, i) => {
-    //   if (i < 93&&i!=75) {
-         //przenosnik
-         e.draw(ctx);
-        //  ctx.strokeStyle = e.color;
-        //  ctx.strokeRect(e.x, e.y, 5, 325);
-        //  ctx.strokeRect(e.x+ 65, e.y , 5,325);
-        // for (var x = 0; x < 33; x++) {
-        //   ctx.strokeRect(e.x+3,e.y + x * 10, 65, 5);
-        // }
+      if(e.type==11)
+      e.x=props?.shifters[2];
+
+      if(e.type==10)
+      e.x=props?.shifters[1];
+
+      if(e.type==9)
+      e.x=props?.shifters[0];
       
-    //   //paczki oraz klik
-    //   ctx.fillStyle = "#999";
-    //   var coloridLpc = props.ids.findIndex( x => x === e.lp_id );
-    //   var coloridPpc = props.ids.findIndex( x => x === e.pp_id );
-    //   var lpc = "#000";
-    //   var ppc = "#000";
-    //   if(coloridLpc>-1)lpc=props.colors[coloridLpc];
-    //   if(coloridPpc>-1)ppc=props.colors[coloridPpc];
-    //   if(e.lp_id==props.idColored)lpc="green";
-    //   if(e.pp_id==props.idColored)ppc="green";
-    //   if(e.lp_id=="999999")lpc="#403537";
-    //   if(e.pp_id=="999999")ppc="#403537";
-     
-
-
-    //   if (i < 93&&i!=75) {
-    //     if (e.lp) {ctx.fillStyle = lpc; ctx.fillRect(e.x + 10, e.y + 10, 60, 40);}
-    //     if (e.pp) {ctx.fillStyle = ppc;ctx.fillRect(e.x + 90, e.y + 10, 60, 40);}
-    //     if (e.lpCh) {
-    //       ctx.strokeStyle = "red";
-    //       ctx.strokeRect(e.x + 10, e.y + 10, 60, 40);
-    //     }
-    //     if (e.ppCh) {
-    //       ctx.strokeStyle = "red";
-    //       ctx.strokeRect(e.x + 90, e.y + 10, 60, 40);
-    //     }
-    //   } else {
-    //     if (i == 93) {//lewa przesuwnica
-    //       if (e.lp) {ctx.fillStyle = lpc;ctx.fillRect(e.x +40, e.y + 65, 60, 40);}
-    //       if (e.pp) {ctx.fillStyle = ppc;ctx.fillRect(e.x +40, e.y + 139, 60, 40);}
-    //       if (e.lpCh) {
-    //         ctx.strokeStyle = "red";
-    //         ctx.strokeRect(e.x +40, e.y + 65, 60, 40);
-    //       }
-    //       if (e.ppCh) {
-    //         ctx.strokeStyle = "red";
-    //         ctx.strokeRect(e.x +40, e.y + 139, 60, 40);
-    //       }
-    //     }
-    //     else if (i == 94) {//prawa przesuwnica
-    //       if (e.lp) {ctx.fillStyle = lpc;ctx.fillRect(e.x + 40, e.y + 10, 60, 40);}
-    //       if (e.pp) {ctx.fillStyle = ppc;ctx.fillRect(e.x + 40, e.y + 84, 60, 40);}
-    //       if (e.lpCh) {
-    //         ctx.strokeStyle = "red";
-    //         ctx.strokeRect(e.x + 40, e.y + 10, 60, 40);
-    //       }
-    //       if (e.ppCh) {
-    //         ctx.strokeStyle = "red";
-    //         ctx.strokeRect(e.x + 40, e.y + 84, 60, 40);
-    //       }
-    //     }
-    //     else if (i >= 95&i<=97) {//paczki na homagach
-    //       if (e.lp) {ctx.fillStyle = lpc;ctx.fillRect(e.x + 46, e.y + 16, 60, 40);}
-    //       if (e.pp) {ctx.fillStyle = ppc;ctx.fillRect(e.x + 46, e.y + 185, 60, 40);}
-    //       if (e.lpCh) {
-    //         ctx.strokeStyle = "red";
-    //         ctx.strokeRect(e.x + 46, e.y + 16, 60, 40);
-    //       }
-    //       if (e.ppCh) {
-    //         ctx.strokeStyle = "red";
-    //         ctx.strokeRect(e.x + 46, e.y + 185, 60, 40);
-    //       }
-    //     }
-    //     else if(i==75){
-    //       ctx.strokeStyle = "#444B53";
-    //       ctx.strokeRect(232, 2362, 72, 5);
-    //       ctx.strokeRect(232, 2362 + 55, 72, 5);
-    //       for (var x = 0; x < 7; x++) {
-    //         ctx.strokeRect(232 + 2 + x * 10, 2362 + 6, 5, 50);
-    //       }
-    //       if (e.lp) {ctx.fillStyle = lpc;ctx.fillRect(e.x + 10, e.y + 10, 60, 40);}
-    //       if (e.lpCh) {
-    //         ctx.strokeStyle = "red";
-    //         ctx.strokeRect(e.x + 10, e.y + 10, 60, 40);
-    //       }
-
-    //     }
-      // }
-      //napisy
-      // ctx.fillStyle = "#AAA";
-      // ctx.font = "13px Arial";
-      // if ((e.id >= 0) & (e.id <= 67)) {
-      //   ctx.fillText("PR" + e.text, e.x, e.y - 2);
-      // } else if ((e.id >= 69) & (e.id <= 92)) {
-        
-      //   if (e.id >= 69 && e.id <= 71) {
-      //     ctx.fillText("PR" + (2+e.id), e.x, e.y - 2);
-      //   }
-      //   else if (e.id >= 72 && e.id <= 74) {
-      //     ctx.fillText("PR" + ((78-e.id)*10), e.x, e.y - 2);
-      //   }
-      //   else if (e.id >= 75 && e.id <= 79) {
-      //     ctx.fillText("PR" + (e.id-45), e.x, e.y - 2);
-      //   }
-      //   else if (e.id >= 80 && e.id <= 84) {
-      //     ctx.fillText("PR" + (e.id-60), e.x, e.y - 2);
-      //   }
-      //   else if (e.id >= 85 && e.id <= 88) {
-      //     ctx.fillText("PR" + (e.id-75), e.x, e.y - 2);
-      //   }
-      //   else if (e.id >= 89 && e.id <= 92) {
-      //     ctx.fillText("PR" + (e.id-89), e.x, e.y - 2);
-      //   }
-
-
-      // }
-
-      //ctx.fillText(e.x+", "+e.y, e.x, e.y);
-      //ctx.fillText("PR" + e.text, e.x, e.y-2);
+      e.draw(ctx, e);
+      
+         
     });
+
+    //przenośnik szeroki na podkłady
+    ctx.strokeStyle = "#444B53";
+    ctx.strokeRect(830, 109, 5, 214);
+    ctx.strokeRect(924, 109 , 5,214);
+   for (var i = 0; i < 17; i++) {
+     ctx.strokeRect(833,109 + i * 13, 94, 5);
+   }
+   ctx.font = "10px Arial";
+      ctx.fillStyle = "#777";
+      ctx.fillText('PR99', 859, 104);
+
 
     // ctx.arc(0, 0, 20*Math.sin(frameCount*0.05)**2, 0, 2*Math.PI)
     ctx.fill();
@@ -216,6 +121,7 @@ const Canvas = (props) => {
     // arrayData[92] = { ...arrayData[92], lp: true, pp:true };
     // arrayData[93] = { ...arrayData[93], lp: true, pp:true };
     setdata([...arrayData]);
+
   }, []);
 
   useEffect(() => {
@@ -245,17 +151,22 @@ const Canvas = (props) => {
       className="canvasWrapper"
     >
       {/* <div>{nums.y}</div> */}
-      <canvas className="CanvasWidokLinii" ref={canvasRef} {...props} />
+      <canvas className={styles.CanvasWidokLinii} ref={canvasRef} {...props} />
     </div>
   );
 };
 
+
 const PrzenosnikDlugi = (x, y, d, color, i) => {
   if (i != null && i.typeof != "undefined") {
     d.push({
-      text: i.nitka * 10 + (-i.num % -4) + 3,
+      text: nomeForId(i.num),
       nitka: i.nitka,
       color: color,
+      pockageColor1: '',
+      pockageColor2: '',
+      packageId:'',
+      chosenPackageColor1:'#555',
       ruch:false,
       x: x,
       y: y,
@@ -265,7 +176,7 @@ const PrzenosnikDlugi = (x, y, d, color, i) => {
       pozycja: [false,false,false,false],
       ids: ["0000000000","0000000000","0000000000","0000000000"],
       type: 1,
-      draw: (ctx)=>{
+      draw: (ctx, selfRef)=>{
 
         ctx.strokeStyle = color;
         ctx.strokeRect(x, y, 5, 325);
@@ -273,6 +184,24 @@ const PrzenosnikDlugi = (x, y, d, color, i) => {
        for (var i = 0; i < 24; i++) {
          ctx.strokeRect(x+3,y +9 + i * 13, 65, 5);
        }
+       selfRef.pozycja.forEach((element,whichElement) => {
+         if(element&&whichElement<=3){
+          ctx.fillStyle = selfRef.chosenPackageColor1;
+          ctx.fillRect(x+7, 81*whichElement+ y+5, 55, 71);
+         }
+       });
+       if(selfRef.id==6){
+        ctx.font = "10px Arial";
+        ctx.fillStyle = "#777"
+        ctx.fillText(selfRef?.text?(selfRef?.text.toUpperCase()):(''), selfRef.x-32, selfRef.y+20);
+       }
+       else{
+        ctx.font = "10px Arial";
+        ctx.fillStyle = "#777";
+        ctx.fillText(selfRef?.text?(selfRef?.text.toUpperCase()):(''), selfRef.x+23, selfRef.y+3);
+       }
+       
+
       }
     });
     i.num++;
@@ -282,9 +211,13 @@ const PrzenosnikDlugi = (x, y, d, color, i) => {
 const PrzenosnikDlugiKrotszy = (x, y, d, color, i) => {
   if (i != null && i.typeof != "undefined") {
     d.push({
-      text: i.nitka * 10 + (-i.num % -4) + 3,
+      text: nomeForId(i.num),
       nitka: i.nitka,
       color: color,
+      pockageColor1: '',
+      pockageColor2: '',
+      packageId:'',
+      chosenPackageColor1:'#555',
       ruch:false,
       x: x,
       y: y,
@@ -293,8 +226,8 @@ const PrzenosnikDlugiKrotszy = (x, y, d, color, i) => {
       pp: false,
       pozycja: [false,false,false,false],
       ids: ["0000000000","0000000000","0000000000","0000000000"],
-      type: 1,
-      draw: (ctx)=>{
+      type: 2,
+      draw: (ctx, selfRef)=>{
 
         ctx.strokeStyle = color;
         ctx.strokeRect(x, y, 5, 310);
@@ -302,6 +235,17 @@ const PrzenosnikDlugiKrotszy = (x, y, d, color, i) => {
        for (var i = 0; i < 23; i++) {
          ctx.strokeRect(x+3,y +9 + i * 13, 65, 5);
        }
+       selfRef.pozycja.forEach((element,whichElement) => {
+        if(element&&whichElement<=3){
+          ctx.fillStyle = selfRef.chosenPackageColor1;
+         ctx.fillRect(x+7, 81*whichElement+ y+2, 55, 71);
+        }
+      });
+
+      ctx.font = "10px Arial";
+      ctx.fillStyle = "#777";
+      ctx.fillText(selfRef?.text?(selfRef?.text.toUpperCase()):(''), selfRef.x+23, selfRef.y+3);
+
       }
     });
     i.num++;
@@ -311,19 +255,23 @@ const PrzenosnikDlugiKrotszy = (x, y, d, color, i) => {
 const PrzenosnikDlugiFilar = (x, y, d, color, i) => {
   if (i != null && i.typeof != "undefined") {
     d.push({
-      text: i.nitka * 10 + (-i.num % -4) + 3,
+      text: nomeForId(i.num),
       nitka: i.nitka,
       color: color,
+      pockageColor1: '',
+      pockageColor2: '',
+      packageId:'',
+      chosenPackageColor1:'#555',
       ruch:false,
       x: x,
       y: y,
       id: i.num,
       lp: false,
       pp: false,
-      pozycja: [false,false,false,false],
+      pozycja: [false,false,false],//tylko 3 się mieszczą
       ids: ["0000000000","0000000000","0000000000","0000000000"],
-      type: 1,
-      draw: (ctx)=>{
+      type: 3,
+      draw: (ctx, selfRef)=>{
 
         ctx.strokeStyle = color;
         ctx.strokeRect(x, y+96, 5, 225);
@@ -331,6 +279,16 @@ const PrzenosnikDlugiFilar = (x, y, d, color, i) => {
        for (var i = 0; i < 17; i++) {
          ctx.strokeRect(x+3,y +103 + i * 13, 65, 5);
        }
+       selfRef.pozycja.forEach((element,whichElement) => {
+        if(element&&whichElement<=2){
+          ctx.fillStyle = selfRef.chosenPackageColor1;
+         ctx.fillRect(x+7, 75*whichElement+ y+103, 55, 65);
+        }
+      });
+      ctx.font = "10px Arial";
+      ctx.fillStyle = "#777";
+      ctx.fillText(selfRef?.text?(selfRef?.text.toUpperCase()):(''), selfRef.x+23, selfRef.y+3);
+
       }
     });
     i.num++;
@@ -340,19 +298,23 @@ const PrzenosnikDlugiFilar = (x, y, d, color, i) => {
 const PrzenosnikWjazdowy1 = (x, y, d, color, i) => {
   if (i != null && i.typeof != "undefined") {
     d.push({
-      text: i.nitka * 10 + (-i.num % -4) + 3,
+      text: nomeForId(i.num),
       nitka: i.nitka,
       color: color,
+      pockageColor1: '',
+      pockageColor2: '',
+      packageId:'',
+      chosenPackageColor1:'#555',
       ruch:false,
       x: x,
       y: y,
       id: i.num,
       lp: false,
       pp: false,
-      pozycja: [false,false,false,false],
+      pozycja: [false,false,false,false],//nie wiej niż 2
       ids: ["0000000000","0000000000","0000000000","0000000000"],
-      type: 1,
-      draw: (ctx)=>{
+      type: 4,
+      draw: (ctx, selfRef)=>{
 
         ctx.strokeStyle = color;
         ctx.strokeRect(x, y, 5, 159);
@@ -360,6 +322,17 @@ const PrzenosnikWjazdowy1 = (x, y, d, color, i) => {
        for (var i = 0; i < 12; i++) {
          ctx.strokeRect(x+3,y +6 + i * 13, 65, 5);
        }
+       selfRef.pozycja.forEach((element,whichElement) => {
+        if(element&&whichElement<=1){
+          ctx.fillStyle = selfRef.chosenPackageColor1;
+         ctx.fillRect(x+7, 81*whichElement+ y+5, 55, 71);
+        }
+      });
+
+      ctx.font = "10px Arial";
+      ctx.fillStyle = "#777";
+      ctx.fillText(selfRef?.text?(selfRef?.text.toUpperCase()):(''), selfRef.x+23, selfRef.y);
+
       }
     });
     i.num++;
@@ -369,19 +342,23 @@ const PrzenosnikWjazdowy1 = (x, y, d, color, i) => {
 const PrzenosnikWjazdowyGlowny = (x, y, d, color, i) => {
   if (i != null && i.typeof != "undefined") {
     d.push({
-      text: i.nitka * 10 + (-i.num % -4) + 3,
+      text: nomeForId(i.num),
       nitka: i.nitka,
       color: color,
+      pockageColor1: '',
+      pockageColor2: '',
+      packageId:'',
+      chosenPackageColor1:'#555',
       ruch:false,
       x: x,
       y: y,
       id: i.num,
       lp: false,
       pp: false,
-      pozycja: [false,false,false,false],
+      pozycja: [false,false,false,false],//nie więcej niż 3
       ids: ["0000000000","0000000000","0000000000","0000000000"],
-      type: 1,
-      draw: (ctx)=>{
+      type: 5,
+      draw: (ctx, selfRef)=>{
 
         ctx.strokeStyle = color;
         ctx.strokeRect(x, y, 5, 247);
@@ -389,6 +366,16 @@ const PrzenosnikWjazdowyGlowny = (x, y, d, color, i) => {
        for (var i = 0; i < 19; i++) {
          ctx.strokeRect(x+3,y +6 + i * 13, 67, 5);
        }
+       selfRef.pozycja.forEach((element,whichElement) => {
+        if(element&&whichElement<=2){
+          ctx.fillStyle = selfRef.chosenPackageColor1;
+         ctx.fillRect(x+9, 81*whichElement+ y+5, 55, 71);
+        }
+      });
+
+      ctx.font = "10px Arial";
+      ctx.fillStyle = "#777";
+      ctx.fillText(selfRef?.text?(selfRef?.text.toUpperCase()):(''), selfRef.x+23, selfRef.y);
 
       }
     });
@@ -397,11 +384,18 @@ const PrzenosnikWjazdowyGlowny = (x, y, d, color, i) => {
 };
 
 const PrzenosnikSzeroki = (x, y, d, color, i) => {
+  console.log('Przenosnik Szeroki')
+  console.log(x)
+  console.log(y)
   if (i != null && i.typeof != "undefined") {
     d.push({
-      text: i.nitka * 10 + (-i.num % -4) + 3,
+      text: nomeForId(i.num),
       nitka: i.nitka,
       color: color,
+      pockageColor1: '',
+      pockageColor2: '',
+      packageId:'',
+      chosenPackageColor1:'#555',
       ruch:false,
       x: x,
       y: y,
@@ -410,8 +404,8 @@ const PrzenosnikSzeroki = (x, y, d, color, i) => {
       pp: false,
       pozycja: [false,false,false,false],
       ids: ["0000000000","0000000000","0000000000","0000000000"],
-      type: 1,
-      draw: (ctx)=>{
+      type: 6,
+      draw: (ctx, selfRef)=>{
 
         ctx.strokeStyle = color;
         ctx.strokeRect(x, y, 5, 214);
@@ -419,6 +413,10 @@ const PrzenosnikSzeroki = (x, y, d, color, i) => {
        for (var i = 0; i < 17; i++) {
          ctx.strokeRect(x+3,y + i * 13, 94, 5);
        }
+
+       ctx.font = "10px Arial";
+      ctx.fillStyle = "#777";
+      ctx.fillText(nomeForId(i)?(nomeForId(i).toUpperCase()):(''), x, y);
 
       }
     });
@@ -429,19 +427,23 @@ const PrzenosnikSzeroki = (x, y, d, color, i) => {
 const PrzenosnikMalutki = (x, y, d, color, i) => {
   if (i != null && i.typeof != "undefined") {
     d.push({
-      text: i.nitka * 10 + (-i.num % -4) + 3,
+      text: nomeForId(i.num),
       nitka: i.nitka,
       color: color,
+      pockageColor1: '',
+      pockageColor2: '',
+      packageId:'',
+      chosenPackageColor1:'#555',
       ruch:false,
       x: x,
       y: y,
       id: i.num,
       lp: false,
       pp: false,
-      pozycja: [false,false,false,false],
+      pozycja: [false],//nie więcej niż 1
       ids: ["0000000000","0000000000","0000000000","0000000000"],
-      type: 1,
-      draw: (ctx)=>{
+      type: 7,
+      draw: (ctx, selfRef)=>{
 
         ctx.strokeStyle = color;
         ctx.strokeRect(x, y, 5, 121);
@@ -449,6 +451,16 @@ const PrzenosnikMalutki = (x, y, d, color, i) => {
        for (var i = 0; i < 10; i++) {
          ctx.strokeRect(x+3,y + 4 + i * 12, 71, 5);
        }
+       selfRef.pozycja.forEach((element,whichElement) => {
+        if(element&&whichElement<=0){
+          ctx.fillStyle = selfRef.chosenPackageColor1;
+         ctx.fillRect(x+10, 81*whichElement+ y+10, 55, 71);
+        }
+      });
+
+      ctx.font = "10px Arial";
+      ctx.fillStyle = "#777";
+      ctx.fillText(selfRef?.text?(selfRef?.text.toUpperCase()):(''), selfRef.x+27, selfRef.y-1);
 
       }
     });
@@ -459,19 +471,23 @@ const PrzenosnikMalutki = (x, y, d, color, i) => {
 const PrzenosnikBufor2 = (x, y, d, color, i) => {
   if (i != null && i.typeof != "undefined") {
     d.push({
-      text: i.nitka * 10 + (-i.num % -4) + 3,
+      text: nomeForId(i.num),
       nitka: i.nitka,
       color: color,
+      pockageColor1: '',
+      pockageColor2: '',
+      packageId:'',
+      chosenPackageColor1:'#555',
       ruch:false,
       x: x,
       y: y,
       id: i.num,
       lp: false,
       pp: false,
-      pozycja: [false,false,false,false],
+      pozycja: [false,false],//nie więcej niż 2
       ids: ["0000000000","0000000000","0000000000","0000000000"],
-      type: 1,
-      draw: (ctx)=>{
+      type: 8,
+      draw: (ctx, selfRef)=>{
 
         ctx.strokeStyle = color;
         ctx.strokeRect(x, y, 5, 172);
@@ -479,6 +495,16 @@ const PrzenosnikBufor2 = (x, y, d, color, i) => {
        for (var i = 0; i < 14; i++) {
          ctx.strokeRect(x+3,y + 4 + i * 12, 62, 5);
        }
+       selfRef.pozycja.forEach((element,whichElement) => {
+        if(element&&whichElement<=1){
+          ctx.fillStyle = selfRef.chosenPackageColor1;
+         ctx.fillRect(x+7, 81*whichElement+ y+2, 55, 71);
+        }
+      });
+
+      ctx.font = "10px Arial";
+      ctx.fillStyle = "#777";
+      ctx.fillText(selfRef?.text?(selfRef?.text.toUpperCase()):(''), selfRef.x+23, selfRef.y+1);
 
       }
     });
@@ -489,31 +515,45 @@ const PrzenosnikBufor2 = (x, y, d, color, i) => {
 const Przesuwnica1 = (x, y, d, color, i) => {
   if (i != null && i.typeof != "undefined") {
     d.push({
-      text: i.nitka * 10 + (-i.num % -4) + 3,
+      text: nomeForId(i.num),
       nitka: i.nitka,
       color: color,
+      pockageColor1: '',
+      pockageColor2: '',
+      packageId:'',
+      chosenPackageColor1:'#555',
       ruch:false,
       x: x,
       y: y,
       id: i.num,
       lp: false,
       pp: false,
-      pozycja: [false,false,false,false],
+      pozycja: [false,false,false,false],//nie więcej niż 2
       ids: ["0000000000","0000000000","0000000000","0000000000"],
-      type: 1,
-      draw: (ctx)=>{
+      type: 9,
+      draw: (ctx, selfRef)=>{
 
         ctx.fillStyle = "#212830";
-        ctx.fillRect(x, y,90,228);
+        ctx.fillRect(selfRef.x, y,90,228);
         ctx.strokeStyle = color;
-        ctx.strokeRect(x, y, 14, 228);
+        ctx.strokeRect(selfRef.x, y, 14, 228);
         ctx.fillStyle = "#4B4F53";
-        ctx.fillRect(x, y, 7, 228);
-        ctx.fillRect(x+ 77, y-1 , 24,229);
-        ctx.fillRect(x+ 102, y , 6,228);
+        ctx.fillRect(selfRef.x, y, 7, 228);
+        ctx.fillRect(selfRef.x+ 77, y-1 , 24,229);
+        ctx.fillRect(selfRef.x+ 102, y , 6,228);
        for (var i = 0; i < 19; i++) {
-         ctx.strokeRect(x+14,y + 4 + i * 12, 71, 5);
+         ctx.strokeRect(selfRef.x+14,y + 4 + i * 12, 71, 5);
        }
+       selfRef.pozycja.forEach((element,whichElement) => {
+        if(element&&whichElement<=1){
+          ctx.fillStyle = selfRef.chosenPackageColor1;
+         ctx.fillRect(selfRef.x+17, 81*whichElement+ y+30, 55, 71);
+        }
+      });
+
+      ctx.font = "10px Arial";
+        ctx.fillStyle = "#777"
+        ctx.fillText(selfRef?.text?(selfRef?.text.toUpperCase()):(''), selfRef.x-32, selfRef.y+20);
 
       }
     });
@@ -524,32 +564,46 @@ const Przesuwnica1 = (x, y, d, color, i) => {
 const Przesuwnica2 = (x, y, d, color, i) => {
   if (i != null && i.typeof != "undefined") {
     d.push({
-      text: i.nitka * 10 + (-i.num % -4) + 3,
+      text: nomeForId(i.num),
       nitka: i.nitka,
       color: color,
+      pockageColor1: '',
+      pockageColor2: '',
+      packageId:'',
+      chosenPackageColor1:'#555',
       ruch:false,
       x: x,
       y: y,
       id: i.num,
       lp: false,
       pp: false,
-      pozycja: [false,false,false,false],
+      pozycja: [false,false,false,false],//nie więcej niż 2
       ids: ["0000000000","0000000000","0000000000","0000000000"],
-      type: 1,
-      draw: (ctx)=>{
+      type: 10,
+      draw: (ctx, selfRef)=>{
 
         ctx.fillStyle = "#212830";
-        ctx.fillRect(x, y,110,173);
+        ctx.fillRect(selfRef.x, y,110,173);
         ctx.strokeStyle = color;
-        ctx.strokeRect(x, y, 31, 173);
+        ctx.strokeRect(selfRef.x, y, 31, 173);
         ctx.fillStyle = "#4B4F53";
-        ctx.fillRect(x, y, 27, 173);
+        ctx.fillRect(selfRef.x, y, 27, 173);
 
-        ctx.strokeRect(x+ 90, y , 35,173);
-        ctx.fillRect(x+ 93, y , 32,173);
+        ctx.strokeRect(selfRef.x+ 90, y , 35,173);
+        ctx.fillRect(selfRef.x+ 93, y , 32,173);
         for (var i = 0; i < 14; i++) {
-          ctx.strokeRect(x+31,y + 6 + i * 12, 58, 5);
+          ctx.strokeRect(selfRef.x+31,y + 6 + i * 12, 58, 5);
         }
+        selfRef.pozycja.forEach((element,whichElement) => {
+          if(element&&whichElement<=1){
+           ctx.fillStyle = selfRef.chosenPackageColor1;
+           ctx.fillRect(selfRef.x+32, 81*whichElement+ y+10, 55, 71);
+          }
+        });
+
+        ctx.font = "10px Arial";
+        ctx.fillStyle = "#777"
+        ctx.fillText(selfRef?.text?(selfRef?.text.toUpperCase()):(''), selfRef.x-32, selfRef.y+20);
 
       }
     });
@@ -560,36 +614,76 @@ const Przesuwnica2 = (x, y, d, color, i) => {
 const Przesuwnica3 = (x, y, d, color, i) => {
   if (i != null && i.typeof != "undefined") {
     d.push({
-      text: i.nitka * 10 + (-i.num % -4) + 3,
+      text: nomeForId(i.num),
       nitka: i.nitka,
       color: color,
+      pockageColor1: '',
+      pockageColor2: '',
+      pockageColor3: '',
+      pockageColor4: '',
+      pockageColor5: '',
+      pockageColor6: '',
+      packageId:'',
+      packageId1:'',
+      packageId2:'',
+      chosenPackageColor1:'#555',
+      chosenPackageColor2:'#555',
+      chosenPackageColor3:'#555',
       ruch:false,
       x: x,
       y: y,
       id: i.num,
       lp: false,
       pp: false,
-      pozycja: [false,false,false,false],
+      pozycja: [false,false],//nie więcej niż 2
+      pozycja1: [false,false],//nie więcej niż 2
+      pozycja2: [false,false, false],//nie więcej niż 2
       ids: ["0000000000","0000000000","0000000000","0000000000"],
-      type: 1,
-      draw: (ctx)=>{
+      type: 11,
+      draw: (ctx, selfRef)=>{
+
+
+
+
         ctx.strokeStyle = color;
         ctx.fillStyle = "#212830";
-        ctx.fillRect(x, y,327,171);
+        ctx.fillRect(selfRef.x, y,327,171);
         ctx.fillStyle = "#4B4F53";
         
-        ctx.strokeRect(x, y, 32, 171);
-        ctx.fillRect(x, y, 20, 171);
+        ctx.strokeRect(selfRef.x, y, 32, 171);
+        ctx.fillRect(selfRef.x, y, 20, 171);
 
 
-        for (var i = 0; i < 14; i++) {ctx.strokeRect(x+32,y + 6 + i * 12, 76, 5);}
-        ctx.strokeRect(x+109, y, 16, 171);
-        for (var i = 0; i < 14; i++) {ctx.strokeRect(x+125,y + 6 + i * 12, 76, 5);}
-        ctx.strokeRect(x+201, y, 16, 171);
-        for (var i = 0; i < 14; i++) {ctx.strokeRect(x+217,y + 6 + i * 12, 76, 5);}
+        for (var i = 0; i < 14; i++) {ctx.strokeRect(selfRef.x+32,y + 6 + i * 12, 76, 5);}
+        ctx.strokeRect(selfRef.x+109, y, 16, 171);
+        for (var i = 0; i < 14; i++) {ctx.strokeRect(selfRef.x+125,y + 6 + i * 12, 76, 5);}
+        ctx.strokeRect(selfRef.x+201, y, 16, 171);
+        for (var i = 0; i < 14; i++) {ctx.strokeRect(selfRef.x+217,y + 6 + i * 12, 76, 5);}
 
-        ctx.strokeRect(x+293, y, 32, 171);
-        ctx.fillRect(x+305, y, 20, 171);
+        ctx.strokeRect(selfRef.x+293, y, 32, 171);
+        ctx.fillRect(selfRef.x+305, y, 20, 171);
+
+        selfRef.pozycja.forEach((element,whichElement) => {
+          if(element&&whichElement<=1){
+           ctx.fillStyle = selfRef.chosenPackageColor1;
+           ctx.fillRect(selfRef.x+43, 81*whichElement+ y+10, 55, 71);
+          }
+        });
+        selfRef.pozycja1.forEach((element,whichElement) => {
+          if(element&&whichElement<=1){
+           ctx.fillStyle = selfRef.chosenPackageColor2;
+           ctx.fillRect(selfRef.x+135, 81*whichElement+ y+10, 55, 71);
+          }
+        });
+        selfRef.pozycja2.forEach((element,whichElement) => {
+          if(element&&whichElement<=1){
+           ctx.fillStyle = selfRef.chosenPackageColor3;
+           ctx.fillRect(selfRef.x+227, 81*whichElement+ y+10, 55, 71);
+          }
+        });
+        ctx.font = "10px Arial";
+        ctx.fillStyle = "#777"
+        ctx.fillText(selfRef?.text?(selfRef?.text.toUpperCase()):(''), selfRef.x-32, selfRef.y+20);
       }
     });
     i.num++;
@@ -599,7 +693,7 @@ const Przesuwnica3 = (x, y, d, color, i) => {
 
 const NitkaBuforuNaDole = (x, dataArray, i) => {
   PrzenosnikBufor2(x, 2379, dataArray, "#444B53", i);
-  PrzenosnikBufor2(x, 2550, dataArray, "#444B53", i);
+  PrzenosnikBufor2(x, 2555, dataArray, "#444B53", i);
 };
 
 const Wjazdowe = (dataArray, i) => {
@@ -611,7 +705,7 @@ const Wjazdowe = (dataArray, i) => {
   PrzenosnikWjazdowy1(462, 166, dataArray, "#444B53", i);
   PrzenosnikDlugi(561, 0, dataArray, "#444B53", i);
   PrzenosnikWjazdowyGlowny(739, 76, dataArray, "#444B53", i);
-  PrzenosnikSzeroki(830, 109, dataArray, "#444B53", i);
+  //PrzenosnikSzeroki(830, 109, dataArray, "#444B53", i);
   PrzenosnikMalutki(1003, 202, dataArray, "#444B53", i);
 };
 
@@ -626,7 +720,7 @@ const NitkaBuforu = (x, dataArray, i) => {
 const NitkaBuforuFilar = (x, dataArray, i) => {
   PrzenosnikDlugi(x, 570, dataArray, "#444B53", i);
   PrzenosnikDlugi(x, 896, dataArray, "#444B53", i);
-  PrzenosnikDlugiFilar(x, 1222, dataArray, "#444B53", i);
+  //PrzenosnikDlugiFilar(x, 1222, dataArray, "#444B53", i);
   PrzenosnikDlugi(x, 1547, dataArray, "#444B53", i);
   PrzenosnikDlugiKrotszy(x, 1873, dataArray, "#444B53", i);
 };
@@ -644,11 +738,29 @@ const initialize = () => {
     if(j==3){NitkaBuforuFilar(j*93,dataArray, i);}
     else NitkaBuforu(j*93,dataArray, i);
   }
-  Przesuwnica2(0, 2196, dataArray, "#444B53", i);
+  Przesuwnica2(0, 2191, dataArray, "#444B53", i);
   for(var j=0;j<12;j++){NitkaBuforuNaDole(j*93,dataArray, i);}
-  Przesuwnica3(57, 2734, dataArray, "#444B53", i);
-
+  Przesuwnica3(57, 2736, dataArray, "#444B53", i);
+console.log(dataArray)
   return dataArray;
 };
 
 export default Canvas;
+
+const nomeForId = (id) => {
+
+  var map=[
+    'pr1','pr11','pr21','pr31','pr81','pr19','pr19','pr19','pr19','pr19',
+    'pr1','pr11','pr21','pr31','pr81','pr19','pr19','pr19','pr19','pr19',
+    'pr1','pr11','pr21','pr31','pr81','pr19','pr19','pr19','pr19','pr19',
+    'pr1','pr11','pr21','pr31','pr81','pr19','pr19','pr19','pr19','pr19',
+    'pr1','pr11','pr21','pr31','pr81','pr19','pr19','pr19','pr19','pr19',
+    'pr1','pr11','pr21','pr31','pr81','pr19','pr19','pr19','pr19','pr19',
+    'pr1','pr11','pr21','pr31','pr81','pr19','pr19','pr19','pr19','pr19',
+    'pr1','pr11','pr21','pr31','pr81','pr19','pr19','pr19','pr19','pr19',
+    'pr1','pr11','pr21','pr31','pr81','pr19','pr19','pr19','pr19','pr19',
+    'pr1','pr11','pr21','pr31','pr81','pr19','pr19','pr19','pr19','pr19',
+  ]
+  return map[id];
+
+}

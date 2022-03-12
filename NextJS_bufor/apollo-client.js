@@ -67,3 +67,23 @@ mutation usersList($product:ProductUpdateInput!, $id: ID!){
     name
   }} 
   `;
+
+export const getConveyors = gql`
+query getConveyors($name1:String!, $name2:String!, $name3:String!, ){
+  allConveyors{
+    plcId,
+    packageId,
+    position0,
+    position1,
+    position2,
+    position3,
+    colorRegular,
+    colorClicked
+  },
+  allVariables(where:{name_in:[$name1,$name2,$name3]}){
+    name,
+    value
+  }
+} 
+
+`;

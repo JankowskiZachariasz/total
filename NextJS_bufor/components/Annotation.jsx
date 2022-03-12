@@ -1,46 +1,24 @@
 import React, { useRef, useEffect } from "react";
-import "./Annotation.module.css";
+import styles from "./Annotation.module.css";
 import Box from "../graphics/Db";
 import Info from "../graphics/Info";
 
 const Anno = (props) => {
   return (
-    props.weing?(
+    
 
-      <div style={{ top: props.y + "px", left: props.x + "px" }} className="anno">
-      {svgDraw()}
-      <div className="annotationText">
-        <div className="itemAnno">
-        <Info></Info>
-          <div className="itemCorrection">{"Paleta WEING"}</div>
-        </div>
+    <div style={{ top: props.y + "px", left: props.x + "px" }} className={styles.anno}>
+    {svgDraw()}
+    <div className={styles.annotationText}>
+      <div className={styles.itemAnno}>
+        <Box></Box>
+        <div className={styles.itemCorrection}>{props.nrItemu}</div>
       </div>
+      <div className="annotationCD">{props.children}</div>
     </div>
+  </div>
 
-    ):(
-      !props.nrItemu?(
-        <div style={{ top: props.y + "px", left: props.x + "px" }} className="anno">
-        {svgDraw()}
-        <div className="annotationText">
-          <div className="itemAnno">
-          <Info></Info>
-            <div className="itemCorrection">{"Nieznany Item"}</div>
-          </div>
-        </div>
-      </div>):(
-
-      <div style={{ top: props.y + "px", left: props.x + "px" }} className="anno">
-      {svgDraw()}
-      <div className="annotationText">
-        <div className="itemAnno">
-          <Box></Box>
-          <div className="itemCorrection">{props.nrItemu}</div>
-        </div>
-        <div className="annotationCD">{props.children}</div>
-      </div>
-    </div>)
-
-    )
+    
  
   );
 };

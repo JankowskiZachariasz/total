@@ -146,6 +146,7 @@ const Table = (props)=>{
       {
           title:'Nazwa',
           field:'Nazwa',
+          editable: 'onAdd',
           validate: rowData => {
             if(rowData?.Nazwa?.length>0&&rowData?.Nazwa?.length<=15)
             return true;
@@ -156,6 +157,7 @@ const Table = (props)=>{
       {
           title:'Seria 1',
           field:'Seria1',
+          editable: 'onAdd',
           validate: rowData => {
             var num = Number.parseInt(rowData.Seria1)
             if(Number.isNaN(num))return false
@@ -165,6 +167,7 @@ const Table = (props)=>{
       {
           title:'Seria 2',
           field:'Seria2',
+          editable: 'onAdd',
           validate: rowData => {
             var num = Number.parseInt(rowData.Seria2)
             if(Number.isNaN(num))return false
@@ -174,6 +177,7 @@ const Table = (props)=>{
       { 
           title:'Seria 3',
           field:'Seria3',
+          editable: 'onAdd',
           validate: rowData => {
             var num = Number.parseInt(rowData.Seria3)
             if(Number.isNaN(num))return false
@@ -186,7 +190,7 @@ const Table = (props)=>{
           editable: 'never'
       },
       {
-          title:'Długość',
+          title:'Liczba Paczek',
           field:'dlugosc',
           editable: 'onUpdate',
           

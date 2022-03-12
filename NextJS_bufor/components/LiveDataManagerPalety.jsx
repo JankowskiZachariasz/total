@@ -1,10 +1,13 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import Canvas from "./CanvasWidokLinii";
+import client,{getProducts, getConveyors, createProduct, updateProduct, authClient} from "../apollo-client";
+import useUser from "../lib/useUser";
 
 class LiveDataManager extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      shifter:[],
       ids:[],
       colors:["#4E5166","#7c90a0","#B5AA9D","#747274","#7c90a0","#1A1423","#B5AA9D"],
     };
@@ -24,18 +27,22 @@ class LiveDataManager extends Component {
   setids = (x) => {
     this.setState({ ids: x });
   };
+  setShifter = (x) => {
+    this.setState({ shifter: x });
+  };
 
 
   render() {
     return (
       <FetchData
+          setShifter={this.setShifter}
           setids={this.setids}
           getdata={this.getdata}
           setdata={this.setdata}
+          przenosnikClick={this.props.przenosnikClick}
       >
         <Canvas
-          position={this.props.position}
-          setposition={this.props.setposition}
+          shifters={this.state.shifter}
           scale={this.props.scale} setscale={this.props.setscale} 
           idColored={this.props.idColored}
           przenosnikClick={this.props.przenosnikClick}
@@ -52,142 +59,123 @@ class LiveDataManager extends Component {
 
 function FetchData(props) {
 
+
+  const {token} = useUser();
   React.useEffect(() => {
     const interval = setInterval(() => {
-      const requestOptions = {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-      };
-
-
-      fetch("http://192.168.0.189:8080/plc/getdata/", requestOptions)
-        .then((res) => res.json())
-        .then((d) => {
-
-          przepiszDaneSerwerowe(d[0], props.getdata, props.setdata, props.setids);
+      authClient(token).query({
+        query:getConveyors, 
+        variables:{
           
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+            "name1": "shifter1v1",
+            "name2": "shifter2v1",
+            "name3": "shifter3v1"
+          
+        } 
+    }).then((res)=>{
+   
+      var shifters = [0,0,0];
+      res.data.allVariables.forEach(element => {
+        switch(element.name){
+          case('shifter1v1'):{shifters[0] = isNaN(Number.parseInt(element.value))?(0):(Number.parseInt(element.value)); break;}
+          case('shifter2v1'):{shifters[1] = isNaN(Number.parseInt(element.value))?(0):(Number.parseInt(element.value)); break;}
+          case('shifter3v1'):{shifters[2] = isNaN(Number.parseInt(element.value))?(0):(Number.parseInt(element.value)); break;}
+        }
+      });
+
+      props.setShifter(shifters);
+      przepiszDaneSerwerowe(res.data.allConveyors, props.getdata, props.setdata, props.setids);
+   
+    }).catch(e=>{console.log(e);})
     }, 1000);
     return () => clearInterval(interval);
   }, []);
   return props.children;
 }
 
-const przepiszDaneSerwerowe = (data_in,data_out_init,setdata,setids) =>{
+const przepiszDaneSerwerowe = (data_in,data_out_init,setdata,setids,colorsSet) =>{
   var ids = new Array()
+  var inputDataByPlcId = {};
+  data_in.forEach(element => {
+    inputDataByPlcId[element.plcId]=element;
+  });
   setdata(data_out_init().map((e,i)=>{
+ 
 
-    if(i>=89&&i<=92){
+  
 
-      var palety = data_in["m"+(i-89)+"v1"];
-      if (palety==1){e.lp=false; e.pp=true;}
-      else if (palety==2){e.lp=true; e.pp=true;}
-      else{e.lp=false; e.pp=false;}
-      e.lp_id=data_in["m"+(i-89)+"v2"];//m0v3
-      e.pp_id=e.lp_id;
-
-    }
-    else if(i>=85&&i<=88){
-
-      var palety = data_in["m"+(i-81)+"v1"];
-      if (palety==1){e.lp=false; e.pp=true;}
-      else if (palety==2){e.lp=true; e.pp=true;}
-      else{e.lp=false; e.pp=false;}
-      e.lp_id=data_in["m"+(i-81)+"v2"];//m0v3
-      e.pp_id=e.lp_id;
-
-    }
-    else if(i>=80&&i<=84){
-
-      var palety = data_in["m"+(i-72)+"v1"];
-      if (palety==1){e.lp=false; e.pp=true;}
-      else if (palety==2){e.lp=true; e.pp=true;}
-      else{e.lp=false; e.pp=false;}
-      e.lp_id=data_in["m"+(i-72)+"v2"];//m0v3
-      e.pp_id=e.lp_id;
-
-    }
-    else if(i>=75&&i<=79){
-
-      var palety = data_in["m"+(i-63)+"v1"];
-      if (palety==1){e.lp=false; e.pp=true;}
-      else if (palety==2){e.lp=true; e.pp=true;}
-      else{e.lp=false; e.pp=false;}
-      e.lp_id=data_in["m"+(i-63)+"v2"];//m0v3
-      e.pp_id=e.lp_id;
-
+    e.pockageColor1 = inputDataByPlcId[i].colorRegular;
+    e.pockageColor2 = inputDataByPlcId[i].colorClicked;
+    if(e.pockageColor3!=null){
+      e.pockageColor3 = inputDataByPlcId[i+1].colorRegular;
+      e.pockageColor4 = inputDataByPlcId[i+1].colorClicked;
+      e.pockageColor5 = inputDataByPlcId[i+2].colorRegular;
+      e.pockageColor6 = inputDataByPlcId[i+2].colorClicked;
     }
 
-    else if(i>=72&&i<=74){
-
-      var palety = data_in["m"+(i-54)+"v1"];
-      if (palety==1){e.lp=false; e.pp=true;}
-      else if (palety==2){e.lp=true; e.pp=true;}
-      else{e.lp=false; e.pp=false;}
-      e.lp_id=data_in["m"+(i-54)+"v2"];//m0v3
-      e.pp_id=e.lp_id;
-
+    
+    
+    if(e.pozycja && inputDataByPlcId.hasOwnProperty(i.toString()))
+    {e.pozycja = [
+      inputDataByPlcId[i].position0,
+      inputDataByPlcId[i].position1,
+      inputDataByPlcId[i].position2,
+      inputDataByPlcId[i].position3];
+      e.packageId = inputDataByPlcId[i].packageId;
     }
+    
 
-    else if(i>=69&&i<=71){
-
-      var palety = data_in["m"+(i-48)+"v1"];
-      if (palety==1){e.lp=false; e.pp=true;}
-      else if (palety==2){e.lp=true; e.pp=true;}
-      else{e.lp=false; e.pp=false;}
-      e.lp_id=data_in["m"+(i-48)+"v2"];//m0v3
-      e.pp_id=e.lp_id;
-
+    if(e.pozycja1 && inputDataByPlcId.hasOwnProperty((i+1).toString()))
+    {e.pozycja1 = [
+      inputDataByPlcId[i+1].position0,
+      inputDataByPlcId[i+1].position1,
+      inputDataByPlcId[i+1].position2,
+      inputDataByPlcId[i+1].position3];
+      e.packageId1 = inputDataByPlcId[i+1].packageId;
     }
+    
 
-    else if(i>=0&&i<=67){
-
-      var a = ((i-(i%4))/4)-16;
-      var palety = data_in["m"+(i-35-(a*8))+"v1"];
-      if (palety==1){e.lp=true; e.pp=false;}
-      else if (palety==2){e.lp=true; e.pp=true;}
-      else{e.lp=false; e.pp=false;}
-      e.lp_id=data_in["m"+(i-35-(a*8))+"v2"];//m0v3
-      e.pp_id=e.lp_id;
-
+    if(e.pozycja2 && inputDataByPlcId.hasOwnProperty((i+2).toString()))
+    {e.pozycja2 = [
+      inputDataByPlcId[i+2].position0,
+      inputDataByPlcId[i+2].position1,
+      inputDataByPlcId[i+2].position2,
+      inputDataByPlcId[i+2].position3];
+      e.packageId2 = inputDataByPlcId[i+2].packageId;
+    }
+    
+    if(e.pockageColor3 && inputDataByPlcId.hasOwnProperty(i.toString())){
+      e.pockageColor3 = inputDataByPlcId[i+1].colorRegular;
+      e.pockageColor4 = inputDataByPlcId[i+1].colorClicked;
+      e.pockageColor5 = inputDataByPlcId[i+2].colorRegular;
+      e.pockageColor6 = inputDataByPlcId[i+2].colorClicked;
     }
 
 
+    //init colors
 
-    // if(i<=92||i==95||i==96||i==97){
-    //   e.lp=data_in["m"+i+"v1"];//m0v1
-    //   e.pp=data_in["m"+i+"v2"];//m0v2
-    //   e.lp_id=data_in["m"+i+"v3"];//m0v3
-    //   e.pp_id=data_in["m"+i+"v4"];//m0v4
-    //   if(e.lp!==true&&e.lp!==false)e.lp=false;
-    //   if(e.pp!==true&&e.pp!==false)e.pp=false;
+    if(e.chosenPackageColor1!='#'+inputDataByPlcId[i].colorRegular
+    && e.chosenPackageColor1!='#'+inputDataByPlcId[i].colorClicked)
+      e.chosenPackageColor1 = '#'+inputDataByPlcId[i].colorRegular;
 
-    // }
-    // else if(i==93||i==94){
-    //   e.lp=data_in["m"+i+"v1"];//m0v1
-    //   e.pp=data_in["m"+i+"v2"];//m0v2
-    //   e.lp_id=data_in["m"+i+"v3"];//m0v3
-    //   e.pp_id=data_in["m"+i+"v4"];//m0v4
-    //   e.pozycja=data_in["m"+i+"v6"];//m0v6
-    //   e.punktDocelowy=data_in["m"+i+"v7"];//m0v7
+    if(e.chosenPackageColor3!=null){
+       
+        if(e.chosenPackageColor2!='#'+inputDataByPlcId[i+1].colorRegular
+        && e.chosenPackageColor2!='#'+inputDataByPlcId[i+1].colorClicked)
+        e.chosenPackageColor2 = '#'+inputDataByPlcId[i+1].colorRegular;
       
+  
+        if(e.chosenPackageColor3!='#'+inputDataByPlcId[i+2].colorRegular
+        && e.chosenPackageColor3!='#'+inputDataByPlcId[i+2].colorClicked)
+        e.chosenPackageColor3 = '#'+inputDataByPlcId[i+2].colorRegular;
+    }
 
-    //   if(e.lp!==true&&e.lp!==false)e.lp=false;
-    //   if(e.pp!==true&&e.pp!==false)e.pp=false;
+      
+    
 
-    // }
-    if(!ids.includes(e.lp_id)&e.lp&e.lp_id!="0000000000"&e.lp_id!="999999"&e.lp_id!="")ids.push(e.lp_id)
-    if(!ids.includes(e.pp_id)&e.lp&e.pp_id!="0000000000"&e.pp_id!="999999"&e.pp_id!="")ids.push(e.pp_id)
     return e;
-  }))
+  }));
   setids(ids);
-  //console.log(ids);
 }
 
 export default LiveDataManager;
