@@ -1,0 +1,67 @@
+.body {
+    --fainted:#545454;
+    --black: #8f8f8f;
+    --blackBlack: #161616;
+  }
+
+
+.menuItemMaster{
+    padding-top: 9px;
+    padding-bottom: 9px;
+    height: 32px;
+    display: grid;
+  grid-template-columns: 37px 1fr;
+  grid-template-areas: 
+    "picMenu descMenu";
+    cursor: pointer;
+    color: var(--fainted);
+    fill:var(--fainted);
+    stroke: var(--fainted);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-weight: normal;
+
+}
+
+.menuItemMaster.enabled{
+    color: var(--blackBlack);
+    fill:var(--blackBlack);
+    stroke: var(--blackBlack);
+    font-weight: bold;
+
+}
+
+.menuItemMaster.enabled:hover{
+    color: var(--blackBlack);
+    fill:var(--blackBlack);
+    stroke: var(--blackBlack);
+
+}
+
+
+.menuItemMaster:hover{
+    color: var(--black);
+    fill: var(--black);
+    stroke: var(--black);
+}
+
+.menuItemImage{
+    display: inline-block;
+    grid-area: picMenu;
+}
+
+.menuItemText{
+    grid-area: descMenu;
+    color: inherit;
+    font-weight: inherit;
+    font-size: 19px;
+    display: inline-block;
+    font-family: "Raleway", sans-serif;
+    padding-left: 5px;
+    align-self: center;
+}
+

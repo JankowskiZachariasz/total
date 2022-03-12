@@ -1,0 +1,36 @@
+.loginWindowDividor{
+    display: grid;
+    height: 100%;
+    grid-template-columns: 100%;
+    grid-template-areas: 
+      "logoSection"
+      "formInput"
+      "buttonSection";
+     
+    
+    
+}
+
+.buttonFloatLeft{
+    float:left;
+}
+
+.buttonFloatRight{
+
+    float:right;
+}
+.logoSection{
+    grid-area: logoSection;
+}
+.formInput{
+    grid-area: formInput;
+    display: grid;
+    
+}
+.buttonSection{
+    margin-top: auto;
+    padding-top: 15px;
+    padding-bottom: 4px;
+    grid-area: buttonSection;
+}
+

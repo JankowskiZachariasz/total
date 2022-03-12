@@ -1,0 +1,30 @@
+
+.window{
+       
+
+        background-color: white;
+        position: fixed;
+        width: 500px;
+        height: 350px;
+        top: 30%;
+        left: 50%;
+        margin-top: -100px; /* Negative half of height. */
+        margin-left: -290px; /* Negative half of width. */
+        box-shadow: 0 8px 6px -6px #ABA8A8;
+        padding:40px;
+}
+
+
+@media screen and (max-width: 1000px) {
+        .window{
+       
+        position: fixed;
+        width: calc(100% - 70px);
+        top: 50px;
+        left: 0%;
+        margin:0px;
+        padding-bottom: 400px;
+        padding-top: 100px;
+
+        }
+}

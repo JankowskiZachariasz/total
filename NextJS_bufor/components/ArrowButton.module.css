@@ -1,0 +1,90 @@
+.butttonArrowcontainer{
+  cursor: pointer;
+  padding:5px;
+  fill:#4A4747;
+  color: #4A4747;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
+.butttonArrowcontainerFaded:hover{
+    fill:#000000;
+    color: #000000;
+    -webkit-animation: fadeEnabled 0.1s;
+    animation: fadeEnabled 0.1s;
+  }
+
+
+  .butttonArrowcontainerFaded{
+    padding:5px;
+    fill:#4A4747;
+    color: #4A4747;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  
+  .butttonArrowcontainer:hover{
+      cursor: pointer;
+      fill:#000000;
+      color: #000000;
+      -webkit-animation: fadeEnabled 0.1s;
+      animation: fadeEnabled 0.1s;
+    }
+
+.buttonText{
+    color: inherit;
+    font-weight: bold;
+    font-size: 16px;
+    display: inline-block;
+    font-family: "Raleway", sans-serif;
+    
+}
+@-webkit-keyframes fadeEnabled {
+    from { color: #4A4747;
+        fill: #4A4747;} 
+    to {color: #000000;
+        fill: #000000;}
+  }
+  
+  @keyframes fadeEnabled {
+    from { color: #4A4747;
+        fill: #4A4747;}
+    to {color: #000000;
+        fill: #000000;}
+  }
+
+
+
+.buttonTextFaded{
+
+    color: #D2D2D2;
+    font-weight: bold;
+    font-size: 16px;
+    display: inline-block;
+    cursor:auto;
+
+}
+
+
+.buttonArrow{
+    padding-left: 5px;
+    display: inline-block;
+}
+
+#arrowEnabled{
+    fill:inherit;
+}
+#arrowDisabled{
+    fill:#D2D2D2;
+}
+

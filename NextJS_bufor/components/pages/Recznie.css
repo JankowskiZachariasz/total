@@ -1,0 +1,85 @@
+.RecznieLayout{
+    margin-top: -20px;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "okno1 okno1 ";
+}
+
+.FormBinder{
+    padding-left:20px;
+    padding-right: 20px;
+}
+.formSpacing{
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
+.formSpacingPriority{
+    padding-bottom: 15px;
+    padding-top: 20px;
+}
+
+.spezialSpacing{
+    padding-bottom: 30px;
+    padding-top: 0px;
+}
+
+.floatcheckbox{
+    margin-bottom: -10px;
+    margin-left: -12px;
+}
+
+@media screen and (max-width: 1000px) {
+    .FormBinder{
+        padding-left:5px;
+        padding-right: 5px;
+    }
+}
+
+.buttonSectionReczne{
+    padding-top: 65px;
+    padding-bottom: 40px;
+}
+
+.hideSection{
+    display: none;
+    height: 0px;
+}
+
+.buttonFloatLeft{
+    float:left;
+}
+
+.inlineZlecenie{
+   
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.inlineZlecenieText{
+    display: inline-block;
+    color: #1f1e1e;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: "Raleway", sans-serif;
+    margin-top: 5px;
+    padding-left: 3px;
+    
+}
+
+.inlineZlecenieObrazek{
+    display: inline-block;
+   
+    
+}
+
+.daneZlecenia{
+    padding-top: 14px;
+}
+
+.zlecenieDaneMargin{
+    margin-top: 22px;
+    margin-left: 30px;
+}

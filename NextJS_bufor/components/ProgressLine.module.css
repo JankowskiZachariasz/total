@@ -1,0 +1,30 @@
+.Homag_inline{
+    font-size: 15px;
+    display: inline-block;
+  }
+  
+  .homagGroup{
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    display: grid;
+    grid-template-columns: 80px 100px 1fr;
+  }
+
+  @media screen and (max-width: 1000px) {
+    .homagGroup{
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      display: grid;
+      grid-template-columns: 80px 0px 1fr;
+    }
+    .hmgPic{
+      
+      opacity:0;
+    }
+  }
+  
+  .Homag_picture{
+    padding-left: 5px;
+  }

@@ -1,0 +1,220 @@
+.HistoriaLayout{
+
+    max-width: 1200px;
+    display:grid;
+    grid-template-columns: 3fr 2fr;
+    grid-template-areas: 
+    "okno1 okno2 "
+    "okno1 okno2 "
+    "okno1 okno2 ";
+}
+
+.onlyPhone{
+  height:0px;
+  width:0px;
+  display:none;
+}
+
+.hidePhone{
+  display: inline;
+}
+
+.scrollKolejka2{
+  max-height: calc(100vh - 215px);
+
+}
+
+.allignChildren{
+
+  align-content: center;
+  display:flex;
+
+}
+
+.halfwiseGrid{
+  grid-template-rows: 30px 1fr 12r;
+  display:grid;
+}
+.inlineArchieved{
+
+  display: inline-block;
+
+}
+.itemboxplace{
+  padding-top:10px;
+}
+
+.itemname{
+  padding-left: 3px;
+  margin-top: 7px;
+}
+
+.floatRightArchieved{
+  margin-left: auto;
+
+}
+.multiplicityArchieved{
+  padding-right: 4px;
+  margin-top:6px;
+}
+.dbColor{
+color: rgb(102, 102, 102);
+stroke: rgb(102, 102, 102);
+fill: rgb(102, 102, 102);
+}
+.floatRightArchievedItem{
+  display: inline-block;
+}
+
+.czasArchieved{
+  font-size: 15px;
+  margin-top:auto;
+}
+
+.czasArchievedBold{
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.nazwaZlecenia{
+  max-width: 227px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  padding-top: 4px;
+  padding-left: 3px;
+  font-size: 20px;
+}
+
+.statusKolejka{
+  padding-top: 4px;
+  padding-left: 5px;
+}
+
+.archievedZlecenie{
+  width:calc (100%-1px);
+  height: 50px;
+border: #ddd;
+border-style: solid;
+border-width: 2px;
+  padding: 5px;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-top: 10px;
+  cursor: pointer;
+
+
+}
+
+.archievedWybrane{
+  width:calc (100%-1px);
+  height: 50px;
+border: black;
+border-style: solid;
+border-width: 2px;
+  padding: 5px;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-top: 10px;
+  cursor: pointer;
+
+
+}
+
+.customInput{
+font-size: 15px;
+padding: 5px;
+padding-left: 8px;
+padding-right: 8px;
+
+}
+
+.historiaPickerGRID{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 
+  "picker maszyna ";
+
+}
+
+.inlineHistoria{
+
+  height:30px;
+  margin-top: 8px;
+  display: inline-block;
+  grid-area: "maszyna";
+}
+
+.dataPicker{
+    height:30px;
+    padding-top: 10px;
+    cursor:pointer;
+    grid-area: "picker";
+}
+
+.scrollHistoria{
+    max-height: calc(100vh - 215px);
+    
+  }
+
+.scrollArchieve{
+  padding-right: 20px;
+  margin-right: -40px;
+    margin-top: 15px;
+    max-height: calc(100vh - 250px);
+    overflow-y: scroll;
+
+}
+
+
+
+@media screen and (max-width: 1000px) {
+
+  .scrollKolejka2{
+
+    max-height:max-content;
+
+  }
+
+    .HistoriaLayout{
+      grid-template-areas: 
+      "okno1 okno1 "
+      "okno2 okno2 "
+      "okno3 okno3 ";}
+
+      .scrollHistoria{
+        max-height: calc(100vh - 315px);
+        
+      }
+    
+    .scrollArchieve{
+        padding-right: 0px;
+        margin-right: 0px;
+        margin-top:15px;
+        max-height: calc(100vh - 380px);
+        overflow: scroll;
+       
+    }
+    
+}
+
+@media screen and (max-width: 1200px) {
+
+  .archievedZlecenie{
+    height: 74px;
+  }
+
+  .archievedWybrane{
+    height: 74px;
+  }
+
+  .hidePhone{
+    display: none;
+  }
+
+  .onlyPhone{
+    display:inline-block;
+    height:fit-content;
+    width:fit-content;
+  }
+    
+}

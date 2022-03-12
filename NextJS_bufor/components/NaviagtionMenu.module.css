@@ -1,0 +1,120 @@
+.navigation {
+  
+  margin: 0px;
+  margin-left: 20px;
+  display: grid;
+  width: 220px;
+  grid-template-rows: repeat(1fr);
+}
+
+.sidebar {
+  margin-right: 15px;
+  display: inline;
+  grid-area: sidebar;
+}
+@media screen and (max-width: 1000px) {
+  .sidebar{
+    display: none;
+  }
+}
+
+
+.newJob {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  padding: 10px;
+  width: 200px;
+  height: 20px;
+  background-color: #9d9d9d;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.newJob:hover {
+  background-color: #b4b4b4;
+}
+
+.newJobGrid {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+.newJobPic {
+  display: inline-block;
+  padding-bottom: 2px;
+}
+
+.newJobDesc {
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  display: inline-block;
+  font-family: "Raleway", sans-serif;
+  padding-left: 5px;
+  align-self: center;
+}
+
+.menuExpandable {
+  height: 0px;
+  overflow: hidden;
+  
+}
+
+.menuExpandable.open {
+  height: fit-content;
+  -webkit-animation: open 0.15s;
+    animation: open 0.15s;
+    overflow: hidden;
+    display:block;
+}
+
+.menuExpandable.opened {
+  height: fit-content;
+    overflow: hidden;
+    display:block;
+}
+
+.menuExpandable.closed {
+  height: 0px;
+  -webkit-animation: collapse 0.1s;
+    animation: collapse 0.1s;
+  overflow: hidden;
+}
+
+@-webkit-keyframes collapse {
+  from {
+    height: 76px;
+  }
+  to {
+    height: 0px;
+  }
+}
+
+@keyframes collapse {
+  from {
+    height: 76px;
+  }
+  to {
+    height: 0px;
+  }
+}
+
+@-webkit-keyframes open {
+  from {
+    height: 0px;
+  }
+  to {
+    height: 76px;
+  }
+}
+
+@keyframes open {
+  from {
+    height: 0px;
+  }
+  to {
+    height: 76px;
+  }
+}

@@ -1,0 +1,54 @@
+2022-02-26 13:43:23 - Starting C:\Program Files\node-v16.14.0-win-x64\node.exe  --harmony C:\Users\Administrator\Desktop\BUFOR_ROOT\NextJS_bufor\node_modules\node-windows\lib\wrapper.js --file C:\Users\Administrator\Desktop\BUFOR_ROOT\NextJS_bufor\server\index.js --scriptoptions= --log "BUFOR_SERVER wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2022-02-26 13:43:23 - Started 1256
+2022-02-26 13:43:51 - Starting C:\Program Files\node-v16.14.0-win-x64\node.exe  --harmony C:\Users\Administrator\Desktop\BUFOR_ROOT\NextJS_bufor\node_modules\node-windows\lib\wrapper.js --file C:\Users\Administrator\Desktop\BUFOR_ROOT\NextJS_bufor\server\index.js --scriptoptions= --log "BUFOR_SERVER wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2022-02-26 13:43:51 - Started 7052
+2022-02-26 13:44:42 - Starting C:\Program Files\node-v16.14.0-win-x64\node.exe  --harmony C:\Users\Administrator\Desktop\BUFOR_ROOT\NextJS_bufor\node_modules\node-windows\lib\wrapper.js --file C:\Users\Administrator\Desktop\BUFOR_ROOT\NextJS_bufor\server\index.js --scriptoptions= --log "BUFOR_SERVER wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2022-02-26 13:44:42 - Started 6108
+2022-02-26 13:46:51 - Stopping bufor_server.exe
+2022-02-26 13:46:51 - ProcessKill 6108
+2022-02-26 13:46:51 - Shutdown exception
+Message:A system shutdown is in progress. (Exception from HRESULT: 0x8007045B)
+Stacktrace:   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   at System.Management.ManagementScope.InitializeGuts(Object o)
+   at System.Management.ManagementScope.Initialize()
+   at System.Management.ManagementObjectSearcher.Initialize()
+   at System.Management.ManagementObjectSearcher.Get()
+   at winsw.WrapperService.GetChildPids(Int32 pid)
+   at winsw.WrapperService.StopProcessAndChildren(Int32 pid)
+   at winsw.WrapperService.StopIt()
+   at winsw.WrapperService.OnShutdown()
+2022-02-26 13:47:29 - Starting C:\Program Files\node-v16.14.0-win-x64\node.exe  --harmony C:\Users\Administrator\Desktop\BUFOR_ROOT\NextJS_bufor\node_modules\node-windows\lib\wrapper.js --file C:\Users\Administrator\Desktop\BUFOR_ROOT\NextJS_bufor\server\index.js --scriptoptions= --log "BUFOR_SERVER wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2022-02-26 13:47:30 - Started 4468
+2022-02-28 17:04:07 - Stopping bufor_server.exe
+2022-02-28 17:04:07 - ProcessKill 4468
+2022-02-28 17:04:07 - Shutdown exception
+Message:A system shutdown is in progress. (Exception from HRESULT: 0x8007045B)
+Stacktrace:   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   at System.Management.ManagementScope.InitializeGuts(Object o)
+   at System.Management.ManagementScope.Initialize()
+   at System.Management.ManagementObjectSearcher.Initialize()
+   at System.Management.ManagementObjectSearcher.Get()
+   at winsw.WrapperService.GetChildPids(Int32 pid)
+   at winsw.WrapperService.StopProcessAndChildren(Int32 pid)
+   at winsw.WrapperService.StopIt()
+   at winsw.WrapperService.OnShutdown()
+2022-03-01 08:53:08 - Starting C:\Program Files\node-v16.14.0-win-x64\node.exe  --harmony C:\Users\Administrator\Desktop\BUFOR_ROOT\NextJS_bufor\node_modules\node-windows\lib\wrapper.js --file C:\Users\Administrator\Desktop\BUFOR_ROOT\NextJS_bufor\server\index.js --scriptoptions= --log "BUFOR_SERVER wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2022-03-01 08:53:08 - Started 3732
+2022-03-05 08:05:10 - Starting C:\Program Files\node-v16.14.0-win-x64\node.exe  --harmony C:\Users\Administrator\Desktop\BUFOR_ROOT\NextJS_bufor\node_modules\node-windows\lib\wrapper.js --file C:\Users\Administrator\Desktop\BUFOR_ROOT\NextJS_bufor\server\index.js --scriptoptions= --log "BUFOR_SERVER wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2022-03-05 08:05:10 - Started 4740
+2022-03-06 22:15:11 - Starting C:\Program Files\node-v16.14.0-win-x64\node.exe  --harmony C:\Users\Administrator\Desktop\BUFOR_ROOT\NextJS_bufor\node_modules\node-windows\lib\wrapper.js --file C:\Users\Administrator\Desktop\BUFOR_ROOT\NextJS_bufor\server\index.js --scriptoptions= --log "BUFOR_SERVER wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2022-03-06 22:15:11 - Started 5096
+2022-03-12 08:01:31 - Stopping bufor_server.exe
+2022-03-12 08:01:31 - ProcessKill 5096
+2022-03-12 08:01:32 - Found child process: 4632 Name: conhost.exe
+2022-03-12 08:01:32 - Found child process: 6376 Name: node.exe
+2022-03-12 08:01:32 - Stopping process 4632
+2022-03-12 08:01:32 - Send SIGINT 4632
+2022-03-12 08:01:32 - SIGINT to 4632 failed - Killing as fallback
+2022-03-12 08:01:32 - Stopping process 6376
+2022-03-12 08:01:32 - Send SIGINT 6376
+2022-03-12 08:01:32 - SIGINT to 6376 failed - Killing as fallback
+2022-03-12 08:01:32 - Stopping process 5096
+2022-03-12 08:01:32 - Send SIGINT 5096
+2022-03-12 08:01:32 - SIGINT to 5096 failed - Killing as fallback
+2022-03-12 08:01:32 - Finished bufor_server.exe

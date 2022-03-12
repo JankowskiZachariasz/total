@@ -1,0 +1,14 @@
+.CanvasProgressWidokLinii{
+    /* overflow:hidden;
+    max-width:100%; */
+    overflow-x: scroll;
+    height:30px;
+
+    
+}
+
+.canvasProgressWrapper{
+    overflow-x: hidden;
+    
+}
+

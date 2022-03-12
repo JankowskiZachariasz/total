@@ -1,0 +1,23 @@
+
+.loginPrompt{
+    background-color: rgb(207, 15, 54);
+    padding: 10px;
+    margin-bottom: 5px;
+    color:white;
+    display: grid;
+    grid-template-columns: 1fr 21px;
+}
+
+.inlinePrompt{
+
+    display: inline-block;
+}
+
+.cross{
+    padding: 3px;
+    cursor: pointer;
+}
+
+.promptHide{
+    display: none;
+}

@@ -1,0 +1,36 @@
+.rowInlineForm{
+    
+    height: 32px;
+    display: grid;
+  grid-template-columns: 35% 65%;
+  grid-template-areas: 
+    "formDescriptor limitWidth";
+   
+}
+
+.floatRight{
+    margin-left: auto;
+}
+
+.formDescriptor{
+    
+    color: #4A4747;
+    font-weight: bold;
+    margin-top: auto;
+    padding-bottom: 1px;
+    display: flex;
+    grid-area: formDescriptor;
+    font-size: 15px;
+    font-family: "Raleway", sans-serif;
+}
+
+
+.limitWidth{
+   
+
+    display: inline-grid;
+    grid-area: limitWidth;
+  
+}
+
+

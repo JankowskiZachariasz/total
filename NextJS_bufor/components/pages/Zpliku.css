@@ -1,0 +1,150 @@
+.zPlikuLayout {
+  margin-top: -20px;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "okno1 okno1 ";
+}
+.phoneDeleteDodawanie {
+  display: inline-block;
+}
+
+.promptPlaceDodawanie{
+  margin-bottom:-20px;
+  padding-top: 50px;
+  padding-bottom: 0px;
+}
+
+
+@media screen and (max-width: 1000px) {
+  /* .zPlikuLayout {
+    grid-template-areas: "okno1 okno1 ";
+  } */
+
+  .phoneDeleteDodawanie {
+    opacity: 0;
+    height: 0px;
+    width: 0px;
+  }
+
+  .HeaderDodawanie {
+    display: grid;
+    grid-template-columns: 0.2fr 1fr 0fr 1fr 1fr 1fr 1fr 1fr;
+
+  }
+  
+  .wierszGridDodawanie {
+
+    display: grid;
+    grid-template-columns: 0.2fr 1fr 0fr 1fr 1fr 1fr 1fr 1fr;
+
+  }
+
+
+
+  .tabelkaDodawanie {
+    padding: 5px;
+  }
+}
+
+.outerUploadButton {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.inneruploadButton {
+  border-style: solid;
+  padding: 40px;
+  cursor: pointer;
+}
+
+.inneruploadButton:hover {
+  background-color: whitesmoke;
+}
+
+.inputfile {
+  display: none;
+}
+
+.inlineCaption {
+  display: inline-block;
+  padding-top: 14px;
+}
+
+.captionExcel {
+  display: inline-block;
+  padding: 7px;
+}
+
+.caption {
+  display: flex;
+  align-content: center;
+}
+
+.tabelkaDodawanie {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-left:20px;
+}
+
+.HeaderDodawanie {
+  display: grid;
+  grid-template-columns: 0.2fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  width: 100%;
+  font-weight: bold;
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+.wierszGridDodawanie {
+  box-shadow: inset -14px 0px 6px -9px white;
+  display: grid;
+  grid-template-columns: 0.2fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  width: 100%;
+  font-size: 15px;
+  margin-top: 10px;
+  padding-top:10px;
+  padding-left: 16px;
+  margin-left: -16px;
+}
+
+.wierszGridDodawanie:hover {
+    box-shadow: inset -14px 0px 6px -9px whitesmoke;
+    background-color: whitesmoke;
+  }
+  
+
+.checkBoxDodawanie{
+  padding-bottom: 8px;
+  margin-top:-5px;
+}
+
+
+.errorCorrection {
+ 
+  padding: 9px;
+  margin-top:-5px;
+  padding-left: 10px;
+  
+}
+
+.wierszGridDodawanieError{
+    box-shadow: inset -14px 0px 6px -9px #FBC0C0;
+    background-color: #FBC0C0;
+    cursor: pointer;
+}
+
+.wierszGridDodawanieError:hover{
+    box-shadow: inset -14px 0px 6px -9px #FEDEDE;
+    background-color: #FEDEDE;
+    cursor: pointer;
+}
+
+
+.windowBottom{
+  
+    padding-top:30px;
+    padding-bottom: 30px;
+    padding-right: 7px;
+}

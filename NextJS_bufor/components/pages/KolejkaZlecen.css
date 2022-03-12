@@ -1,0 +1,361 @@
+.limitSzczegolyWidth{
+max-width: 360px;
+
+}
+
+.inlineTime{
+  display: inline;
+  padding-left: 5px;
+  font-weight: bold;
+}
+.zdrazenieDesc{
+padding-top:5px;
+overflow-x: wrap;
+max-width: 90%;
+}
+.zdarzenie{
+  width:100%;
+  padding:10px;
+}
+
+.zdarzeniKolejka{
+  padding-top: 25px;
+}
+
+.row-InlineFormKolejka{
+    
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  grid-template-areas: 
+  "formDescriptorKolejka limitWidthKolejka";
+ 
+}
+
+.formDescriptorKolejka{
+    
+  padding-top:14px;
+  height:30px;
+  color: #4A4747;
+  font-weight: bold;
+  display: inline-grid;
+  grid-area: formDescriptorKolejka;
+  font-size: 15px;
+  font-family: "Raleway", sans-serif;
+}
+
+
+.limitWidthKolejka{
+ 
+  height:30px;
+  display: inline-grid;
+  grid-area: limitWidthKolejka;
+
+}
+
+
+.popupInline{
+  display: inline-block;
+}
+.komentarzdiv{
+  padding-top:30px
+}
+
+.promptSection{
+  padding-top:16px;
+}
+
+.AnulujPromptGreen{
+  background-color: #79C385;
+  padding: 10px;
+  margin-bottom: 5px;
+  color:white;
+  display: grid;
+  grid-template-columns: 1fr 21px;
+}
+
+.AnulujPromptOrange{
+  background-color: #F4B47B;
+  padding: 10px;
+  margin-bottom: 5px;
+  color:white;
+  display: grid;
+  grid-template-columns: 1fr 21px;
+}
+
+.inline-prompt{
+
+  display: inline-block;
+}
+
+.ammendButton{
+  display:grid;
+  grid-template-columns: 40px 1fr;
+  cursor: pointer;
+  padding:5px;
+}
+
+.inlineAmmend{
+  padding-right: 9px;
+  display: inline-block;
+}
+.ammendPhotoAdjust{
+  margin-top:-2px;
+}
+
+.dostepneAkcje{
+  padding-left: 15px;
+  padding-top: 15px;
+  padding-bottom: 5px;
+}
+
+.kolejkaLayout{
+
+    max-width: 1200px;
+    display:grid;
+    grid-template-columns: 3fr 2fr;
+    grid-template-areas: 
+    "okno1 okno2 "
+    "okno1 okno2 "
+    "okno1 okno2 ";
+}
+
+.buttonPlacement{
+  margin-top: 30px;
+}
+
+.Dane{
+  padding-bottom: 20px;
+}
+
+.infoAlignment{
+
+  font-size: 13px;
+  width:100%;
+  padding-top: 22px;
+}
+
+  .kolumna{
+      margin-top: -2px;
+      background-color: white;
+   
+  }
+
+  .homagCaption{
+      padding-top: 5px;
+      margin-left:-4px;
+      padding-bottom: 5px;
+  }
+
+  .zleceniaGrid{
+      margin-left:-15px;
+      display: grid;
+    grid-template-columns: 60px 1fr 1fr 1fr;
+  }
+
+  .kolumnaTop{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .scrollKolejka{
+    max-height: calc(100vh - 215px);
+
+  }
+
+  .scrollKolejka2{
+    max-height: calc(100vh - 215px);
+  
+  }
+
+
+
+  .timeAligner{
+    height:74px;
+  }
+
+  .scrollZlecenia{
+    
+    max-height: calc(100vh - 250px);
+    overflow-y: scroll;
+    overflow-x:hidden;
+    padding-right: 20px;
+    margin-right: -40px;
+   
+  }
+
+  .scrollZlecenia2{
+    
+    max-height: calc(100vh - 183px);
+    overflow-y: scroll;
+    overflow-x:hidden;
+    padding-right: 20px;
+    margin-right: -40px;
+   
+  }
+
+  .outerScroll{
+
+    width: 100%;
+    
+    position: relative;
+  }
+
+
+  .innerScroll{
+      position: absolute;
+      top:-2px;
+      left:0px;
+      height: 10px;
+      width: calc(100% + 20px) ;
+      margin-left: -15px;
+      box-shadow: inset 0px 4px 2px #FFF;
+  }
+
+  .innerScrollBottom{
+
+    position: absolute;
+    bottom:0px;
+    left:0px;
+    height: 10px;
+    width: calc(100% + 20px) ;
+    margin-left: -15px;
+    box-shadow: inset 0px -4px 2px #FFF;
+
+  }
+  /* .scrollZlecenia::-webkit-scrollbar {
+    display: none;
+  }
+  
+  
+  .scrollZlecenia {
+    -ms-overflow-style: none;  
+    scrollbar-width: none;  
+  } */
+
+  /* .scrollZlecenia2::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollZlecenia2 {
+    -ms-overflow-style: none; 
+    scrollbar-width: none;  
+  } */
+
+  @media screen and (max-width: 1000px) {
+
+    .limitSzczegolyWidth{
+      max-width: fit-content;
+      padding-right: 20px;
+    }
+
+    .kolejkaLayout{
+      grid-template-areas: 
+      "okno1 okno1 "
+      "okno2 okno2 "
+      "okno3 okno3 ";}
+
+      .scrollKolejka{
+
+        max-height: calc(100vh - 305px);
+
+      }
+
+      .scrollKolejka2{
+
+        max-height:max-content;
+
+      }
+
+      .scrollZlecenia{
+    
+        max-height: calc(100vh - 360px);
+        overflow-y: scroll;
+        
+      }
+      .scrollZlecenia2{
+    
+        max-height:max-content;
+        overflow-y: hidden;
+        
+        
+      }
+  
+  }
+
+  .row-InlineFormM{
+    
+    height: 32px;
+    display: grid;
+  grid-template-columns: 60% 40%;
+  grid-template-areas: 
+    "formDescriptor limitWidth";
+   
+}
+
+
+.formDescriptorM{
+    
+    color: #3b3b3b;
+    font-weight: 550;
+    margin-top: auto;
+    display: flex;
+    grid-area: formDescriptor;
+    font-size: 13px;
+    font-family: "Raleway", sans-serif;
+}
+
+
+.limitWidthM{
+   
+
+    display: inline-grid;
+    grid-area: limitWidth;
+  
+}
+
+.inlineKolej{
+
+  display: inline-block;
+
+}
+
+.floatcheckbox{
+  margin-bottom: -10px;
+  margin-left: -12px;
+}
+
+.floatcheckboxBuforowanie{
+  margin-bottom: -25px;
+  margin-left: -2px;
+}
+
+.infoAlignmentOptionsBuforowanie{
+  margin-top: -1px;
+  margin-left: 10px;
+}
+
+
+.infoAlignmentOptions{
+  padding-top: 14px;
+  margin-left: 11px;
+}
+
+.allignChildren{
+
+  align-content: center;
+  display:flex;
+
+}
+
+.nazwaZlecenia{
+  max-width: 227px;
+  padding-top: 4px;
+  padding-left: 3px;
+  font-size: 20px;
+}
+
+.statusKolejka{
+  padding-top: 4px;
+  padding-left: 5px;
+}

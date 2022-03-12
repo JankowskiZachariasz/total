@@ -1,0 +1,64 @@
+
+
+.menuSubItemMaster{
+    margin-left:45px;
+    padding-top: 5px;
+    padding-bottom: 2px;
+    height: 32px;
+    display: grid;
+  grid-template-columns: 20px 1fr;
+  grid-template-areas: 
+    "picMenu descMenu";
+    cursor: pointer;
+    color: var(--fainted);
+    fill:var(--fainted);
+    stroke: var(--fainted);
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-weight: normal;
+
+}
+
+.menuSubItemMaster.enabled{
+    color: var(--blackBlack);
+    fill:var(--blackBlack);
+    stroke: var(--blackBlack);
+    font-weight: bold;
+
+}
+
+.menuSubItemMaster.enabled:hover{
+    color: var(--blackBlack);
+    fill:var(--blackBlack);
+    stroke: var(--blackBlack);
+
+}
+
+
+.menuSubItemMaster:hover{
+    color: var(--black);
+    fill: var(--black);
+    stroke: var(--black);
+}
+
+.menuSubItemImage{
+    display: inline-block;
+    grid-area: picMenu;
+}
+
+.menuSubItemText{
+    grid-area: descMenu;
+    color: inherit;
+    font-weight: inherit;
+    font-size: 19px;
+    display: inline-block;
+    font-family: "Raleway", sans-serif;
+    padding-left: 5px;
+    align-self: center;
+}
+

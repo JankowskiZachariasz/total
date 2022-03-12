@@ -1,0 +1,96 @@
+2022-02-26 10:58:14 - Starting C:\Program Files\node-v13.14.0-win-x64\node.exe  --harmony C:\Users\Administrator\Desktop\BUFOR_ROOT\Syncer\node_modules\node-windows\lib\wrapper.js --file C:\Users\Administrator\Desktop\BUFOR_ROOT\Syncer\index.js --scriptoptions= --log "BUFOR_SYNCER wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2022-02-26 10:58:14 - Started 804
+2022-02-26 11:01:37 - Stopping bufor_syncer.exe
+2022-02-26 11:01:37 - ProcessKill 804
+2022-02-26 11:01:38 - Found child process: 5640 Name: conhost.exe
+2022-02-26 11:01:38 - Found child process: 4720 Name: node.exe
+2022-02-26 11:01:38 - Stopping process 5640
+2022-02-26 11:01:38 - Send SIGINT 5640
+2022-02-26 11:01:38 - SIGINT to 5640 failed - Killing as fallback
+2022-02-26 11:01:38 - Stopping process 4720
+2022-02-26 11:01:38 - Send SIGINT 4720
+2022-02-26 11:01:38 - SIGINT to 4720 failed - Killing as fallback
+2022-02-26 11:01:38 - Stopping process 804
+2022-02-26 11:01:38 - Send SIGINT 804
+2022-02-26 11:01:38 - SIGINT to 804 failed - Killing as fallback
+2022-02-26 11:01:38 - Finished bufor_syncer.exe
+2022-02-26 13:09:37 - Starting C:\Program Files\node-v13.14.0-win-x64\node.exe  --harmony C:\Users\Administrator\Desktop\BUFOR_ROOT\Syncer\node_modules\node-windows\lib\wrapper.js --file C:\Users\Administrator\Desktop\BUFOR_ROOT\Syncer\index.js --scriptoptions= --log "BUFOR_SYNCER wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2022-02-26 13:09:37 - Started 7708
+2022-02-26 13:11:49 - Stopping bufor_syncer.exe
+2022-02-26 13:11:49 - ProcessKill 7708
+2022-02-26 13:11:51 - Shutdown exception
+Message:A system shutdown is in progress. (Exception from HRESULT: 0x8007045B)
+Stacktrace:   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   at System.Management.ManagementScope.InitializeGuts(Object o)
+   at System.Management.ManagementScope.Initialize()
+   at System.Management.ManagementObjectSearcher.Initialize()
+   at System.Management.ManagementObjectSearcher.Get()
+   at winsw.WrapperService.GetChildPids(Int32 pid)
+   at winsw.WrapperService.StopProcessAndChildren(Int32 pid)
+   at winsw.WrapperService.StopIt()
+   at winsw.WrapperService.OnShutdown()
+2022-02-26 13:12:28 - Starting C:\Program Files\node-v13.14.0-win-x64\node.exe  --harmony C:\Users\Administrator\Desktop\BUFOR_ROOT\Syncer\node_modules\node-windows\lib\wrapper.js --file C:\Users\Administrator\Desktop\BUFOR_ROOT\Syncer\index.js --scriptoptions= --log "BUFOR_SYNCER wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2022-02-26 13:12:28 - Started 4612
+2022-02-26 13:24:01 - Stopping bufor_syncer.exe
+2022-02-26 13:24:01 - ProcessKill 4612
+2022-02-26 13:24:01 - Shutdown exception
+Message:A system shutdown is in progress. (Exception from HRESULT: 0x8007045B)
+Stacktrace:   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   at System.Management.ManagementScope.InitializeGuts(Object o)
+   at System.Management.ManagementScope.Initialize()
+   at System.Management.ManagementObjectSearcher.Initialize()
+   at System.Management.ManagementObjectSearcher.Get()
+   at winsw.WrapperService.GetChildPids(Int32 pid)
+   at winsw.WrapperService.StopProcessAndChildren(Int32 pid)
+   at winsw.WrapperService.StopIt()
+   at winsw.WrapperService.OnShutdown()
+2022-02-26 13:24:41 - Starting C:\Program Files\node-v13.14.0-win-x64\node.exe  --harmony C:\Users\Administrator\Desktop\BUFOR_ROOT\Syncer\node_modules\node-windows\lib\wrapper.js --file C:\Users\Administrator\Desktop\BUFOR_ROOT\Syncer\index.js --scriptoptions= --log "BUFOR_SYNCER wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2022-02-26 13:24:41 - Started 4824
+2022-02-26 13:46:51 - Stopping bufor_syncer.exe
+2022-02-26 13:46:51 - ProcessKill 4824
+2022-02-26 13:46:51 - Shutdown exception
+Message:A system shutdown is in progress. (Exception from HRESULT: 0x8007045B)
+Stacktrace:   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   at System.Management.ManagementScope.InitializeGuts(Object o)
+   at System.Management.ManagementScope.Initialize()
+   at System.Management.ManagementObjectSearcher.Initialize()
+   at System.Management.ManagementObjectSearcher.Get()
+   at winsw.WrapperService.GetChildPids(Int32 pid)
+   at winsw.WrapperService.StopProcessAndChildren(Int32 pid)
+   at winsw.WrapperService.StopIt()
+   at winsw.WrapperService.OnShutdown()
+2022-02-26 13:47:30 - Starting C:\Program Files\node-v13.14.0-win-x64\node.exe  --harmony C:\Users\Administrator\Desktop\BUFOR_ROOT\Syncer\node_modules\node-windows\lib\wrapper.js --file C:\Users\Administrator\Desktop\BUFOR_ROOT\Syncer\index.js --scriptoptions= --log "BUFOR_SYNCER wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2022-02-26 13:47:30 - Started 4596
+2022-02-28 17:04:07 - Stopping bufor_syncer.exe
+2022-02-28 17:04:07 - ProcessKill 4596
+2022-02-28 17:04:07 - Shutdown exception
+Message:A system shutdown is in progress. (Exception from HRESULT: 0x8007045B)
+Stacktrace:   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   at System.Management.ManagementScope.InitializeGuts(Object o)
+   at System.Management.ManagementScope.Initialize()
+   at System.Management.ManagementObjectSearcher.Initialize()
+   at System.Management.ManagementObjectSearcher.Get()
+   at winsw.WrapperService.GetChildPids(Int32 pid)
+   at winsw.WrapperService.StopProcessAndChildren(Int32 pid)
+   at winsw.WrapperService.StopIt()
+   at winsw.WrapperService.OnShutdown()
+2022-03-01 08:53:09 - Starting C:\Program Files\node-v13.14.0-win-x64\node.exe  --harmony C:\Users\Administrator\Desktop\BUFOR_ROOT\Syncer\node_modules\node-windows\lib\wrapper.js --file C:\Users\Administrator\Desktop\BUFOR_ROOT\Syncer\index.js --scriptoptions= --log "BUFOR_SYNCER wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2022-03-01 08:53:09 - Started 4192
+2022-03-05 08:05:10 - Starting C:\Program Files\node-v13.14.0-win-x64\node.exe  --harmony C:\Users\Administrator\Desktop\BUFOR_ROOT\Syncer\node_modules\node-windows\lib\wrapper.js --file C:\Users\Administrator\Desktop\BUFOR_ROOT\Syncer\index.js --scriptoptions= --log "BUFOR_SYNCER wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2022-03-05 08:05:10 - Started 4728
+2022-03-06 22:15:11 - Starting C:\Program Files\node-v13.14.0-win-x64\node.exe  --harmony C:\Users\Administrator\Desktop\BUFOR_ROOT\Syncer\node_modules\node-windows\lib\wrapper.js --file C:\Users\Administrator\Desktop\BUFOR_ROOT\Syncer\index.js --scriptoptions= --log "BUFOR_SYNCER wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2022-03-06 22:15:11 - Started 5148
+2022-03-12 08:01:36 - Stopping bufor_syncer.exe
+2022-03-12 08:01:36 - ProcessKill 5148
+2022-03-12 08:01:36 - Found child process: 5216 Name: conhost.exe
+2022-03-12 08:01:36 - Found child process: 6332 Name: node.exe
+2022-03-12 08:01:36 - Stopping process 5216
+2022-03-12 08:01:36 - Send SIGINT 5216
+2022-03-12 08:01:36 - SIGINT to 5216 failed - Killing as fallback
+2022-03-12 08:01:36 - Stopping process 6332
+2022-03-12 08:01:36 - Send SIGINT 6332
+2022-03-12 08:01:36 - SIGINT to 6332 failed - Killing as fallback
+2022-03-12 08:01:36 - Stopping process 5148
+2022-03-12 08:01:36 - Send SIGINT 5148
+2022-03-12 08:01:36 - SIGINT to 5148 failed - Killing as fallback
+2022-03-12 08:01:36 - Finished bufor_syncer.exe

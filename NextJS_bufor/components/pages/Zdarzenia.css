@@ -1,0 +1,12 @@
+.zlecenieposition{
+    margin-top:0px;
+    margin-right: -3px;
+}
+
+.nazwaZdarzenia{
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding-top: 4px;
+    padding-left: 3px;
+    font-size: 20px;
+  }

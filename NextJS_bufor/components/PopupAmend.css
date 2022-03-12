@@ -1,0 +1,21 @@
+.modalPopupAmmend{
+
+    background-color: white;
+    padding:40px;
+    padding-top: 20px; 
+    overflow: hidden;
+}
+
+@media screen and (max-width: 800px) {
+
+    .modalPopupAmmend{
+
+ 
+        padding:15px;
+        padding-bottom: 25px; 
+        padding-top: 10px; 
+        margin:-70px;
+    
+     
+    }
+  }

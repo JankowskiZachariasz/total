@@ -1,0 +1,31 @@
+<service>
+	<id>bufor_syncer.exe</id>
+	<name>BUFOR_SYNCER</name>
+	<description>Moduł pobierający dane z PLC.</description>
+	<executable>C:\Program Files\node-v13.14.0-win-x64\node.exe</executable>
+	<argument>--harmony</argument>
+	<argument>C:\Users\Administrator\Desktop\BUFOR_ROOT\Syncer\node_modules\node-windows\lib\wrapper.js</argument>
+	<argument>--file</argument>
+	<argument>C:\Users\Administrator\Desktop\BUFOR_ROOT\Syncer\index.js</argument>
+	<argument>--scriptoptions=</argument>
+	<argument>--log</argument>
+	<argument>BUFOR_SYNCER wrapper</argument>
+	<argument>--grow</argument>
+	<argument>0.25</argument>
+	<argument>--wait</argument>
+	<argument>1</argument>
+	<argument>--maxrestarts</argument>
+	<argument>3</argument>
+	<argument>--abortonerror</argument>
+	<argument>n</argument>
+	<argument>--stopparentfirst</argument>
+	<argument>undefined</argument>
+	<logmode>rotate</logmode>
+	<stoptimeout>30sec</stoptimeout>
+	<serviceaccount>
+		<domain>DESKTOP-99ICBMU</domain>
+		<user>LocalSystem</user>
+		<password></password>
+	</serviceaccount>
+	<workingdirectory>C:\Users\Administrator\Desktop\BUFOR_ROOT\Syncer</workingdirectory>
+</service>

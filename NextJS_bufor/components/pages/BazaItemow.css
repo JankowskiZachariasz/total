@@ -1,0 +1,109 @@
+.BazaItemowLayout{
+
+    max-width: 1200px;
+    display:grid;
+    grid-template-columns: 3fr 2fr;
+    grid-template-areas: 
+    "okno1 okno2 "
+    "okno1 okno2 "
+    "okno1 okno2 ";
+    
+}
+
+.addingitemForm{
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.formSpacingItemy{
+    padding-bottom: 25px;
+    padding-top: 25px;
+}
+
+.dostepneAkcjeItemowe{
+    padding-top: 15px;
+    padding-bottom: 5px;
+}
+
+.addItemGrid{
+    display:grid;
+    grid-template-columns: 150px 1fr;
+    grid-template-areas: 
+    "addButton wyszukaj ";
+  
+  }
+
+.formSpacingItemy{
+    margin-top: -10px;
+    
+    padding-top: 5px;
+    grid-area: "wyszukaj";
+}
+
+.halfwiseGridItemy{
+    grid-template-rows: 30px 1fr 12r;
+    display:grid;
+  }
+
+  .scrollBaza{
+    padding-right: 20px;
+    margin-right: -40px;
+      margin-top: 15px;
+      max-height: calc(100vh - 300px);
+      overflow-y: scroll;
+      width: calc(100% + 20px);
+  
+  }
+
+  .nazwaItemu{
+    max-width: 227px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding-top: 4px;
+    padding-left: 3px;
+    font-size: 20px;
+  }
+
+  .addItemButton{
+    display:grid;
+    grid-template-columns: 25px 1fr;
+    cursor: pointer;
+    margin-top: 6px;
+    padding:0px;
+    
+    grid-area: "addButton";
+  }
+
+  @media screen and (max-width: 1000px) {
+
+    .limitSzczegolyWidthBaza{
+        max-width: max-content;
+        padding-right: 20px;
+        }
+
+    .nazwaItemu{
+        max-width: 100%;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        padding-top: 4px;
+        padding-left: 3px;
+        font-size: 20px;
+        }
+   
+    
+    .scrollBaza{
+        padding-right: 0px;
+        margin-top:15px;
+        max-height: calc(100vh - 380px);
+        overflow: scroll;
+        width: 100%;
+        
+    }
+   
+  }
+
+  .limitSzczegolyWidthBaza{
+    max-width: 360px;
+  }
+
+  

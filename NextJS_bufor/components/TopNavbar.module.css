@@ -1,0 +1,246 @@
+.navbar{
+    z-index: 2;
+    font-family: 'Alef', sans-serif;
+    font-size: 19px;
+    background-color: #060505;
+    margin: 0px;
+    padding: 13px;
+    padding-left: 30px;
+    padding-right: 30px;
+ 
+    
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: center;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    box-shadow: 0 8px 6px -3px #ABA8A8;
+    
+}
+
+.userMenu{
+    cursor:pointer;
+}
+
+
+
+.ExpandableNavbar.expand{
+    -webkit-animation: openPhoneNav 0.15s;
+    animation: openPhoneNav 0.15s;
+    display: block;
+    height: fit-content;
+}
+
+.ExpandableNavbar.destroyIt{
+    -webkit-animation: collapsePhoneNav 0.15s;
+    animation: collapsePhoneNav 0.15s;
+    display: none;
+    opacity:0;
+    
+    
+}
+
+.ExpandableNavbar{
+    display:none;
+    height:0px;
+    padding: 10px;
+    z-index: 2;
+background-color: #333;
+width: 100%;
+position:fixed;
+        top:60px;
+        left: 0px;
+}
+
+.ExpandableUserMenu{
+  display:none;
+  height:0px;
+  z-index: 2;
+  background-color: #333;
+  width: 150px;
+  position:fixed;
+  top:45px;
+  right: 20px;
+}
+
+.ExpandableUserMenu.expand{
+  -webkit-animation: openPhoneNav 0.15s;
+  animation: openPhoneNav 0.15s;
+  display: block;
+  height: fit-content;
+}
+
+.ExpandableUserMenu.destroyIt{
+  -webkit-animation: collapsePhoneNav 0.15s;
+  animation: collapsePhoneNav 0.15s;
+  display: none;
+  opacity:0;
+  
+  
+}
+
+.expandableItem{
+    background-color: #333;
+    cursor:pointer;
+    color:#aaa;
+    padding: 20px 15px;;
+display: flex;
+justify-content: center;
+
+}
+
+.expandableUserMenuItem{
+  background-color: #333;
+  cursor:pointer;
+  color:#aaa;
+  padding: 15px 15px;;
+display: flex;
+justify-content: center;
+
+}
+
+.expandableUserMenuItem:hover{
+  background-color: #444;
+
+
+}
+
+.expandableItem.chosen{
+    
+    color: white;
+    font-weight: bold;
+
+
+}
+
+.logoPicture{
+    padding-top: 2px;
+}
+
+.textLogo{
+    /* padding-top: 4px; */
+    padding-left: 9px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+
+}
+
+
+.LogoText{
+    margin: 0px;
+    vertical-align: baseline;
+    color: #ABA8A8;
+    cursor: pointer;
+    align-content: center;
+    display: flex;
+
+}
+
+.App-logo{
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+
+}
+
+.loginStatus{
+    margin-left: auto;
+    color: #ABA8A8;
+    display: inline-block;
+    /* margin-top: 4px; */
+}
+
+.arrow{
+    display: inline-block;
+    padding-left: 4px;
+    padding-bottom: 4px;
+}
+.surname{
+    display: inline-block;
+}
+
+.hamburger{
+    
+    display: none;
+}
+
+@media screen and (max-width: 1000px) {
+    .arrow{
+        display: none;
+    }
+    .surname{
+        display: none;
+    }
+    
+    .hamburger{
+        padding:10px;
+        margin-bottom:-10px;
+        display: inline-block;
+        cursor: pointer;
+    }
+    .navbar{
+        position:fixed;
+        top:0px;
+        left: 0px;
+        display: grid;
+     
+        width: calc(100% - 60px);
+    grid-template-columns: 50% 50%;
+    align-items: center;
+    box-shadow: 0 2px 8px 0px #333;
+        
+    }
+  }
+  
+
+  @-webkit-keyframes collapsePhoneNav {
+    from {
+        opacity:1;
+      height: 350px;
+    }
+    to {
+        opacity:0;
+      height: 0px;
+    }
+  }
+  
+  @keyframes collapsePhoneNav {
+    from {
+        opacity:1;
+      height: 350px;
+    }
+    to {
+        opacity:0;
+      height: 0px;
+    }
+  }
+  
+  @-webkit-keyframes openPhoneNav {
+    from {
+      height: 0px;
+      opacity:0;
+    }
+    to {
+      height: fit-content;
+      opacity:1;
+    }
+  }
+  
+  @keyframes openPhoneNav {
+    from {
+      height: 0px;
+      opacity:0;
+    }
+    to {
+      height: fit-content;
+      opacity:1;
+    }
+  }
+  
