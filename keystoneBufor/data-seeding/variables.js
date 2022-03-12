@@ -9,19 +9,20 @@ module.exports = async keystone => {
 
     var VariableCreateInput = new Array();
 
+    var startingOffset = 3640;
     if(process.env.INIT_PACZKA == 'true'){
       for(var i = 1;i<=400;i++){
 
         var produkt=[
 
-            {"data": {"name": "paczka"+i+"v1","offset": (i-1)*30+0,"offsetDecimal": 15,"type": "S", "rwMode": "Read", "datablock": {"connect":  {"id": PRODUKTY_DB_ID}}}},
-            {"data": {"name": "paczka"+i+"v2","offset": (i-1)*30+17,"offsetDecimal": 1,"type": "B", "rwMode": "Read", "datablock": {"connect":  {"id": PRODUKTY_DB_ID}}}},
-            {"data": {"name": "paczka"+i+"v3","offset": (i-1)*30+18,"offsetDecimal": 2,"type": "INT", "rwMode": "Read", "datablock": {"connect":  {"id": PRODUKTY_DB_ID}}}},
-            {"data": {"name": "paczka"+i+"v4","offset": (i-1)*30+20,"offsetDecimal": 2,"type": "INT", "rwMode": "Read", "datablock": {"connect":  {"id": PRODUKTY_DB_ID}}}},
-            {"data": {"name": "paczka"+i+"v5","offset": (i-1)*30+22,"offsetDecimal": 2,"type": "INT", "rwMode": "Read", "datablock": {"connect":  {"id": PRODUKTY_DB_ID}}}},
-            {"data": {"name": "paczka"+i+"v6","offset": (i-1)*30+24,"offsetDecimal": 2,"type": "INT", "rwMode": "Read", "datablock": {"connect":  {"id": PRODUKTY_DB_ID}}}},
-            {"data": {"name": "paczka"+i+"v7","offset": (i-1)*30+26,"offsetDecimal": 2,"type": "INT", "rwMode": "Read", "datablock": {"connect":  {"id": PRODUKTY_DB_ID}}}},
-            {"data": {"name": "paczka"+i+"v8","offset": (i-1)*30+28,"offsetDecimal": 2,"type": "INT", "rwMode": "Read", "datablock": {"connect":  {"id": PRODUKTY_DB_ID}}}}
+            {"data": {"name": "paczka"+i+"v1","offset": startingOffset+(i-1)*30+0,"offsetDecimal": 15,"type": "S", "rwMode": "Read", "datablock": {"connect":  {"id": PRODUKTY_DB_ID}}}},
+            {"data": {"name": "paczka"+i+"v2","offset": startingOffset+(i-1)*30+17,"offsetDecimal": 1,"type": "B", "rwMode": "Read", "datablock": {"connect":  {"id": PRODUKTY_DB_ID}}}},
+            {"data": {"name": "paczka"+i+"v3","offset": startingOffset+(i-1)*30+18,"offsetDecimal": 2,"type": "INT", "rwMode": "Read", "datablock": {"connect":  {"id": PRODUKTY_DB_ID}}}},
+            {"data": {"name": "paczka"+i+"v4","offset": startingOffset+(i-1)*30+20,"offsetDecimal": 2,"type": "INT", "rwMode": "Read", "datablock": {"connect":  {"id": PRODUKTY_DB_ID}}}},
+            {"data": {"name": "paczka"+i+"v5","offset": startingOffset+(i-1)*30+22,"offsetDecimal": 2,"type": "INT", "rwMode": "Read", "datablock": {"connect":  {"id": PRODUKTY_DB_ID}}}},
+            {"data": {"name": "paczka"+i+"v6","offset": startingOffset+(i-1)*30+24,"offsetDecimal": 2,"type": "INT", "rwMode": "Read", "datablock": {"connect":  {"id": PRODUKTY_DB_ID}}}},
+            {"data": {"name": "paczka"+i+"v7","offset": startingOffset+(i-1)*30+26,"offsetDecimal": 2,"type": "INT", "rwMode": "Read", "datablock": {"connect":  {"id": PRODUKTY_DB_ID}}}},
+            {"data": {"name": "paczka"+i+"v8","offset": startingOffset+(i-1)*30+28,"offsetDecimal": 2,"type": "INT", "rwMode": "Read", "datablock": {"connect":  {"id": PRODUKTY_DB_ID}}}}
         ]
 
         VariableCreateInput.push(...produkt);
