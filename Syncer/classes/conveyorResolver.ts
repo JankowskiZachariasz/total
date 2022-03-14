@@ -212,9 +212,9 @@ class ConveyorResolver{
             
             //increment whatever you need
             switch(paczkas[plcId]?.nrPaczki){
-                case(1):{ tempProductmap[key].buffored1 += podkladyQuantity; tempProductmap[key].plcId1 = plcId; break;}
-                case(2):{ tempProductmap[key].buffored2 += podkladyQuantity; tempProductmap[key].plcId2 = plcId; break;}
-                case(3):{ tempProductmap[key].buffored3 += podkladyQuantity; tempProductmap[key].plcId3 = plcId; break;}
+                case(1):{ tempProductmap[key].buffored1 += podkladyQuantity; tempProductmap[key].plcId1 = plcId; tempProductmap[key].count1 = paczkas[plcId]?.lPaczek; break;}
+                case(2):{ tempProductmap[key].buffored2 += podkladyQuantity; tempProductmap[key].plcId2 = plcId; tempProductmap[key].count2 = paczkas[plcId]?.lPaczek; break;}
+                case(3):{ tempProductmap[key].buffored3 += podkladyQuantity; tempProductmap[key].plcId3 = plcId; tempProductmap[key].count3 = paczkas[plcId]?.lPaczek; break;}
             }
 
         });

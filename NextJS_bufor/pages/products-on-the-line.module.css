@@ -1,0 +1,50 @@
+.card{
+    background-color: #A4B8C4;
+    padding: 20px;
+    margin: 20px;
+    min-width: 50%;
+}
+
+.footer{
+    min-height: 20px;
+}
+
+.allignOuter{
+    display: inline-block;
+}
+
+.allignBox{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.allignTitle{
+    padding-left: 8px;
+    size: 30px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.paczkasContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 17px;
+    column-gap: 20px;
+}
+
+.package{
+    background-color: #fff;
+    margin-right: 5px;
+    min-height: 80px;
+}
+
+.title{
+    padding: 10px;
+    padding-bottom: 3px;
+}
+
+.detail{
+    background-color: #E6E6E6;
+    margin: 10px;
+    padding: 10px;
+}

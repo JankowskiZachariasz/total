@@ -4,11 +4,13 @@ import Table from '../tableComponents/Table'
 import Layout from "../components/Layout";
 import Window from "../components/Window";
 import LiveDataManager from "../components/LiveDataManagerPalety";
-import Annotation from "../components/Annotation";
+import Annotation, {fetchDataFunction} from "../components/Annotation";
+import useUser from "../lib/useUser";
 
 
 export default function Dashboard(props) {
 
+  const {token} = useUser();
   const przenosnikClick = (x, y, next) => {
   
     var chosen = null;
@@ -78,6 +80,9 @@ export default function Dashboard(props) {
     });
 
     if(chosen==null) setposition({ x: -20000, y: -20000, packageId: 0});
+    else{
+      fetchDataFunction(token, setannotationText, position?.packageId);//token, setdata, packageId
+    }
     next();
  
   };
@@ -85,6 +90,7 @@ export default function Dashboard(props) {
   const [data, setdata] = useState([]);
   const [scale, setscale] = useState(1);
   const [position, setposition] = useState({x: -20000, y: -20000});//strona:1-lewa, 2-prawa
+  const [annotationText, setannotationText] = useState({});
 
   useEffect(() => {
     props.section.updateBoth(1, 1);
@@ -104,16 +110,14 @@ export default function Dashboard(props) {
               {(position.x != -20000 && position.y != -20000)?(
               <div className="annotation">
               <Annotation
+              token={token}
                 scale={scale}
                 packageId={position.packageId}
+                annotationText={annotationText}
+                setannotationText={setannotationText}
                 x={(position.x - 90/ scale) * scale}
                 y={(position.y - 158/ scale) * scale}>
-                <div>
-                 {'PLC Id: '+ position.packageId}
-                  <div className="annotationHelp">
-                  {'Funkcja w budowie'}
-                  </div>
-                </div>
+                  <div></div>
               </Annotation>
               </div>
 

@@ -90,7 +90,7 @@ class Login extends Component {
             
             
             <div className={styles.formInput}>
-            <small style={{color:"#888"}}>UŻYTKOWNIK: 0, HASŁO: 123456</small>
+            <small style={{color:"#888"}}>UŻYTKOWNIK: arotech@arotech.com, HASŁO: 12345678</small>
                 <Prompt showPrompt={this.state.showPrompt} prompttext={this.state.prompttext} hidePrompt={this.hidePrompt}></Prompt>
 
                   <InlineForm text="Projekt">

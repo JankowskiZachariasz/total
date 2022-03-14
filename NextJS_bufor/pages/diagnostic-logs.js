@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import NaviagtionMenu from "../components/NaviagtionMenu";
-import Table from '../tableComponents/Table'
+import Table from '../tableComponents/Polecenia'
 import Layout from "../components/Layout";
 import Window from "../components/Window";
 // import Status from "../components/Status";
@@ -32,9 +32,7 @@ export default function DiagLogs(props) {
       ></NaviagtionMenu>
       <div className="dashboardLayout content">
       <Window extraClasses="" gridArea="okno1" text="LOGI DIAGNOSTYCZNE">
-        <div>
-        Logi Diagnostyczne
-        </div>
+        <Table></Table>
         
       </Window>
       

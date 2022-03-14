@@ -90,9 +90,50 @@ query getConveyors($name1:String!, $name2:String!, $name3:String!, ){
 
 export const getBufforedProducts = gql`
 query getBufforedProducts($name1:Int!){
-  allBufforedProducts(where:{OR:[{series1: $name1}, {series2: $name1}, {series3: $name1}]} ){
+  allBufforedProducts(where:{OR:[{plcId1: $name1}, {plcId2: $name1}, {plcId3: $name1}]} ){
     name,
-    status
+    status,
+    series1,
+    series2,
+    series3,
+    plcId1,
+    plcId2,
+    plcId3,
+    buffored1,
+    buffored2,
+    buffored3
   }
+} 
+`;
+
+export const getAllBufforedProducts = gql`
+query getBufforedProducts($name1:bufforedProductStatusType!){
+  allBufforedProducts(where:{status:$name1} ){
+    name,
+    status,
+    series1,
+    series2,
+    series3,
+    buffored1,
+    buffored2,
+    buffored3,
+    count1,
+    count2,
+    count3
+  }
+}
+`;
+
+export const getPoleceniaPLC = gql`
+query getProducts($offset:Int!,$limit:Int!,$search:String!){
+  allOperacjePLCS(skip:$offset,first:$limit,search:$search,sortBy:id_DESC){
+    id,
+    status,
+    timeSubmitted,
+    name,
+    operation,
+    payload
+  },
+  _allOperacjePLCSMeta(search:$search){count}
 } 
 `;
