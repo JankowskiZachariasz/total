@@ -175,3 +175,27 @@ Stacktrace:   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInter
 2022-03-12 12:49:53 - Finished bufor_syncer.exe
 2022-03-12 19:19:40 - Starting C:\Program Files\node-v13.14.0-win-x64\node.exe  --harmony C:\Users\Administrator\Desktop\BUFOR_ROOT\Syncer\node_modules\node-windows\lib\wrapper.js --file C:\Users\Administrator\Desktop\BUFOR_ROOT\Syncer\index.js --scriptoptions= --log "BUFOR_SYNCER wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
 2022-03-12 19:19:40 - Started 8952
+2022-03-12 19:58:57 - Starting C:\Program Files\node-v13.14.0-win-x64\node.exe  --harmony C:\Users\Administrator\Desktop\BUFOR_ROOT\Syncer\node_modules\node-windows\lib\wrapper.js --file C:\Users\Administrator\Desktop\BUFOR_ROOT\Syncer\index.js --scriptoptions= --log "BUFOR_SYNCER wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2022-03-12 19:58:57 - Started 7392
+2022-03-12 20:00:09 - Starting C:\Program Files\node-v13.14.0-win-x64\node.exe  --harmony C:\Users\Administrator\Desktop\BUFOR_ROOT\Syncer\node_modules\node-windows\lib\wrapper.js --file C:\Users\Administrator\Desktop\BUFOR_ROOT\Syncer\index.js --scriptoptions= --log "BUFOR_SYNCER wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2022-03-12 20:00:09 - Started 8444
+2022-03-12 20:04:11 - Starting C:\Program Files\node-v13.14.0-win-x64\node.exe  --harmony C:\Users\Administrator\Desktop\BUFOR_ROOT\Syncer\node_modules\node-windows\lib\wrapper.js --file C:\Users\Administrator\Desktop\BUFOR_ROOT\Syncer\index.js --scriptoptions= --log "BUFOR_SYNCER wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2022-03-12 20:04:11 - Started 7732
+2022-03-14 07:34:35 - Starting C:\Program Files\node-v13.14.0-win-x64\node.exe  --harmony C:\Users\Administrator\Desktop\BUFOR_ROOT\Syncer\node_modules\node-windows\lib\wrapper.js --file C:\Users\Administrator\Desktop\BUFOR_ROOT\Syncer\index.js --scriptoptions= --log "BUFOR_SYNCER wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2022-03-14 07:34:36 - Started 5144
+2022-03-14 18:45:06 - Starting C:\Program Files\node-v13.14.0-win-x64\node.exe  --harmony C:\Users\Administrator\Desktop\BUFOR_ROOT\Syncer\node_modules\node-windows\lib\wrapper.js --file C:\Users\Administrator\Desktop\BUFOR_ROOT\Syncer\index.js --scriptoptions= --log "BUFOR_SYNCER wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2022-03-14 18:45:07 - Started 484
+2022-03-14 18:48:16 - Stopping bufor_syncer.exe
+2022-03-14 18:48:16 - ProcessKill 484
+2022-03-14 18:48:17 - Found child process: 4660 Name: conhost.exe
+2022-03-14 18:48:17 - Found child process: 7860 Name: node.exe
+2022-03-14 18:48:17 - Stopping process 4660
+2022-03-14 18:48:17 - Send SIGINT 4660
+2022-03-14 18:48:17 - SIGINT to 4660 failed - Killing as fallback
+2022-03-14 18:48:17 - Stopping process 7860
+2022-03-14 18:48:17 - Send SIGINT 7860
+2022-03-14 18:48:17 - SIGINT to 7860 failed - Killing as fallback
+2022-03-14 18:48:17 - Stopping process 484
+2022-03-14 18:48:17 - Send SIGINT 484
+2022-03-14 18:48:17 - SIGINT to 484 failed - Killing as fallback
+2022-03-14 18:48:17 - Finished bufor_syncer.exe

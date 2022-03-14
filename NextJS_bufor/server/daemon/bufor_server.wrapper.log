@@ -84,3 +84,21 @@ Stacktrace:   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInter
 2022-03-12 18:57:14 - Send SIGINT 7020
 2022-03-12 18:57:14 - SIGINT to 7020 failed - Killing as fallback
 2022-03-12 18:57:14 - Finished bufor_server.exe
+2022-03-12 19:58:52 - Starting C:\Program Files\node-v16.14.0-win-x64\node.exe  --harmony C:\Users\Administrator\Desktop\BUFOR_ROOT\NextJS_bufor\node_modules\node-windows\lib\wrapper.js --file C:\Users\Administrator\Desktop\BUFOR_ROOT\NextJS_bufor\server\index.js --scriptoptions= --log "BUFOR_SERVER wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2022-03-12 19:58:52 - Started 1660
+2022-03-14 07:34:35 - Starting C:\Program Files\node-v16.14.0-win-x64\node.exe  --harmony C:\Users\Administrator\Desktop\BUFOR_ROOT\NextJS_bufor\node_modules\node-windows\lib\wrapper.js --file C:\Users\Administrator\Desktop\BUFOR_ROOT\NextJS_bufor\server\index.js --scriptoptions= --log "BUFOR_SERVER wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2022-03-14 07:34:35 - Started 5068
+2022-03-14 19:09:45 - Stopping bufor_server.exe
+2022-03-14 19:09:45 - ProcessKill 5068
+2022-03-14 19:09:45 - Found child process: 5112 Name: conhost.exe
+2022-03-14 19:09:45 - Found child process: 5884 Name: node.exe
+2022-03-14 19:09:45 - Stopping process 5112
+2022-03-14 19:09:45 - Send SIGINT 5112
+2022-03-14 19:09:45 - SIGINT to 5112 failed - Killing as fallback
+2022-03-14 19:09:45 - Stopping process 5884
+2022-03-14 19:09:46 - Send SIGINT 5884
+2022-03-14 19:09:46 - SIGINT to 5884 failed - Killing as fallback
+2022-03-14 19:09:46 - Stopping process 5068
+2022-03-14 19:09:46 - Send SIGINT 5068
+2022-03-14 19:09:46 - SIGINT to 5068 failed - Killing as fallback
+2022-03-14 19:09:46 - Finished bufor_server.exe

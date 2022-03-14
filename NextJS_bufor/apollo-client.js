@@ -88,12 +88,11 @@ query getConveyors($name1:String!, $name2:String!, $name3:String!, ){
 
 `;
 
-// export const getBufforedProducts = gql`
-// query getBufforedProducts($name1:String! ){
-//   allBufforedProducts(where:{name_in:[$name1,$name2,$name3]}){
-//     name,
-//     value
-//   }
-// } 
-
-// `;
+export const getBufforedProducts = gql`
+query getBufforedProducts($name1:Int!){
+  allBufforedProducts(where:{OR:[{series1: $name1}, {series2: $name1}, {series3: $name1}]} ){
+    name,
+    status
+  }
+} 
+`;

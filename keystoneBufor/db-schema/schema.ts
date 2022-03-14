@@ -19,8 +19,8 @@ export function applySchema(keystoneObject:Keystone){
     keystoneObject.createList('product',product);
     keystoneObject.createList('conveyor',conveyor);
 
-    keystoneObject.createList('setting',settingSchema);
+    //keystoneObject.createList('setting',settingSchema);
     keystoneObject.createList('bufforedProduct',bufforedProductSchema);
-    keystoneObject.createList('bufforingHistory',bufforingHistorySchema);
+    //keystoneObject.createList('bufforingHistory',bufforingHistorySchema);
 }
 
