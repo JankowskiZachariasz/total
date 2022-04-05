@@ -46,7 +46,7 @@ class Login extends Component {
     closeWindow = () => {
 
       const requestOptions = {method: "GET",headers: {"Content-Type": "application/json",Accept: "application/json", }};
-      fetch("http://127.0.0.1:3000/hgyfahds8ho7fds", requestOptions)
+      fetch("http://192.168.0.101:3001/api/hgyfahds8ho7fds", requestOptions)
 
     }
     
